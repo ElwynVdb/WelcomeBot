@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
@@ -9,11 +8,13 @@ client.on('ready',() => {
 })
 
   client.on('message', message => {
-    if (message.author.id !== "318821976372150272") return;
+    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
+            message.author.sendMessage("orange juice?");
             resetBot(message.channel);
             break;
+      }
     }
   });
 

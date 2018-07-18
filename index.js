@@ -26,9 +26,28 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
   });
 
-  //Welcome messages
+
+
+  client.on('message', message => {
+    if (message.author.id !== "318821976372150272") return;
+    switch(message.content.toLowerCase()) {
+        case '-reboot':
+            resetBot(message.channel);
+        message.author.sendMessage("is this a thing?");
+            break;
+    }
+  });
+
+  // Turn bot off (destroy), then turn it back on
+  function resetBot(channel) {
+    // send channel a message that you're resetting bot [optional]
+    channel.send('Resetting Index')
+    .then(msg => client.destroy())
+    .then(() => client.login(config.token));
+  }
 
 
   client.login(config.token)
 
 
+//Did they decide of friend rank already?
