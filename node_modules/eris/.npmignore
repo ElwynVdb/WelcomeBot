@@ -1,9 +1,0 @@
-.DS_Store
-*.log
-examples
-docgen
-docs
-node_modules
-test
-CONTRIBUTING.md
-.eslintrc.yml
