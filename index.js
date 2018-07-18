@@ -5,4 +5,42 @@ const config = require("./config.json");
 const express = require('express');
 const app = express();
 
+//To add when using glitch
+app.get("/", (request, response) => {
+    console.log(Date.now() + " Ping Received");
+    response.sendStatus(200);
+      });
+     app.listen(process.env.PORT);
+      setInterval(() => {
+        http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+      }, 280000);
+
+ // Checks
+ 
+ client.on('ready',() => {
+    console.log('Index Online');
+    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+  });
+  
+  //Reboot Command
+
+  client.on('message', message => {
+    if (message.author.id !== "318821976372150272") return;
+    switch(message.content.toLowerCase()) {
+        case '-reboot':
+            resetBot(message.channel);
+            break;
+    }
+  });
+  
+  // Turn bot off (destroy), then turn it back on
+  function resetBot(channel) {
+    // send channel a message that you're resetting bot [optional]
+    channel.send('Resetting...')
+    .then(msg => client.destroy())
+    .then(() => client.login(process.env.TOKEN));
+  }
+
+  
+
 
