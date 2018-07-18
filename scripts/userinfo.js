@@ -19,7 +19,7 @@ client.on("message", (message, msg) => {
     if (messageText == "+USERINFO") {
  var user = message.mentions.users.first();
       var embed = new Discord.RichEmbed();
-        if (!user) {
+      if (!user) {
           embed.addField("Username", `${message.author.username}#${message.author.discriminator}`, true)
               .addField("ID", `${message.author.id}`, true)
               .setColor(randomcolor())
