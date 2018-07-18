@@ -37,6 +37,9 @@ var messageText = message.content.toUpperCase();
    if (messageText == "PUPSI") {
        message.reply("thats a dead meme")
    }
+   if (messageText == "ished") {
+       message.reply("who's that")
+   }
     
 
 }
