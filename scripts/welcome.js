@@ -8,10 +8,6 @@ client.on('ready', () => {
 })
 
 
-//Do you even use getdefaultChannel
-// i use a workaround since it doesn't work anymore 
-//then we can just delete it?
-// okay :)
 
   client.on("guildMemberAdd", (member) =>  {
     member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi`);

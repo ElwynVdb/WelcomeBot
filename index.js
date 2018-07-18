@@ -7,6 +7,7 @@ const app = express();
 const reboot = require("./scripts/reboot.js");
 const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
+const userifno = require("./scripts/userinfo");
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -50,4 +51,3 @@ app.get("/", (request, response) => {
   client.login(config.token)
 
 
-//Did they decide of friend rank already?
