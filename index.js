@@ -4,6 +4,7 @@ const http = require('http');
 const config = require("./scripts/config.json");
 const express = require('express');
 const app = express();
+var request = require('request');
 const reboot = require("./scripts/reboot.js");
 const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
@@ -47,6 +48,65 @@ app.get("/", (request, response) => {
     .then(() => client.login(config.token));
   }
 
+var mcCommand = '/DMU'; // Command for triggering
+var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
+var mcPort = 25565;
+
+client.on('message', message => {
+    if (message.content === mcCommand) {
+        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
+        request(url, function(err, response, body) {
+            if(err) {
+                console.log(err);
+                return message.reply('Error getting Minecraft server status...');
+            }
+            body = JSON.parse(body);
+            var status = '*Minecraft server is currently offline*';
+            if(body.online) {
+                status = '**DMU Beta** is **online**  -  ';
+
+              if(body.players.now) {
+                    status += '**' + body.players.now + '** people are playing!';
+                } else {
+                    status += '*Nobody is playing!*';
+                }
+            }
+            message.author.send(status);
+        });
+    }
+});
+
+var mcIP1 = 'dmu.swdteam.co.uk'; // Your MC server IP
+var mcPort1 = 25587; // Your MC server port
+
+client.on('message', message => {
+    if (message.content === mcCommand) {
+        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort1;
+        request(url, function(err, response, body) {
+            if(err) {
+                console.log(err);
+              message.delete().catch(O_o=>{});  
+                return message.reply('Error getting Minecraft server status...');
+            }
+            body = JSON.parse(body);
+            var status = '*Minecraft server is currently offline*';
+            if(body.online) {
+                status = '**DMU Public** is **online**  -  ';
+                if(body.players.now) {
+                    status += '**' + body.players.now + '** people are playing!';
+                } else {
+                    status += '*Nobody is playing!*';
+                }
+            }
+            message.author.send(status);
+        });
+    }
+});
+
+client.on('message', message => {
+ if (message.content.startsWith('/DMU'))
+     message.delete();
+})
 
   client.login(config.token)
 

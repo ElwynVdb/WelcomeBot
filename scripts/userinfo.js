@@ -17,10 +17,9 @@ client.on("message", (message, msg) => {
 
 
     if (messageText == "+USERINFO") {
-   const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;
-  if (!member) return msg.reply("Please provide a vaild Mention or USER ID");
-        var embed = new Discord.RichEmbed();
-        if (!user) {
+ var user = message.mentions.users.first();
+      var embed = new Discord.RichEmbed();
+      if (!user) {
           embed.addField("Username", `${message.author.username}#${message.author.discriminator}`, true)
               .addField("ID", `${message.author.id}`, true)
               .setColor(randomcolor())
