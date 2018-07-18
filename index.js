@@ -9,6 +9,7 @@ const reboot = require("./scripts/reboot.js");
 const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
 const userifno = require("./scripts/userinfo");
+const easteregg = require("./scripts/Boringstuff");
 
 //To add when using glitch
 app.get("/", (request, response) => {
