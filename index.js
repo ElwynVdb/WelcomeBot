@@ -1,6 +1,10 @@
+const express = require('express');
+const app = express();
+const http = require('http')
 let config = require("./config.json")
 let Eris = require('eris');
-let c = new Eris.Client(config.token);
+let Discord = require('discord.js')
+let c = new Discord.Client();
 
 
 c.on('guildMemberAdd', (guild, member) => {
@@ -9,4 +13,4 @@ c.on('guildMemberAdd', (guild, member) => {
 
 c.on('error', console.log)
 
-c.connect();
+c.login(config.token);
