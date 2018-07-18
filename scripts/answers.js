@@ -28,6 +28,9 @@ var messageText = message.content.toUpperCase();
    if (messageText == "+AVATAR") {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
    }
+   if (messageText == "I WANT WATER") {
+     message.reply("have a water bottle you picky prick.")
+   }
 
 }
 );
