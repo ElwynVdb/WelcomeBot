@@ -48,7 +48,7 @@ app.get("/", (request, response) => {
     .then(() => client.login(config.token));
   }
 
-var mcCommand = '/DMU'; // Command for triggering
+var mcCommand = '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
