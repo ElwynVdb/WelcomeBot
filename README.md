@@ -8,3 +8,12 @@ Request Invite from : Josia50@9988
 You can contribute . Ask Josia50
 
 Issues? Please leave the on the issues tab.
+
+Contributors:
+ "LukeBeforeYouGame"
+ "ishedshere"
+ "Sub"
+ "TheMythicalMew"
+ "Josia50"
+
+
