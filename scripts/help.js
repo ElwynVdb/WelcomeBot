@@ -14,7 +14,23 @@ client.on('message', (message) => {
     let args = message.content.split(" ").slice(1);
 
     if(messageText == "+help") {
+        var embed = new Discord.RichEmbed();
+            embed.addField("", ``, true)
+                .addField("", ``, true)
+                .setColor(randomcolor())
+                .setFooter(' ', ' ')
+                .setThumbnail(``)
+                .setTimestamp()
+                .setURL(``)
+                .addField('', ``, true)
+                .addField('', ``, true)
+                .addField('', ``, true)
+                .addField('', `}`, true)
+                .addField('', ``, true)
+                .addField('', ``, true)
         message.author.send(embed)();
     }
 });
+
+
 client.login(config.token);
