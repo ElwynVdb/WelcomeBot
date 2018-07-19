@@ -44,6 +44,4 @@ client.on("message", (message, msg) => {
 
 
 
-
-
 client.login(config.token);

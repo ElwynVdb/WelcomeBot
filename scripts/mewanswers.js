@@ -52,7 +52,7 @@ message.reply("We do not discuss Mew Bot")
 
 
 if (messageText == "+TEST") {
-   message.channel.sendMessage("test complete")
+   message.author.send("toast")
        }
     
 })
@@ -60,7 +60,8 @@ if (messageText == "+TEST") {
 
 client.on('message', message => {
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
-    message.channel.sendFile('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
+    message.author.send('Did somebody say FORTNITE?')
+    message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
     }
     else
     {
@@ -70,5 +71,7 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
     }  
 
 })
+
+
 
 client.login(config.token);

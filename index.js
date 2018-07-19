@@ -33,22 +33,24 @@ app.get("/", (request, response) => {
 
 
   client.on('message', message => {
-    if (message.author.id !== "318821976372150272") return;
+    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
+           message.channel.send("LukeBeforeYouBot Reload");
             resetBot(message.channel);
-        message.author.sendMessage("is this a thing?");
             break;
+      }
     }
   });
 
   // Turn bot off (destroy), then turn it back on
   function resetBot(channel) {
     // send channel a message that you're resetting bot [optional]
-    channel.send('Resetting Index')
+    channel.send('----------------')
     .then(msg => client.destroy())
     .then(() => client.login(config.token));
   }
+
 
 var mcCommand = '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
@@ -73,7 +75,7 @@ client.on('message', message => {
                     status += '*Nobody is playing!*';
                 }
             }
-            message.author.send(status);
+            message.author.send(status).catch(console.error);
         });
     }
 });
@@ -100,7 +102,7 @@ client.on('message', message => {
                     status += '*Nobody is playing!*';
                 }
             }
-            message.author.send(status);
+            message.author.send(status).catch(console.error);
         });
     }
 });
@@ -109,6 +111,25 @@ client.on('message', message => {
  if (message.content.startsWith('/DMU'))
      message.delete();
 })
+
+const Cleverbot = require("cleverbot-node");
+const clbot = new Cleverbot;
+
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") {
+      message.channel.startTyping();
+      setTimeout(() => {
+        message.reply("Use me in SWD, or I'll steal your pepsi!").catch(console.error);
+        message.channel.stopTyping();
+        
+  
+      
+        
+});  
+    
+  }
+    });
 
   client.login(config.token)
 

@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cleverbot-node": "^0.3.11",
     "discord.js": "^11.3.2",
     "eris": "^0.7.2",
     "express": "^4.16.3",
