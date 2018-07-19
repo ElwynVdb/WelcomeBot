@@ -34,7 +34,7 @@ var messageText = message.content.toUpperCase();
      message.reply("have a water bottle you picky prick.")
    }
   
-   if (messageText == "ISHED") {
+   if (messageText == "+ISHED") {
        message.reply("who's that")
    }
   
