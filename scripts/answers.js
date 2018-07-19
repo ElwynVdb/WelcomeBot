@@ -42,7 +42,7 @@ var messageText = message.content.toUpperCase();
    }
 
    if (messageText == "+SERVERAVATAR") {
-       message.channel.send(message.guild.iconURL,'ServerAvatar.png')
+       message.sendFile(message.guild.iconURL,'ServerAvatar.png')
    }
 
    if (messageText == "I LIKE PEPSI") {
@@ -51,8 +51,9 @@ var messageText = message.content.toUpperCase();
 }
   
 if (messageText == "+SARAH") {
-if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || !message.author.id == "167922295556407296") return;
+if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
 message.reply("Sarah is Sub's angel!")
+}
 }
 
 })

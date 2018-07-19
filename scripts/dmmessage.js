@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const discord = require('discord.js');
 const config = require("./config.json")
-const client = new Discord.Client();
+const client = new discord.Client();
 const Cleverbot = require("cleverbot-node");
 const clbot = new Cleverbot;
 
