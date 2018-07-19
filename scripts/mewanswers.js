@@ -52,7 +52,7 @@ message.reply("We do not discuss Mew Bot")
 
 
 if (messageText == "+TEST") {
-   message.channel.sendMessage("toast")
+   message.author.send("toast")
        }
     
 })
