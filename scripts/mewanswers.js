@@ -76,7 +76,7 @@ client.on('message', message => {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
-            message.channel.sendMessage("");
+            message.channel.sendMessage("Answers M...");
             resetBot(message.channel);
             break;
       }

@@ -49,7 +49,7 @@ client.on('message', message => {
     switch(message.content.toLowerCase()) {
         case '-reboot':
             resetBot(message.channel);
-        message.author.sendMessage("is this a thing?");
+        message.channel.sendMessage("Answers....");
             break;
     }
   }
