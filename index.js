@@ -33,13 +33,14 @@ app.get("/", (request, response) => {
 
 
   client.on('message', message => {
-    if (message.author.id !== "318821976372150272") return;
+    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
             resetBot(message.channel);
-        message.author.sendMessage("is this a thing?");
+        message.channel.sendMessage("Index...");
             break;
     }
+}
   });
 
   // Turn bot off (destroy), then turn it back on
