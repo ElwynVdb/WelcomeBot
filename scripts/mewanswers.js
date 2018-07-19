@@ -43,13 +43,16 @@ message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'is
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
-if (messageText == "YOGSCAST") {
-message.reply("Welcome to hell, again")
-}
 })
 
 client.on('message', message => {
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') ) {
     message.channel.sendFile('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
+    }
+    else
+    {
+        if (message.content.startsWith("YOGSCAST") || message.content.startsWith('yogscast') ) {
+            message.channel.send('Welcome to hell, again...')
+        }
     }
 })
