@@ -50,6 +50,7 @@ if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
 
+
 if (messageText == "+TEST") {
    message.channel.sendMessage("test complete")
        }
