@@ -21,9 +21,5 @@ client.on('ready', () => {
   });
 
 
-
-
-
-
   client.login(config.token);
                

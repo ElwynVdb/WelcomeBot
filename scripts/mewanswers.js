@@ -73,5 +73,4 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
 })
 
 
-
 client.login(config.token);
