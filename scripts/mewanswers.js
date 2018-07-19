@@ -61,7 +61,7 @@ if (messageText == "+TEST") {
 client.on('message', message => {
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
     message.author.send('Did somebody say FORTNITE?')
-    message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
+    message.author.sendFile('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
     }
     else
     {
