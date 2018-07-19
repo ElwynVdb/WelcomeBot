@@ -39,11 +39,11 @@ var messageText = message.content.toUpperCase();
    }
 
    if (messageText == "+BOTAVATAR") {
-       message.channel.send("https://cdn.discordapp.com/attachments/223033559726686208/469304602399866880/lukebot_v2.png")
+       message.channel.send(client.user.avatarURL,'BotAvatar.png')
    }
 
    if (messageText == "+SERVERAVATAR") {
-       message.channel.send(`${message.guild.avatarURL}`)
+       message.channel.send(message.guild.icon,'ServerAvatar.png')
    }
   
 if (messageText == "+SARAH") {
