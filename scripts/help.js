@@ -25,7 +25,7 @@ client.on('message', (message) => {
                 .addField('', ``, true)
                 .addField('', ``, true)
                 .addField('', ``, true)
-                .addField('', `}`, true)
+                .addField('', ``, true)
                 .addField('', ``, true)
                 .addField('', ``, true)
         message.author.send(embed);
