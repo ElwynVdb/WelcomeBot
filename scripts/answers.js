@@ -37,6 +37,10 @@ var messageText = message.content.toUpperCase();
    if (messageText == "+ISHED") {
        message.channel.send("who's that?")
    }
+
+   if (messageText == "+BOTAVATAR") {
+       message.channel.send("https://cdn.discordapp.com/attachments/223033559726686208/469304602399866880/lukebot_v2.png")
+   }
   
 if (messageText == "+SARAH") {
 if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
