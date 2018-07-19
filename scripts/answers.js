@@ -35,7 +35,15 @@ var messageText = message.content.toUpperCase();
    }
   
    if (messageText == "+ISHED") {
-       message.reply("who's that")
+       message.channel.send("who's that?")
+   }
+
+   if (messageText == "+BOTAVATAR") {
+       message.channel.send("https://cdn.discordapp.com/attachments/223033559726686208/469304602399866880/lukebot_v2.png")
+   }
+
+   if (messageText == "+SERVERAVATAR") {
+       message.channel.send(`${message.guild.avatarURL}`)
    }
   
 if (messageText == "+SARAH") {
