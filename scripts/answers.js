@@ -11,6 +11,7 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase(); 
+let args = message.content.split(" ").slice(1);
   
   if(messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
       message.reply(" here have a coke!");
