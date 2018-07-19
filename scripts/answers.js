@@ -11,6 +11,7 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase(); 
+   let args = message.content.split(" ").slice(1);
   
   if(messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
       message.reply(" here have a coke!");
@@ -28,12 +29,20 @@ var messageText = message.content.toUpperCase();
    if (messageText == "+AVATAR") {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
    }
+  
    if (messageText == "I WANT WATER") {
      message.reply("have a water bottle you picky prick.")
    }
-
+  
+   if (messageText == "+ISHED") {
+       message.reply("who's that")
+   }
+  
+if (messageText == "+SARAH") {
+if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
+message.reply("Sarah is Sub's angel!")
 }
-);
+})
 
 client.on('message', message => {
   if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {

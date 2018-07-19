@@ -8,7 +8,9 @@ var request = require('request');
 const reboot = require("./scripts/reboot.js");
 const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
-const userifno = require("./scripts/userinfo");
+const userinfo = require("./scripts/userinfo");
+const easteregg = require("./scripts/eastereggs.js");
+const mewanswer = require("./scripts/mewanswers.js");
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -48,7 +50,7 @@ app.get("/", (request, response) => {
     .then(() => client.login(config.token));
   }
 
-var mcCommand = '/DMU'; // Command for triggering
+var mcCommand = '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
