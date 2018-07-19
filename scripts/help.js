@@ -19,7 +19,7 @@ client.on('message', (message) => {
                 .addField("Help for:", `${member.user}`, true)
                 .setColor(randomcolor())
                 .setFooter(' ', ' ')
-                .setThumbnail(``)
+                .setThumbnail(`https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png`)
                 .setTimestamp()
                 .setURL(``)
                 .addField('Commands', ``, true)
