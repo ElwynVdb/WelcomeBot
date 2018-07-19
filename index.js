@@ -54,7 +54,7 @@ app.get("/", (request, response) => {
 
 var mcCommand = '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
-var mcPort = 25564;
+var mcPort = 25565;
 
 client.on('message', message => {
     if (message.content === mcCommand) {
@@ -65,7 +65,7 @@ client.on('message', message => {
                 return message.reply('Error getting Minecraft server status...');
             }
             body = JSON.parse(body);
-            var status = '*Minecraft server is currently offline*';
+            var status = '*DMU Private is currently offline*';
             if(body.online) {
                 status = '**DMU Beta** is **online**  -  ';
 
@@ -93,7 +93,7 @@ client.on('message', message => {
                 return message.reply('Error getting Minecraft server status...');
             }
             body = JSON.parse(body);
-            var status = '*Minecraft server is currently offline*';
+            var status = '*DMU Public is currently offline*';
             if(body.online) {
                 status = '**DMU Public** is **online**  -  ';
                 if(body.players.now) {
