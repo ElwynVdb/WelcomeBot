@@ -35,7 +35,7 @@ var messageText = message.content.toUpperCase();
    }
   
    if (messageText == "+ISHED") {
-       message.reply("who's that")
+       message.channel.send("who's that?")
    }
   
 if (messageText == "+SARAH") {
