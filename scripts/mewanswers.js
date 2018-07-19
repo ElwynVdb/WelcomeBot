@@ -32,7 +32,8 @@ if (messageText === "+NAMEMC") {
 message.channel.sendMessage('https://namemc.com/'+args.join(" "))
 };
 if (messageText == "I DON'T LIKE WATER") {
-message.reply("Milk?")
+    const milk = client.emojis.find("name", "milk");
+message.reply(`Milk? ${milk}`)
 }
 if (messageText == "I DON'T LIKE MILK") {
 message.reply("Well then you don't survive you fussy shite!")
