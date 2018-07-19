@@ -65,7 +65,7 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
     }
     else
     {
-     if (message.content.startsWith("YOGSCAST") || message.content.startsWith('yogscast') ) {
+     if (message.content("YOGSCAST") || message.content('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
     }  
