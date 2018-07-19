@@ -31,9 +31,11 @@ var messageText = message.content.toUpperCase();
    if (messageText == "I WANT WATER") {
      message.reply("have a water bottle you picky prick.")
    }
-    
+   if (messageText == "ished") {
+       message.reply("who's that")
+   }
 
-}
+    }
 );
 
 client.on('message', message => {
