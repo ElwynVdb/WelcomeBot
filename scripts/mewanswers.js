@@ -32,7 +32,8 @@ if (messageText === "+NAMEMC") {
 message.channel.sendMessage('https://namemc.com/'+args.join(" "))
 };
 if (messageText == "I DON'T LIKE WATER") {
-message.reply("Milk?")
+    const milk = client.emojis.find("name", "milk");
+message.reply(`Milk? ${milk}`)
 }
 if (messageText == "I DON'T LIKE MILK") {
 message.reply("Well then you don't survive you fussy shite!")
@@ -61,11 +62,11 @@ if (messageText == "+TEST") {
 client.on('message', message => {
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
     message.author.send('Did somebody say FORTNITE?')
-    message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
+    message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif');
     }
     else
     {
-     if (message.content.startsWith("YOGSCAST") || message.content.startsWith('yogscast') ) {
+     if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
     }  

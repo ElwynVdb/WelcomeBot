@@ -11,6 +11,8 @@ const welcome = require("./scripts/welcome.js");
 const userinfo = require("./scripts/userinfo");
 const easteregg = require("./scripts/eastereggs.js");
 const mewanswer = require("./scripts/mewanswers.js");
+const help = require("./scripts/help.js");
+const answerdm = require("./scripts/dmmessage.js");
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -54,7 +56,7 @@ app.get("/", (request, response) => {
 
 var mcCommand = '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
-var mcPort = 25564;
+var mcPort = 25565;
 
 client.on('message', message => {
     if (message.content === mcCommand) {
@@ -65,7 +67,7 @@ client.on('message', message => {
                 return message.reply('Error getting Minecraft server status...');
             }
             body = JSON.parse(body);
-            var status = '*Minecraft server is currently offline*';
+            var status = '*DMU Private is currently offline*';
             if(body.online) {
                 status = '**DMU Beta** is **online**  -  ';
 
@@ -93,7 +95,7 @@ client.on('message', message => {
                 return message.reply('Error getting Minecraft server status...');
             }
             body = JSON.parse(body);
-            var status = '*Minecraft server is currently offline*';
+            var status = '*DMU Public is currently offline*';
             if(body.online) {
                 status = '**DMU Public** is **online**  -  ';
                 if(body.players.now) {
@@ -108,28 +110,9 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
- if (message.content.startsWith('/DMU'))
+ if (message.content.includes('/DMU'))
      message.delete();
 })
-
-const Cleverbot = require("cleverbot-node");
-const clbot = new Cleverbot;
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") {
-      message.channel.startTyping();
-      setTimeout(() => {
-        message.reply("Use me in SWD, or I'll steal your pepsi!").catch(console.error);
-        message.channel.stopTyping();
-        
-  
-      
-        
-});  
-    
-  }
-    });
 
   client.login(config.token)
 
