@@ -1,4 +1,10 @@
-   //Mew 
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const express = require('express');
+const config = require("./config.json");
+
+
+//Mew 
  //Added "WHO MADE YOU?"
 //Added "I DON'T LIKE WATER"
 //Added "I DON'T LIKE MILK"
@@ -56,3 +62,5 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
         }
     }
 })
+
+client.login(config.token);
