@@ -10,6 +10,7 @@ const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
 const userinfo = require("./scripts/userinfo");
 const easteregg = require("./scripts/eastereggs.js");
+const mewanswer = require("./scripts/mewanswers.js");
 
 //To add when using glitch
 app.get("/", (request, response) => {
