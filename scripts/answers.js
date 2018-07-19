@@ -50,6 +50,12 @@ if (messageText == "+SARAH") {
 if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
 message.reply("Sarah is Sub's angel!")
 }
+
+if (messageText == "I LIKE PEPSI") {
+    const pepsi = client.emojis.find("name", "pepsi");
+    message.channel.send(`${pepsi}`);
+}
+
 })
 
 
