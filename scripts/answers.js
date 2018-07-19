@@ -31,18 +31,11 @@ var messageText = message.content.toUpperCase();
    if (messageText == "I WANT WATER") {
      message.reply("have a water bottle you picky prick.")
    }
-   if (messageText == "WHAT'S A PEPSI") {
-       message.reply("pepsi is the best drink out there")
-   }
-   if (messageText == "PUPSI") {
-       message.reply("thats a dead meme")
-   }
    if (messageText == "ished") {
        message.reply("who's that")
    }
-    
 
-}
+    }
 );
 
 client.on('message', message => {
