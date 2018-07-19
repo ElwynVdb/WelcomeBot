@@ -41,8 +41,7 @@ app.get("/", (request, response) => {
             break;
       }
     }
-}
-  });
+});
 
   // Turn bot off (destroy), then turn it back on
   function resetBot(channel) {
