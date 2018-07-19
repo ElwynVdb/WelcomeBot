@@ -49,7 +49,13 @@ message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'is
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
+
+if (messageText == "TEST") {
+   message.channel.sendMessage("test complete")
+       }
+    
 })
+
 
 client.on('message', message => {
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') ) {
@@ -57,10 +63,11 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
     }
     else
     {
-        if (message.content.startsWith("YOGSCAST") || message.content.startsWith('yogscast') ) {
+     if (message.content.startsWith("YOGSCAST") || message.content.startsWith('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
-    }
+    }  
+
 })
 
 client.login(config.token);
