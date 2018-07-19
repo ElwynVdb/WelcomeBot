@@ -110,7 +110,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
- if (message.content.startsWith('/DMU'))
+ if (message.content.includes('/DMU'))
      message.delete();
 })
 
