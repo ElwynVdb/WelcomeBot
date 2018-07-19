@@ -11,13 +11,12 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase(); 
-   let args = message.content.split(" ").slice(1);
   
-  if(messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
+  if (messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
       message.reply(" here have a coke!");
   }
   
-  if(messageText == "I DON'T LIKE COKE") {
+  if (messageText == "I DON'T LIKE COKE") {
     message.reply(" well then, you get nothing you picky bastard!");
   }
   
@@ -45,15 +44,15 @@ var messageText = message.content.toUpperCase();
    if (messageText == "+SERVERAVATAR") {
        message.channel.send(message.guild.iconURL,'ServerAvatar.png')
    }
+
+   if (messageText == "I LIKE PEPSI") {
+    const pepsi = client.emojis.find("name", "pepsi");
+    message.channel.send(`${pepsi}`);
+}
   
 if (messageText == "+SARAH") {
 if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
 message.reply("Sarah is Sub's angel!")
-}
-
-if (messageText == "I LIKE PEPSI") {
-    const pepsi = client.emojis.find("name", "pepsi");
-    message.channel.send(`${pepsi}`);
 }
 
 })
