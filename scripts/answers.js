@@ -42,7 +42,7 @@ var messageText = message.content.toUpperCase();
    }
 
    if (messageText == "+SERVERAVATAR") {
-       message.channel.send(message.guild.iconURL,'ServerAvatar.png')
+       message.sendFile(message.guild.iconURL,'ServerAvatar.png')
    }
 
    if (messageText == "I LIKE PEPSI") {
