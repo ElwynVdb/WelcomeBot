@@ -11,7 +11,7 @@ client.on('ready',() => {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
-            message.author.sendMessage("orange juice?");
+            message.message.sendMessage("SWDTeam Member Requested Reboot");
             resetBot(message.channel);
             break;
       }
