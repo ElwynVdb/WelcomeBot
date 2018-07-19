@@ -11,7 +11,7 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase(); 
-let args = message.content.split(" ").slice(1);
+   let args = message.content.split(" ").slice(1);
   
   if(messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
       message.reply(" here have a coke!");
@@ -29,12 +29,19 @@ let args = message.content.split(" ").slice(1);
    if (messageText == "+AVATAR") {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
    }
+  
    if (messageText == "I WANT WATER") {
      message.reply("have a water bottle you picky prick.")
    }
-   if (messageText == "ished") {
+  
+   if (messageText == "ISHED") {
        message.reply("who's that")
    }
+  
+if (messageText == "+SARAH") {
+if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
+message.reply("Sarah is Sub's angel!")
+}
     
  //Added "WHO MADE YOU?"
 //Added "I DON'T LIKE WATER"
@@ -69,19 +76,13 @@ message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'is
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
-if (message.Include == "YOGSCAST") {
+if (messageText == "YOGSCAST") {
 message.reply("Welcome to hell, again")
 }
-if (message.content.startsWith == "FORTNITE") {
+if (messageText == "FORTNITE") {
 message.channel.sendFile('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
 }
-if (message.content.startsWith == "ITZKITTEN") {
-if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || !message.author.id == "167922295556407296") return;
-message.reply("Sarah is Sub's angel!")
-}
-
-    }
-);
+})
 
 client.on('message', message => {
   if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {

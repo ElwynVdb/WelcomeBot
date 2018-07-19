@@ -10,7 +10,7 @@ client.on('ready', () => {
 
 
   client.on("guildMemberAdd", (member) =>  {
-    const ayy = client.emojis.find("name", "pepsi");
+    const pepsi = client.emojis.find("name", "pepsi");
     member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi! ${pepsi}`);
     console.log(`${member.user} Joined`);
   });
