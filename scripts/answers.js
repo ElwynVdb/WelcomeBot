@@ -42,7 +42,7 @@ if (messageText == "+SARAH") {
 if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || message.author.id == "167922295556407296") return;
 message.reply("Sarah is Sub's angel!")
 }
-    
+   //Mew 
  //Added "WHO MADE YOU?"
 //Added "I DON'T LIKE WATER"
 //Added "I DON'T LIKE MILK"
@@ -52,7 +52,7 @@ message.reply("Sarah is Sub's angel!")
 //Added sentence start with"FORTNITE"
 //Note - Anything starting with + is a command, most of these are tests, and will be removed if they do not work
 
-if (messageText == "WHO MADE YOU?") {
+if (messageText == "+creators") {
     message.reply("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
 }
 if (messageText === "+NAMEMC") {

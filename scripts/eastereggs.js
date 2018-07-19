@@ -7,6 +7,8 @@ client.on('ready', () => {
     console.log('Eastereggs');
 })
 
+// Luke 
+
 client.on('message', (message) => {
    if (message.author === client.user) return;
   
