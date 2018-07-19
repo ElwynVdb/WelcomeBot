@@ -12,6 +12,7 @@ const userinfo = require("./scripts/userinfo");
 const easteregg = require("./scripts/eastereggs.js");
 const mewanswer = require("./scripts/mewanswers.js");
 const help = require("./scripts/help.js");
+const answerdm = require("./scripts/dmmessage.js");
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -112,25 +113,6 @@ client.on('message', message => {
  if (message.content.startsWith('/DMU'))
      message.delete();
 })
-
-const Cleverbot = require("cleverbot-node");
-const clbot = new Cleverbot;
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.channel.type === "dm") {
-      message.channel.startTyping();
-      setTimeout(() => {
-        message.reply("Use me in SWD, or I'll steal your pepsi!").catch(console.error);
-        message.channel.stopTyping();
-        
-  
-      
-        
-});  
-    
-  }
-    });
 
   client.login(config.token)
 
