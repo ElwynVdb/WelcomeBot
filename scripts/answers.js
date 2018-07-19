@@ -74,6 +74,10 @@ message.reply("Welcome to hell, again")
 if (message.content.startsWith == "FORTNITE") {
 message.channel.sendFile('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif')
 }
+if (message.content.startsWith == "ITZKITTEN") {
+if (!message.author.id == "318821976372150272" || !message.author.id == "338717002879336461" || !message.author.id == "167922295556407296") return;
+message.reply("Sarah is Sub's angel!")
+}
 
     }
 );
