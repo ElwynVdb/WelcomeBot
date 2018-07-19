@@ -8,8 +8,8 @@ var request = require('request');
 const reboot = require("./scripts/reboot.js");
 const answers = require("./scripts/answers.js");
 const welcome = require("./scripts/welcome.js");
-const userifno = require("./scripts/userinfo");
-const easteregg = require("./scripts/Boringstuff");
+const userinfo = require("./scripts/userinfo");
+const easteregg = require("./scripts/eastereggs.js");
 
 //To add when using glitch
 app.get("/", (request, response) => {
