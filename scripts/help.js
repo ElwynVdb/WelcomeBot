@@ -64,23 +64,23 @@ client.on('message', (message) => {
         message.author.send({embed: {
             color: 3447003,
             author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL
+              name: ("LukeBeforeYouBot"),
+              icon_url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png"
             },
-            title: "This is an embed",
-            url: "http://google.com",
-            description: "This is a test embed to showcase what they look like and what they can do.",
+            title: "Text Commands",
+            url: "https://www.youtube.com/watch?v=29jDgmU353Q",
+            description: "Learn the text commands!",
             fields: [{
-                name: "Fields",
-                value: "They can have different fields with small headlines."
+                name: "1.",
+                value: "I don't like pepsi"
               },
               {
-                name: "Masked links",
-                value: "You can put [masked links](http://google.com) inside of rich embeds."
+                name: "2.",
+                value: "I don't like coke"
               },
               {
-                name: "Markdown",
-                value: "You can put all the *usual* **__Markdown__** inside of them."
+                name: "3.",
+                value: "I don't like water"
               }
             ],
             timestamp: new Date(),
