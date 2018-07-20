@@ -18,8 +18,7 @@ client.on('ready', () => {
   });
 
   client.on("guildMemberRemove", (member, message) =>  {
-    const pepsi = client.emojis.find("name", "pepsi");
-    member.guild.channels.find("name", "general").send(`Takes ${member.user}s pepsi back! ${pepsi}`);
+    member.guild.channels.find("name", "general").send(`Takes ${member.user}'s pepsi back!`);
     console.log(`${member.user} left `);
   });
 
