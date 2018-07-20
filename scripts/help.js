@@ -61,7 +61,7 @@ client.on('message', (message) => {
         });
 
         if(messageText == "+HELP") {
-        message.channel.send({embed: {
+        message.author.send({embed: {
             color: 3447003,
             author: {
               name: client.user.username,
