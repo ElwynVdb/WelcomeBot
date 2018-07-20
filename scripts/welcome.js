@@ -9,13 +9,13 @@ client.on('ready', () => {
 
 
 
-  client.on("guildMemberAdd", (member) =>  {
-    const pepsi = client.emojis.find("name", "pepsi");
-    const rules = message.guild.channels.find(channel => channel.name === "rules")
-    member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi! ${pepsi}`); 
-    member.guild.channels.find("name", "general").send(`${rules}`); 
-    console.log(`${member.user} Joined`);
-  });
+client.on("guildMemberAdd", (member) =>  {
+  const pepsi = client.emojis.find("name", "pepsi");
+  var message = "And don't forget to check <#307553601642037249>!";
+  member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi! ${pepsi}`); 
+  member.guild.channels.find("name", "general").send(message); 
+  console.log(`${member.user} Joined`);
+});
 
   client.on("guildMemberRemove", (member, message) =>  {
     member.guild.channels.find("name", "general").send(`Takes ${member.user}'s pepsi back!`);
