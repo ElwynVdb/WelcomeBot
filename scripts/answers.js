@@ -41,7 +41,7 @@ var messageText = message.content.toUpperCase();
        message.channel.send(client.user.avatarURL,'BotAvatar.png')
    }
 
-   if (messageText == "+SERVERAVATAR") {
+   if (messageText == "+SERVERICON") {
  message.channel.sendFile(message.guild.iconURL,'ServerAvatar.png')
    }
 
