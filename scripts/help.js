@@ -20,8 +20,8 @@ client.on('message', (message) => {
         message.author.send({embed: {
             color: 3447003,
             author: {
-              name: client.user.username,
-              icon_url: client.user.avatarURL
+              name: ("LukeBeforeYouBot"),
+              icon_url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png"
             },
             title: "Commands",
             url: "https://www.youtube.com/watch?v=29jDgmU353Q",
