@@ -81,12 +81,40 @@ client.on('message', (message) => {
               {
                 name: "3.",
                 value: "I don't like water"
-              }
+              },
+              {
+                name: "4.",
+                value: "I don't like milk"
+              },
+              {
+                  name: "5.",
+                  value: "Who is Mumbles?"                     
+                },
+                {
+                  name: "6.",
+                  value: "I want water"
+                },
+                {
+                    name: "7.",
+                    value: "I like pepsi"
+                },
+                {
+                    name: "8.",
+                    value: "What is a Mew?"
+                },
+                {
+                    name: "9.",
+                    value: "What is Mew Bot"
+                },
+                {
+                    name: "Easter Eggs!",
+                    value: "There are 3 easter egg text commands! See if you can guess any!"
+                }
             ],
             timestamp: new Date(),
             footer: {
               icon_url: client.user.avatarURL,
-              text: "© Example"
+              text: "© LukeBeforeYouBot SWDTeam"
             }
           }
         });
