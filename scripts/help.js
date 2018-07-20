@@ -50,7 +50,7 @@ client.on('message', (message) => {
                 .addField('8.', `What is a Mew?`, true)
                 .addField('9.', `What is Mew Bot`, true)
                 .addField('----', `There are 3 easter egg text commands! See if you can guess any!`, true)
-                .addField('Other/Message Including or Starting With', `/`, true)
+                .addField('***Other/Message Including or Starting With***', `/`, true)
                 .addField('1', `If you start a sentence with "Fortnite" you get a reward!`, true)
                 .addField('2', `If you have a message including the word "Yogscast", a special message appears!`, true)
                 .addField('3', `If you DM the bot you get a message on top of the command of origin`, true)
