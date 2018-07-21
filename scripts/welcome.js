@@ -12,8 +12,7 @@ client.on('ready', () => {
 client.on("guildMemberAdd", (member) =>  {
   const pepsi = client.emojis.find("name", "pepsi");
   var message = "And don't forget to check <#307553601642037249>!";
-  member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi! ${pepsi}`); 
-  member.guild.channels.find("name", "general").send(message); 
+  member.guild.channels.find("name", "general").send(`${member.user}, Welcome to hell it's great here pull up a chair and have a pepsi! ${pepsi} \n ${message}`); 
   console.log(`${member.user} Joined`);
 });
 
