@@ -60,6 +60,7 @@ if (messageText == "+TEST") {
 
 
 client.on('message', message => {
+    const pepsi = client.emojis.find("name", "gasp2");
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
     message.author.send('Did somebody say FORTNITE?')
     message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif');
@@ -69,6 +70,9 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
      if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
+if (message.content.includes('Ali A') || message.content.includes('ALI A') || message.content.includes('ali a') || message.content.includes('aLi A') ) {
+    message.channel.send(`${gasp2}`)
+}
     }  
 
 })
