@@ -11,7 +11,7 @@ const welcome = require("./scripts/welcome.js");
 const userinfo = require("./scripts/userinfo");
 const easteregg = require("./scripts/eastereggs.js");
 const mewanswer = require("./scripts/mewanswers.js");
-const help = require("./scripts/help.js");
+const helpcmd = require("./scripts/help.js");
 const answerdm = require("./scripts/dmmessage.js");
 
 //To add when using glitch
