@@ -16,7 +16,7 @@ client.on("guildMemberAdd", (member) =>  {
   console.log(`${member.user} Joined`);
 });
 
-  client.on("guildMemberRemove", (member, message) =>  {
+  client.on("guildMemberRemove", (member) =>  {
     member.guild.channels.find("name", "general").send(`Takes ${member.user}'s pepsi back!`);
     console.log(`${member.user} left `);
   });
