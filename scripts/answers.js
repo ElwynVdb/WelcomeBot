@@ -38,7 +38,7 @@ var messageText = message.content.toUpperCase();
    }
 
    if (messageText == "+BOTAVATAR") {
-       message.channel.send(client.user.avatarURL,'BotAvatar.png')
+       message.channel.sendFile(client.user.avatarURL,'BotAvatar.png')
    }
 
    if (messageText == "+SERVERICON") {
