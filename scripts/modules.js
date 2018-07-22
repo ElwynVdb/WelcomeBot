@@ -4,14 +4,14 @@ const config = require("./config.json")
 const express = require('express');
 const app = express();
 
-const reboot = require("./scripts/reboot.js");
-const answers = require("./scripts/answers.js");
-const welcome = require("./scripts/welcome.js");
-const userinfo = require("./scripts/userinfo");
-const easteregg = require("./scripts/eastereggs.js");
-const mewanswer = require("./scripts/mewanswers.js");
-const help = require("./scripts/help.js");
-const answerdm = require("./scripts/dmmessage.js");
+const reboot = require("./reboot.js");
+const answers = require("./answers.js");
+const welcome = require("./welcome.js");
+const userinfo = require("./userinfo");
+const easteregg = require("./eastereggs.js");
+const mewanswer = require("./mewanswers.js");
+const help = require("./help.js");
+const answerdm = require("./dmmessage.js");
 
 
 client.login(config.token);
