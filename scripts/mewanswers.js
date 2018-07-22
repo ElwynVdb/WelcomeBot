@@ -60,7 +60,7 @@ if (messageText == "+TEST") {
 
 
 client.on('message', message => {
-    const pepsi = client.emojis.find("name", "gasp2");
+    const gasp2 = client.emojis.find("name", "gasp2");
 if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
     message.author.send('Did somebody say FORTNITE?')
     message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif');
