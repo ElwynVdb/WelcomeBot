@@ -70,7 +70,7 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
      if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
-if (message.content.includes('Ali A') || message.content.includes('ALI A') || message.content.includes('ali a') || message.content.includes('aLi A') ) {
+if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.includes('ali a') || message.content.includes('aLi A') ) {
     message.channel.send(`${gasp2}`)
 }
     }  
