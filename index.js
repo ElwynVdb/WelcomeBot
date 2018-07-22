@@ -5,15 +5,7 @@ const config = require("./scripts/config.json");
 const express = require('express');
 const app = express();
 var request = require('request');
-const reboot = require("./scripts/reboot.js");
-const answers = require("./scripts/answers.js");
-const welcome = require("./scripts/welcome.js");
-const userinfo = require("./scripts/userinfo");
-const easteregg = require("./scripts/eastereggs.js");
-const mewanswer = require("./scripts/mewanswers.js");
-const help = require("./scripts/help.js");
-const answerdm = require("./scripts/dmmessage.js");
-
+const modules = require('./scripts/modules.js');
 //To add when using glitch
 app.get("/", (request, response) => {
     console.log(Date.now() + " Ping Received");
