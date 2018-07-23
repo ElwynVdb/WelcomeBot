@@ -18,7 +18,8 @@ client.on("guildMemberAdd", (member) =>  {
 });
 
   client.on("guildMemberRemove", (member) => {
-    member.guild.channels.find("name", "general").send(`Takes ${member.user}'s pepsi back!`);
+    const membertag = member.user
+    member.guild.channels.find("name", "general").send(`Takes ${membertag}'s pepsi back!`);
     console.log(`${member.user} left `);
   });
 
