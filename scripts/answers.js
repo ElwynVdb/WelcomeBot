@@ -4,7 +4,6 @@ const express = require('express');
 const config = require("./config.json");
 
 var server = client.guilds.get("217396856550981633");
-    if(!server) return;
 
 client.on('ready', () => {
     console.log('Answers are ready');

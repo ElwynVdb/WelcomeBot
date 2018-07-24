@@ -15,9 +15,6 @@ app.get("/", (request, response) => {
       setInterval(() => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
-
-var server = client.guilds.get("217396856550981633");
-    if(!server) return;
     
 
  // Checks
