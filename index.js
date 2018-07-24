@@ -22,7 +22,9 @@ app.get("/", (request, response) => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
-  });
+});
+
+    
 
 
 
