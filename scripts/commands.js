@@ -14,9 +14,11 @@ client.on('message', (message) => {
 var messageText = message.content.toUpperCase(); 
 
 if (messageText == "+SAY") {
+    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
+    }
   }
 
   if (messageText == "+ISHED") {
