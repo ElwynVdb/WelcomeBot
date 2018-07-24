@@ -16,18 +16,17 @@ app.get("/", (request, response) => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
 
+var server = client.guilds.get("217396856550981633");
+    if(!server) return;
+    
+
  // Checks
  
  client.on('ready',() => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
-
-    var server = client.guilds.get("217396856550981633");
-    if(!server) {
-      message.channel.send('Use me in SWD') 
-      return;
-
+});
 
     
 
@@ -112,8 +111,7 @@ client.on('message', message => {
  if (message.content.includes('/DMU'))
      message.delete();
 })
-}
-});
+    
 
   client.login(config.token)
 
