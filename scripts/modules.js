@@ -12,6 +12,7 @@ const easteregg = require("./eastereggs.js");
 const mewanswer = require("./mewanswers.js");
 const help = require("./help.js");
 const answerdm = require("./dmmessage.js");
+const commands = require("./commands.js");
 
 
 client.login(config.token);
