@@ -25,8 +25,7 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
 });
 
-    
-
+//reboot
 
 
   client.on('message', message => {
