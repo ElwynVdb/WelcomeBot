@@ -21,16 +21,12 @@ client.on('ready', () => {
 client.on('message', (message) => {
    if (message.author === client.user) return;
   
-var messageText = message.content.toUpperCase(); 
-const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+var messageText = message.content.toUpperCase();
   
 
 if (messageText == "+creators") {
     message.reply("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
 }
-if (messageText === "+NAMEMC") {
-message.channel.sendMessage('https://namemc.com/'+ args.join(" "))
-};
 if (messageText == "I DON'T LIKE WATER") {
     const milk = client.emojis.find("name", "milk");
 message.reply(`Milk? ${milk}`)
@@ -41,12 +37,6 @@ message.reply("Well then you don't survive you fussy shite!")
 if (messageText == "WHAT IS A MEW?") {
 message.reply("Mew is a pokémon... oh, you mean that one, he's uh, coder/texture hacker thing, for minecraft, discord, and nintendo games, just ignore him...")
 }
-if (messageText === "+3DSKIN") {
-message.channel.send('https://visage.surgeplay.com/full/512/'+ args.join(" "),'askinforyouminecraftnerds.png')
-};
-if (messageText === "+SKIN") {
-message.channel.send('https://visage.surgeplay.com/skin/'+ args.join(" "),'iswearimnotstealingfromsubimremakingwithsamewebsitesshutup.png')
-};
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
@@ -77,6 +67,39 @@ if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || 
     }  
 
 })
+
+client.on("message", async message => {
+    // This event will run on every single message received, from any channel or DM.
+    
+    // It's good practice to ignore other bots. This also makes your bot ignore itself
+    // and not get into a spam loop (we call that "botception").
+    if(message.author.bot) return;
+    
+    // Also good practice to ignore any message that does not start with our prefix, 
+    // which is set in the configuration file.
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    
+    // Here we separate our "command" name, and our "arguments" for the command. 
+    // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
+    // command = say
+    // args = ["Is", "this", "the", "real", "life?"]
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if (command === "+NAMEMC") {
+        const namemc = args.join(" ");
+        message.channel.sendMessage(`'https://namemc.com/' + ${namemc}`)
+    }
+    if (command === "+3DSKIN") {
+        const skinD = args.join(" ");
+        message.channel.send(`'https://visage.surgeplay.com/full/512/' + ${skinD}`)
+    }
+    if (command === "+SKIN") {
+        const skin = args.join(" ");
+        message.channel.send(`'https://visage.surgeplay.com/skin/' + ${skin}`)
+    }
+});
+
 
 
 client.login(config.token);
