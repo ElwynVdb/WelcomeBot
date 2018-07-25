@@ -98,11 +98,11 @@ client.on("message", async message => {
     }
     if (command === "3DSkin") {
         const skinD = args.join(" ");
-        message.channel.send(`https://visage.surgeplay.com/full/512/${skinD}`)
+        message.channel.sendFile(`https://visage.surgeplay.com/full/512/${skinD}`)
     }
     if (command === "skin") {
         const skin = args.join(" ");
-        message.channel.send(`https://visage.surgeplay.com/skin/${skin}`)
+        message.channel.sendFile(`https://visage.surgeplay.com/skin/512/${skin}`)
     }
     if (command === "ytsearch") {
         const youtube = args.join(" ");
