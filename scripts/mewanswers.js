@@ -94,15 +94,7 @@ client.on("message", async message => {
 
     if (command === "namemc") {
         const namemc = args.join(" ");
-        message.channel.sendMessage(`https://namemc.com/${namemc}`)
-    }
-    if (command === "3DSkin") {
-        const skinD = args.join(" ");
-        message.channel.sendFile(`https://visage.surgeplay.com/full/512/${skinD}`)
-    }
-    if (command === "skin") {
-        const skin = args.join(" ");
-        message.channel.sendFile(`https://visage.surgeplay.com/skin/512/${skin}`)
+        message.channel.send(`https://namemc.com/${namemc}`)
     }
     if (command === "ytsearch") {
         const youtube = args.join(" ");
