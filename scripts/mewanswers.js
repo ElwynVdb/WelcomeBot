@@ -50,8 +50,9 @@ message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'is
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
-
-
+if (messageText == "toast?") {
+    message.reply("Mew thought it was unoriginal to do test complete.")
+    }
 if (messageText == "+TEST") {
    message.author.send("toast")
        }
