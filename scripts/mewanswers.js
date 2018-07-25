@@ -92,21 +92,21 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (command === "+NAMEMC") {
+    if (command === "namemc") {
         const namemc = args.join(" ");
-        message.channel.sendMessage(`'https://namemc.com/' + ${namemc}`)
+        message.channel.sendMessage(`https://namemc.com/${namemc}`)
     }
-    if (command === "+3DSKIN") {
+    if (command === "3DSkin") {
         const skinD = args.join(" ");
-        message.channel.send(`'https://visage.surgeplay.com/full/512/' + ${skinD}`)
+        message.channel.send(`https://visage.surgeplay.com/full/512/${skinD}`)
     }
-    if (command === "+SKIN") {
+    if (command === "skin") {
         const skin = args.join(" ");
-        message.channel.send(`'https://visage.surgeplay.com/skin/' + ${skin}`)
+        message.channel.send(`https://visage.surgeplay.com/skin/${skin}`)
     }
-    if (messageText === "+YOUTUBESEARCH") {
+    if (command === "ytsearch") {
         const youtube = args.join(" ");
-        message.channel.send(`'https://www.youtube.com/results?search_query='+ ${youtube}`)
+        message.channel.send(`https://www.youtube.com/results?search_query=${youtube}`)
         }
 });
 
