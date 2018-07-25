@@ -15,7 +15,7 @@ client.on('message', (message) => {
 var messageText = message.content.toUpperCase(); 
    
    if(messageText == "CRYSTAL PEPSI") {
-     message.channel.send("taken from us top soon");
+     message.channel.send("Taken from us too soon");
    }
 
    if (messageText == "WHAT'S A PEPSI") {
@@ -23,7 +23,7 @@ var messageText = message.content.toUpperCase();
 }
 
 if (messageText == "PUPSI") {
-    message.channel.send("thats a dead meme")
+    message.channel.send("That's a dead meme")
 }
    
    

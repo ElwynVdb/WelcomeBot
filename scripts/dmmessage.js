@@ -12,10 +12,7 @@ client.on("message", message => {
         message.reply("Use me in SWD, or I'll steal your pepsi!").catch(console.error);
         message.channel.stopTyping();
         
-  
-      
-        
-});  
+      });  
     
   }
     });

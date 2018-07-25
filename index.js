@@ -5,15 +5,7 @@ const config = require("./scripts/config.json");
 const express = require('express');
 const app = express();
 var request = require('request');
-const reboot = require("./scripts/reboot.js");
-const answers = require("./scripts/answers.js");
-const welcome = require("./scripts/welcome.js");
-const userinfo = require("./scripts/userinfo");
-const easteregg = require("./scripts/eastereggs.js");
-const mewanswer = require("./scripts/mewanswers.js");
-const help = require("./scripts/help.js");
-const answerdm = require("./scripts/dmmessage.js");
-
+const modules = require('./scripts/modules.js');
 //To add when using glitch
 app.get("/", (request, response) => {
     console.log(Date.now() + " Ping Received");
@@ -23,6 +15,7 @@ app.get("/", (request, response) => {
       setInterval(() => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
+    
 
  // Checks
  
@@ -30,7 +23,9 @@ app.get("/", (request, response) => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
-  });
+});
+
+    
 
 
 
@@ -113,6 +108,10 @@ client.on('message', message => {
  if (message.content.includes('/DMU'))
      message.delete();
 })
+
+  
+
+    
 
   client.login(config.token)
 
