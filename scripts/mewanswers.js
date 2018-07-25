@@ -104,13 +104,12 @@ client.on("message", async message => {
         }
         // Added By josia REE you with your own module
         if(command === "say") {
-        if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {   
-            return message.reply("Sorry, you don't have permissions to use this!");
-          const sayMessage = args.join(" ");
-          message.delete().catch(O_o=>{});  
-          message.channel.send(sayMessage);
-        }
-        }
+            if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") { return                                                                                                                                          
+              const sayMessage = args.join(" ");
+              message.delete().catch(O_o=>{});  
+              message.channel.send(sayMessage);
+            }
+             }
 });
 
 
