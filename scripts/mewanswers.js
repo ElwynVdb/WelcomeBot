@@ -47,9 +47,18 @@ message.channel.sendFile('https://visage.surgeplay.com/full/512/'+args.join(" ")
 if (messageText === "+SKIN") {
 message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'iswearimnotstealingfromsubimremakingwithsamewebsitesshutup.png')
 };
+if (messageText === "+YOUTUBESEARCH") {
+    message.channel.sendFile('https://www.youtube.com/results?search_query='+args.join(" ") )
+    };
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
+if (messageText == "HEY MEW, HELP") {
+    message.reply("do +help you fuckface")
+    }
+if (messageText == "OMIWA SHINDEIRU") {
+    message.reply("NANI")
+    }
 if (messageText == "TOAST?") {
     message.reply("Mew thought it was unoriginal to do test complete.")
     }
