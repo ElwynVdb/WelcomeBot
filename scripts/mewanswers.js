@@ -48,7 +48,7 @@ if (messageText === "+SKIN") {
 message.channel.send('https://visage.surgeplay.com/skin/'+ args.join(" "),'iswearimnotstealingfromsubimremakingwithsamewebsitesshutup.png')
 };
 if (messageText === "+YOUTUBESEARCH") {
-    message.channel.sendFile('https://www.youtube.com/results?search_query='+args.join(" ") )
+    message.channel.send('https://www.youtube.com/results?search_query='+args.join(" ") )
     };
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
