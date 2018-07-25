@@ -22,14 +22,14 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase(); 
-   let args = message.content.split(" ").slice(1);
+const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   
 
 if (messageText == "+creators") {
     message.reply("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
 }
 if (messageText === "+NAMEMC") {
-message.channel.sendMessage('https://namemc.com/'+args.join(" "))
+message.channel.sendMessage('https://namemc.com/'+ args.join(" "))
 };
 if (messageText == "I DON'T LIKE WATER") {
     const milk = client.emojis.find("name", "milk");
@@ -42,10 +42,10 @@ if (messageText == "WHAT IS A MEW?") {
 message.reply("Mew is a pokémon... oh, you mean that one, he's uh, coder/texture hacker thing, for minecraft, discord, and nintendo games, just ignore him...")
 }
 if (messageText === "+3DSKIN") {
-message.channel.sendFile('https://visage.surgeplay.com/full/512/'+args.join(" "),'askinforyouminecraftnerds.png')
+message.channel.send('https://visage.surgeplay.com/full/512/'+ args.join(" "),'askinforyouminecraftnerds.png')
 };
 if (messageText === "+SKIN") {
-message.channel.sendFile('https://visage.surgeplay.com/skin/'+args.join(" "),'iswearimnotstealingfromsubimremakingwithsamewebsitesshutup.png')
+message.channel.send('https://visage.surgeplay.com/skin/'+ args.join(" "),'iswearimnotstealingfromsubimremakingwithsamewebsitesshutup.png')
 };
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
