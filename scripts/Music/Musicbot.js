@@ -1,13 +1,14 @@
 const Discord = require('discord.js');
 const Music = require('discord.js-musicbot-addon');
 const client = new Discord.Client();
+const { TOKEN, GOOGLE_API_KEY } = require('./config');
 
 client.on("ready", () => {
     console.log('Music')
 })
  
 Music.start(client, {
-  youtubeKey: 'AIzaSyA_03wOYbGpvWDLLsjTlSfvhXw7iPikLzY'
+  youtubeKey: 'GOOGLE_API_KEY'
 });
  
-client.login("NDY5MDk0Mzc5OTMyNDgzNTg0.DjH_pw.TnATT_51y0V32PZK0RhD11-ZYJQ");
+client.login(TOKEN);
