@@ -40,6 +40,12 @@ message.reply("Mew is a pokémon... oh, you mean that one, he's uh, coder/textur
 if (messageText == "WHAT IS MEW BOT?") {
 message.reply("We do not discuss Mew Bot")
 }
+if (messageText == "HEY MEW, HELP") {
+    message.reply("do +help you fuckface")
+    }
+if (messageText == "OMIWA SHINDEIRU") {
+    message.reply("NANI")
+    }
 if (messageText == "TOAST?") {
     message.reply("Mew thought it was unoriginal to do test complete.")
     }
@@ -98,6 +104,10 @@ client.on("message", async message => {
         const skin = args.join(" ");
         message.channel.send(`'https://visage.surgeplay.com/skin/' + ${skin}`)
     }
+    if (messageText === "+YOUTUBESEARCH") {
+        const youtube = args.join(" ");
+        message.channel.send(`'https://www.youtube.com/results?search_query='+ ${youtube}`)
+        }
 });
 
 
