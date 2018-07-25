@@ -96,9 +96,11 @@ client.on("message", async message => {
         const namemc = args.join(" ");
         message.channel.send(`https://namemc.com/${namemc}`)
     }
+    
     if (command === "ytsearch") {
         const youtube = args.join(" ");
         message.channel.send(`https://www.youtube.com/results?search_query=${youtube}`)
+
         }
 });
 
