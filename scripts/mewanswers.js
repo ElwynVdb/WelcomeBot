@@ -102,6 +102,7 @@ client.on("message", async message => {
         message.channel.send(`https://www.youtube.com/results?search_query=${youtube}`)
 
         }
+  
          if(command === "say") {
         if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {                                                                                                                                      
           const sayMessage = args.join(" ");
@@ -109,6 +110,7 @@ client.on("message", async message => {
           message.channel.send(sayMessage);
         }
          }
+
 });
 
 
