@@ -13,7 +13,6 @@ const mewanswer = require("./mewanswers.js");
 const help = require("./help.js");
 const answerdm = require("./dmmessage.js");
 const commands = require("./commands.js");
-const music = require("./music/music.js");
 
 
 client.login(config.token);
