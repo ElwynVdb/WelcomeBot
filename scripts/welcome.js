@@ -24,5 +24,4 @@ client.on("guildMemberAdd", (member) =>  {
   });
 
 
-  client.login(config.token);
-               
+  client.login(config.token);     
