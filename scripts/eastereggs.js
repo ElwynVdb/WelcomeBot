@@ -28,7 +28,7 @@ if (messageText == "PUPSI") {
 }
 
 if (messageText == "LUL") {
-    message.reply("Je bent zelf een lu")
+    message.reply("Je bent zelf een lul")
 }
    
    
