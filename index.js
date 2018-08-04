@@ -107,9 +107,8 @@ client.on('message', message => {
  if (message.content.includes('/DMU'))
      message.delete();
 })
-    
 
-  
+               
 
     
 
