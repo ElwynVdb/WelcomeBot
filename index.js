@@ -25,8 +25,7 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
 });
 
-    
-
+//reboot
 
 
   client.on('message', message => {
@@ -108,9 +107,8 @@ client.on('message', message => {
  if (message.content.includes('/DMU'))
      message.delete();
 })
-    
 
-  
+               
 
     
 
