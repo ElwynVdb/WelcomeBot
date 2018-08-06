@@ -8,7 +8,7 @@ client.on("ready", () => {
 })
 
 client.on("message", (message) => {
-    if (message.author.id == "318821976372150272") {
+    if(!message.content.includes('@everyone')) {
     if(message.content.startsWith("&inrole")){
         let roleName = message.content.split(" ").slice(1).join(" ");
     
