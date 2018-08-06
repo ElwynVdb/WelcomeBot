@@ -28,7 +28,7 @@ if (messageText == "+SERVERICON") {
 message.channel.sendFile(message.guild.iconURL,'ServerAvatar.png')
 }
 if (messageText == "+UPTIME") {
-    var date = new Date(Nitaka.uptime);
+    var date = new Date(client.uptime);
     var strDate = '**';
     strDate += 'Uptime\n';
     strDate += date.getUTCDate() - 1 + ' days, ';
@@ -36,16 +36,6 @@ if (messageText == "+UPTIME") {
     strDate += date.getUTCMinutes() + ' minutes, ';
     strDate += date.getUTCSeconds() + ' seconds**';
     message.channel.send(strDate)
-  }
-
-  if (messageText == "+GUILDINFO") {
-    const embed = new RichEmbed()
-    .setAuthor(this.client.user.username, this.client.user.avatarURL)
-    .setColor(0x0099cc)
-    .setTitle('GuildInfo')
-    .addField('Server Count:', `${this.client.guilds.size}`, true)
-    .setTimestamp();
-  message.channel.send({ embed });
 }
 
 if (messageText == "+SARAH") {
