@@ -8,7 +8,6 @@ client.on("ready", () => {
 })
 
 client.on("message", (message) => {
-    if(!message.content.includes('@everyone')) {
     if(message.content.startsWith("&inrole")){
         let roleName = message.content.split(" ").slice(1).join(" ");
     
@@ -28,7 +27,6 @@ client.on("message", (message) => {
     
         return message.channel.send({embed});
     }
-}
         });
 
         client.login(config.token);
