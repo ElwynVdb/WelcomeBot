@@ -38,6 +38,16 @@ if (messageText == "+UPTIME") {
     message.channel.send(strDate)
   }
 
+  if (messageText == "+GUILDINFO") {
+    const embed = new RichEmbed()
+    .setAuthor(this.client.user.username, this.client.user.avatarURL)
+    .setColor(0x0099cc)
+    .setTitle('GuildInfo')
+    .addField('Server Count:', `${this.client.guilds.size}`, true)
+    .setTimestamp();
+  message.channel.send({ embed });
+}
+
 if (messageText == "+SARAH") {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
     message.reply("Sarah is Sub's angel!")
