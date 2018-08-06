@@ -27,6 +27,16 @@ if (messageText == "+BOTAVATAR") {
 if (messageText == "+SERVERICON") {
 message.channel.sendFile(message.guild.iconURL,'ServerAvatar.png')
 }
+if (messageText == "+UPTIME") {
+    var date = new Date(Nitaka.uptime);
+    var strDate = '**';
+    strDate += 'Uptime\n';
+    strDate += date.getUTCDate() - 1 + ' days, ';
+    strDate += date.getUTCHours() + ' hours, ';
+    strDate += date.getUTCMinutes() + ' minutes, ';
+    strDate += date.getUTCSeconds() + ' seconds**';
+    message.channel.sendMessage(strDate)
+  }
 
 if (messageText == "+SARAH") {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
