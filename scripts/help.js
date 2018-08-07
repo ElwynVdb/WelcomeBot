@@ -49,6 +49,10 @@ client.on('message', (message) => {
               {
                   name: "+userinfo",
                   value: "Info on the user running the command"
+              },
+              {
+                name: "+uptime",
+                value: "Shows for how long the bot is online."
               }
             ],
             timestamp: new Date(),

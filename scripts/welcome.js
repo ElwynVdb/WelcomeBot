@@ -7,8 +7,6 @@ client.on('ready', () => {
     console.log('Welcome/Leave Message enabled!')
 })
 
-
-
 client.on("guildMemberAdd", (member) =>  {
   const pepsi = client.emojis.find("name", "pepsi");
   var message = "And don't forget to check <#307553601642037249>!";
