@@ -65,6 +65,9 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
      if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
+     if (messageText.content.includes('MELEE') ) {
+            message.channel.sendFile('https://cdn.discordapp.com/attachments/404001721258344450/476404324130357258/MELEE.mp3', 'MELEE.mp3');
+        }
 if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.startsWith('ali a') || message.content.startsWith('aLi A') || message.content.startsWith('Ali a') || message.content.startsWith('ali A') || message.content.startsWith('AlI a') ) {
     message.channel.send(`${gasp2}`)
 }
