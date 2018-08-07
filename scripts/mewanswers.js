@@ -68,6 +68,8 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
 if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.startsWith('ali a') || message.content.startsWith('aLi A') || message.content.startsWith('Ali a') || message.content.startsWith('ali A') || message.content.startsWith('AlI a') ) {
     message.channel.send(`${gasp2}`)
 }
+    if (message.content.includes(client.user.mention))
+        msg.channel.reply("No.. don't")
 }  
 })
 
