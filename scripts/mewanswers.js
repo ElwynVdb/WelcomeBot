@@ -32,6 +32,10 @@ if (messageText == "I DON'T LIKE WATER") {
 const milk = client.emojis.find("name", "milk");
     message.channel.send(`Milk? ${milk}`)
     }
+if (messageText == "MEW") {
+const regionalf = client.emojis.find("name", "regional_indicator_f");
+    message.channel.send(`${regionalf}`)
+    }
 if (messageText == "I DON'T LIKE MILK") {
     message.channel.send("Well then you don't survive you fussy shite!")
     }
