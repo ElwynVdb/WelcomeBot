@@ -15,10 +15,6 @@ var messageText = message.content.toUpperCase();
 if (messageText == "+AVATAR") {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
 }
-  
-  if (messageText == "+ISHED") {
-    message.channel.send("who's that?")
-}
 
 if (messageText == "+BOTAVATAR") {
     message.channel.sendFile(client.user.avatarURL,'BotAvatar.png')
@@ -41,10 +37,8 @@ if (messageText == "+UPTIME") {
 if (messageText == "+SARAH") {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
     message.reply("Sarah is Sub's angel!")
-    }
+ }
 }
 })
-
-
 
 client.login(config.token);

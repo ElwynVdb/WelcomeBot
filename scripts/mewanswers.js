@@ -28,7 +28,7 @@ if (messageText == "+creators") {
     message.reply("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
 }
 if (messageText == "I DON'T LIKE WATER") {
-    const milk = client.emojis.find("name", "milk");
+const milk = client.emojis.find("name", "milk");
 message.reply(`Milk? ${milk}`)
 }
 if (messageText == "I DON'T LIKE MILK") {
@@ -50,11 +50,9 @@ if (messageText == "TOAST?") {
     message.reply("Mew thought it was unoriginal to do test complete.")
     }
 if (messageText == "+TEST") {
-   message.author.send("toast")
-       }
-    
+   message.author.send("You have activated the test command! /n As you ready this message the bot is fine!")
+       }   
 })
-
 
 client.on('message', message => {
     const gasp2 = client.emojis.find("name", "gasp2");
@@ -70,8 +68,7 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
 if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.startsWith('ali a') || message.content.startsWith('aLi A') || message.content.startsWith('Ali a') || message.content.startsWith('ali A') || message.content.startsWith('AlI a') ) {
     message.channel.send(`${gasp2}`)
 }
-    }  
-
+}  
 })
 
 client.on("message", async message => {
@@ -96,23 +93,12 @@ client.on("message", async message => {
         const namemc = args.join(" ");
         message.channel.send(`https://namemc.com/${namemc}`)
     }
-    
-    if (command === "ytsearch") {
-        const youtube = args.join(" ");
-        message.channel.send(`https://www.youtube.com/results?search_query=${youtube}`)
-
-        }
   
-         if(command === "say") {
-        if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {                                                                                                                                      
+         if(command === "say") {                                                                                                                                      
           const sayMessage = args.join(" ");
           message.delete().catch(O_o=>{});  
           message.channel.send(sayMessage);
         }
-         }
-
 });
-
-
 
 client.login(config.token);

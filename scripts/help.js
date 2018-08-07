@@ -24,7 +24,7 @@ client.on('message', (message) => {
               icon_url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png"
             },
             title: "Commands",
-            url: "https://www.youtube.com/watch?v=29jDgmU353Q",
+            url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png",
             description: "Get to know all the commands!",
             fields: [{
                 name: "+help",
@@ -72,7 +72,7 @@ client.on('message', (message) => {
               icon_url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png"
             },
             title: "Text Commands",
-            url: "https://www.youtube.com/watch?v=29jDgmU353Q",
+            url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png",
             description: "Learn the text commands!",
             fields: [{
                 name: "1.",
@@ -109,6 +109,10 @@ client.on('message', (message) => {
                 {
                     name: "9.",
                     value: "What is Mew Bot"
+                },
+                {
+                    name: "10.",
+                    value: "UAJoke" 
                 },
                 {
                     name: "Easter Eggs!",

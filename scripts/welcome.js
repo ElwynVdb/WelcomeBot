@@ -15,10 +15,10 @@ client.on("guildMemberAdd", (member) =>  {
   console.log(`${member.user} Joined`);
 });
 
-  client.on("guildMemberRemove", (member) => {
+client.on("guildMemberRemove", (member) => {
     var membertag = member.user.tag
     member.guild.channels.get("217396856550981633").send(`*Takes ${membertag}'s pepsi back*`);
     console.log(`${member.user} left `);
-  });
+});
 
   client.login(config.token);     

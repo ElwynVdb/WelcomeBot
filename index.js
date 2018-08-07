@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 var request = require('request');
 const modules = require('./scripts/modules.js');
+
 //To add when using glitch
 app.get("/", (request, response) => {
     console.log(Date.now() + " Ping Received");
@@ -16,9 +17,7 @@ app.get("/", (request, response) => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
     
-
- // Checks
- 
+// Checks 
  client.on('ready',() => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
@@ -26,9 +25,7 @@ app.get("/", (request, response) => {
 });
 
 //reboot
-
-
-  client.on('message', message => {
+client.on('message', message => {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
@@ -108,10 +105,4 @@ client.on('message', message => {
      message.delete();
 })
 
-               
-
-    
-
-  client.login(config.token)
-
-
+ client.login(config.token)
