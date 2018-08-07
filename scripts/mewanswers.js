@@ -13,6 +13,7 @@ const config = require("./config.json");
 //Added sentence including"YOGSCAST"
 //Added sentence start with"FORTNITE"
 //Note - Anything starting with + is a command, most of these are tests, and will be removed if they do not work
+//:regional_indicator_f:
 
 client.on('ready', () => {
     console.log('Mew answers ready');
@@ -25,29 +26,29 @@ var messageText = message.content.toUpperCase();
   
 
 if (messageText == "+creators") {
-    message.reply("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
-}
+    message.channel.send("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
+    }
 if (messageText == "I DON'T LIKE WATER") {
 const milk = client.emojis.find("name", "milk");
-message.reply(`Milk? ${milk}`)
-}
+    message.channel.send(`Milk? ${milk}`)
+    }
 if (messageText == "I DON'T LIKE MILK") {
-message.reply("Well then you don't survive you fussy shite!")
-}
+    message.channel.send("Well then you don't survive you fussy shite!")
+    }
 if (messageText == "WHAT IS A MEW?") {
-message.reply("Mew is a pokémon... oh, you mean that one, he's uh, coder/texture hacker thing, for minecraft, discord, and nintendo games, just ignore him...")
-}
+    message.channel.send("Mew is a pokémon... oh, you mean that one, he's uh, coder/texture hacker thing, for minecraft, discord, and nintendo games, just ignore him...")
+}   
 if (messageText == "WHAT IS MEW BOT?") {
-message.reply("We do not discuss Mew Bot")
-}
+    message.channel.send("We do not discuss Mew Bot")
+    }
 if (messageText == "HEY MEW, HELP") {
-    message.reply("do +help you fuckface")
+    message.channel.send("do +help you fuckface")
     }
 if (messageText == "OMIWA SHINDEIRU") {
-    message.reply("NANI")
+    message.channel.send("NANI")
     }
 if (messageText == "TOAST?") {
-    message.reply("Mew thought it was unoriginal to do test complete.")
+    message.channel.send("Mew thought it was unoriginal to do test complete.")
     }
 if (messageText == "+TEST") {
    message.author.send("You have activated the test command! /n As you ready this message the bot is fine!")
@@ -65,7 +66,7 @@ if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortni
      if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
             message.channel.send('Welcome to hell, again...')
         }
-     if (messageText.content.includes('MELEE') ) {
+     if (message.content.includes('MELEE') ) {
             message.channel.sendFile('https://cdn.discordapp.com/attachments/404001721258344450/476404324130357258/MELEE.mp3', 'MELEE.mp3');
         }
 if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.startsWith('ali a') || message.content.startsWith('aLi A') || message.content.startsWith('Ali a') || message.content.startsWith('ali A') || message.content.startsWith('AlI a') ) {
