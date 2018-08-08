@@ -29,8 +29,7 @@ if (messageText == "+creators") {
     message.channel.send("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
     }
 if (messageText == "I DON'T LIKE WATER") {
-const milk = client.emojis.find("name", "milk");
-    message.channel.send(`Milk? ${milk}`)
+    message.channel.send(`Milk? :milk:`)
     }
 if (messageText == "I DON'T LIKE MILK") {
     message.channel.send("Well then you don't survive you fussy shite!")
@@ -46,7 +45,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
   
          if(command === "say") {             
-          if (message.member.hasPermission("MANAGE_MESSAGES")) return;                                                                                                               
+          if (!message.member.hasPermission("MANAGE_MESSAGES")) return;                                                                                                               
           const sayMessage = args.join(" ");
           message.delete().catch(O_o=>{});  
           message.channel.send(sayMessage);
