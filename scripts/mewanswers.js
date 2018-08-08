@@ -32,79 +32,21 @@ if (messageText == "I DON'T LIKE WATER") {
 const milk = client.emojis.find("name", "milk");
     message.channel.send(`Milk? ${milk}`)
     }
-if (messageText == "MEW") {
-const regional_indicator_f = client.emojis.find("name", "regional_indicator_f");
-    message.channel.send(`${regional_indicator_f}`)
-    }
 if (messageText == "I DON'T LIKE MILK") {
     message.channel.send("Well then you don't survive you fussy shite!")
-    }
-if (messageText == "WHAT IS A MEW?") {
-    message.channel.send("Mew is a pokémon... oh, you mean that one, he's uh, coder/texture hacker thing, for minecraft, discord, and nintendo games, just ignore him...")
-}   
-if (messageText == "WHAT IS MEW BOT?") {
-    message.channel.send("We do not discuss Mew Bot")
-    }
-if (messageText == "HEY MEW, HELP") {
-    message.channel.send("do +help you fuckface")
-    }
-if (messageText == "OMIWA SHINDEIRU") {
-    message.channel.send("NANI")
-    }
-if (messageText == "TOAST?") {
-    message.channel.send("Mew thought it was unoriginal to do test complete.")
-    }
+    } 
 if (messageText == "+TEST") {
-   message.author.send("You have activated the test command! /n As you ready this message the bot is fine!")
+   message.author.send("You have activated the test command! /n As you read this message the bot is fine!")
        }   
 })
 
-client.on('message', message => {
-    const gasp2 = client.emojis.find("name", "gasp2");
-if (message.content.startsWith("FORTNITE") || message.content.startsWith('fortnite') || message.content.startsWith('Fortnite') ) {
-    message.author.send('Did somebody say FORTNITE?')
-    message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif', 'intensification.gif');
-    }
-    else
-    {
-     if (message.content.includes('YOGSCAST') || message.content.includes('yogscast') ) {
-            message.channel.send('Welcome to hell, again...')
-        }
-     if (message.content.includes('MELEE') ) {
-            message.channel.sendFile('https://cdn.discordapp.com/attachments/404001721258344450/476404324130357258/MELEE.mp3', 'MELEE.mp3');
-        }
-if (message.content.startsWith('Ali A') || message.content.includes('ALI A') || message.content.startsWith('ali a') || message.content.startsWith('aLi A') || message.content.startsWith('Ali a') || message.content.startsWith('ali A') || message.content.startsWith('AlI a') ) {
-    message.channel.send(`${gasp2}`)
-}
-    if (message.content.includes(client.user.mention))
-        msg.channel.reply("No.. don't")
-}  
-})
-
 client.on("message", async message => {
-    // This event will run on every single message received, from any channel or DM.
-    
-    // It's good practice to ignore other bots. This also makes your bot ignore itself
-    // and not get into a spam loop (we call that "botception").
-    if(message.author.bot) return;
-    
-    // Also good practice to ignore any message that does not start with our prefix, 
-    // which is set in the configuration file.
     if(message.content.indexOf(config.prefix) !== 0) return;
-    
-    // Here we separate our "command" name, and our "arguments" for the command. 
-    // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
-    // command = say
-    // args = ["Is", "this", "the", "real", "life?"]
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-
-    if (command === "namemc") {
-        const namemc = args.join(" ");
-        message.channel.send(`https://namemc.com/${namemc}`)
-    }
   
-         if(command === "say") {                                                                                                                                      
+         if(command === "say") {             
+          if (message.member.hasPermission("MANAGE_MESSAGES")) return;                                                                                                               
           const sayMessage = args.join(" ");
           message.delete().catch(O_o=>{});  
           message.channel.send(sayMessage);

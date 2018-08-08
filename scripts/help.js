@@ -103,18 +103,6 @@ client.on('message', (message) => {
                     value: "I like pepsi"
                 },
                 {
-                    name: "8.",
-                    value: "What is a Mew?"
-                },
-                {
-                    name: "9.",
-                    value: "What is Mew Bot"
-                },
-                {
-                    name: "10.",
-                    value: "UAJoke" 
-                },
-                {
                     name: "Easter Eggs!",
                     value: "There are 3 easter egg text commands! See if you can guess any!"
                 }

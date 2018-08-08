@@ -19,10 +19,6 @@ var messageText = message.content.toUpperCase();
    if (messageText == "WHAT'S A PEPSI") {
     message.reply("pepsi is the best drink out there")
 }
-
-if (messageText == "PUPSI") {
-    message.channel.send("That's a dead meme")
-}
 })
 
 client.login(config.token)
