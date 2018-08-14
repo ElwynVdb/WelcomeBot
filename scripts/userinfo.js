@@ -27,7 +27,7 @@ if (messageText == "+USERINFO") {
               .addField('Game', `${message.author.presence.game === null ? "No Game" : message.author.presence.game.name}`, true)
               .addField('Joined Discord', `${moment(message.author.createdAt).format('MM.DD.YY')}`, true)
               .addField('Joined Server', `${moment(message.member.joinedAt).format('MM.DD.YY')}`, true)
-              .addField('Roles', `\`${message.member.roles.filter(r => r.name).size}\``, true)
+              .addField('Roles', `\`${message.member.roles.filter(r => r.name).size - 1}\``, true)
               .addField('Is Bot', `${message.author.bot}`, true)
               message.channel.sendEmbed(
                   embed, {
