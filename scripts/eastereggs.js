@@ -7,9 +7,6 @@ client.on('ready', () => {
     console.log('Eastereggs');
 })
 
-// Luke 
-// Je bent zelf een lu
-
 client.on('message', (message) => {
    if (message.author === client.user) return;
   
@@ -22,18 +19,6 @@ var messageText = message.content.toUpperCase();
    if (messageText == "WHAT'S A PEPSI") {
     message.reply("pepsi is the best drink out there")
 }
-
-if (messageText == "PUPSI") {
-    message.channel.send("That's a dead meme")
-}
-
-if (messageText == "LUL") {
-    message.reply("Je bent zelf een lul")
-}
-   
-   
 })
-
-
 
 client.login(config.token)

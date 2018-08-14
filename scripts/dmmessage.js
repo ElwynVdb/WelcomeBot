@@ -13,8 +13,7 @@ client.on("message", message => {
         message.channel.stopTyping();
         
       });  
-    
-  }
+     }
     });
 
     client.login(config.token);
