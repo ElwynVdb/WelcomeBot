@@ -53,6 +53,10 @@ client.on('message', (message) => {
               {
                 name: "+uptime",
                 value: "Shows for how long the bot is online."
+              },
+              {
+                name: "+log",
+                value: "Sends a txt file with the update/version log"
               }
             ],
             timestamp: new Date(),

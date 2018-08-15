@@ -24,6 +24,12 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
 });
 
+client.on("message", (msg) => {
+  if(msg.content.startsWith('+log')) {
+      msg.channel.sendFile('./UPDATELOG.md', 'log.txt')
+  }
+})
+
 //reboot
 client.on('message', message => {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
