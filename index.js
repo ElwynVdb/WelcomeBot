@@ -4,6 +4,7 @@ const http = require('http');
 const config = require("./scripts/config.json");
 const express = require('express');
 const app = express();
+var fs = require("fs");
 var request = require('request');
 const modules = require('./scripts/modules.js');
 
@@ -23,6 +24,15 @@ app.get("/", (request, response) => {
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
 });
+
+
+client.on("message", (msg) => {
+
+var log = fs.readFileSync("./UPDATELOG.md", {"encoding": "utf-8"});
+  if(msg.content.startsWith('+log')) {
+      msg.channel.send(log)
+  }
+})
 
 //reboot
 client.on('message', message => {
