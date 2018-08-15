@@ -16,7 +16,8 @@ client.on("guildMemberAdd", (member) =>  {
 
 client.on("guildMemberRemove", (member) => {
     var membertag = member.user.tag
-    member.guild.channels.find("name", "general").send(`*Takes ${membertag}'s pepsi back*`);
+    var memberuntagged = membertag.slice(0, -5)
+    member.guild.channels.find("name", "general").send(`*Takes ${memberuntagged}'s pepsi back*`);
     console.log(`${member.user} left `);
 });
 
