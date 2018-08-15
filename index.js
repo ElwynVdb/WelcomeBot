@@ -25,7 +25,6 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
 });
 
-
 client.on("message", (msg) => {
 
 var log = fs.readFileSync("./UPDATELOG.md", {"encoding": "utf-8"});
