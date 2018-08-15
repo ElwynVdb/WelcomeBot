@@ -12,7 +12,7 @@
 + Locked Say command.
 + Added InRole command.
 + Added UpdateLog.
-- removed #1234 tag on leave.
+- Removed #1234 tag on leave.
 - Removed Music Command.
 
 # Version 2.0
