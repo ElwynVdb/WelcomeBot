@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
+const fs = require('fs');
 const config = require("./config.json");
 
 
@@ -23,11 +24,7 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase();
-  
 
-if (messageText == "+creators") {
-    message.channel.send("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
-    }
 if (messageText == "I DON'T LIKE WATER") {
     message.channel.send(`Milk? :milk:`)
     }

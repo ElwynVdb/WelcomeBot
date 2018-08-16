@@ -26,12 +26,26 @@ app.get("/", (request, response) => {
 });
 
 client.on("message", (msg) => {
-
-var log = fs.readFileSync("./UPDATELOG.md", {"encoding": "utf-8"});
+//log 
+var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
   if(msg.content.startsWith('+log')) {
       msg.channel.send(log)
   }
 })
+
+//commands core
+
+client.on('message', (message) => {
+    if (message.author === client.user) return;
+   
+ var messageText = message.content.toUpperCase();
+   
+ 
+ if (messageText == "+CREATORS") {
+     var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
+     message.channel.send(creator)
+     }
+    })
 
 //reboot
 client.on('message', message => {
