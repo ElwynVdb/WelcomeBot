@@ -31,6 +31,7 @@ if(!reportschannel) return message.channel.send("Couldn't find reports channel."
 
 message.delete().catch(O_o=>{});
 reportschannel.send(reportEmbed);
+      console.log(`${rUser} got reported by ${message.author} for: ${rreason}`)
     }
 }); 
 
