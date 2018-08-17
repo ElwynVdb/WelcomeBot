@@ -29,7 +29,7 @@ client.on("message", (msg) => {
 //log 
 var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
   if(msg.content.startsWith('+log')) {
-      msg.channel.send(log)
+      msg.channel.send(`"```,$,{log}```"`)
   }
 })
 

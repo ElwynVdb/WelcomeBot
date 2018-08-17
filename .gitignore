@@ -51,3 +51,4 @@ config.js
 node_modules/
 .env
 shrinkwrap.yaml
+temp

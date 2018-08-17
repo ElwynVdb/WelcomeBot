@@ -14,4 +14,7 @@ const answerdm = require("./dmmessage.js");
 const commands = require("./commands.js");
 const rank = require("./ranklist.js");
 const welcome = require("./welcome.js");
+const eval = require("./eval.js");
+const report = require("./report.js");
+
 client.login(config.token);
