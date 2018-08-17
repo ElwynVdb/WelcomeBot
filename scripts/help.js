@@ -47,8 +47,12 @@ client.on('message', (message) => {
                 value: "List of creators/contributors"
               },
               {
-                  name: "+userinfo",
-                  value: "Info on the user running the command"
+                name: "+userinfo",
+                value: "Info on the user running the command"
+              },
+              {
+                name: "+report",
+                value: "+report @User [Reason]"
               },
               {
                 name: "+uptime",
