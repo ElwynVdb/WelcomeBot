@@ -35,5 +35,7 @@ if (messageText == "+TEST") {
    message.author.send("You have activated the test command! /n As you read this message the bot is fine!")
        }   
 })
-
+if (messageText == "JOSIA") {
+    message.channel.send('<@318821976372150272> you done fucked up again, sigh')
+}
 client.login(config.token);
