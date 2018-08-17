@@ -12,6 +12,9 @@
 + Locked Say command.
 + Added InRole command.
 + Added UpdateLog.
++ Rewritten Command handler.
++ Added Melee Command (+melee).
++ Added Prefix change command.
 - Removed #1234 tag on leave.
 - Removed Music Command.
 
