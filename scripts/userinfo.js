@@ -3,16 +3,15 @@ const client = new Discord.Client();
 const randomcolor = require('randomcolor');
 const config = require("./config.json")
 const moment = require('moment');
+const prefix = config.prefix
 
 
-client.on('ready', () => {
-    console.log('Userinfo is ready!');
-})
-
-client.on("message", (message, msg) => {
-var messageText = message.content.toUpperCase(); 
- 
-if (messageText == "+USERINFO") {
+client.on("message", async message => {
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+  
+ if(command === "userinfo") {
  var user = message.mentions.users.first();
       var embed = new Discord.RichEmbed();
       if (!user) {
