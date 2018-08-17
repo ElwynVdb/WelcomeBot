@@ -9,7 +9,7 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
    if (message.author === client.user) return;
-  
+
 var messageText = message.content.toUpperCase(); 
 
 if (messageText == "+AVATAR") {

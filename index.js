@@ -29,12 +29,22 @@ client.on("message", (msg) => {
 //log 
 var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
   if(msg.content.startsWith('+log')) {
-      msg.channel.send(`"```,$,{log}```"`)
+      msg.channel.send(`${log}`)
+  }
+  if(msg.member.roles.some(r=>["Ultra-Admin", "SWD-Developer", "SWDTeam"].includes(r.name)) ) {
+  if(msg.content.startsWith(config.prefix + "prefix")) {
+    let newPrefix = msg.content.split(" ").slice(1, 2)[0];
+    config.prefix = newPrefix;
+    msg.channel.send(`Prefix has been changed to ${newPrefix}`)
+  
+    // Now we have to save the file.
+    fs.writeFile("./scripts/config.json", JSON.stringify(config, null, 4), (err) => console.error);
+  }
   }
 })
 
-//commands core
 
+//commands core
 client.on('message', (message) => {
     if (message.author === client.user) return;
    
@@ -47,6 +57,10 @@ client.on('message', (message) => {
      message.channel.send(creator)
      }
 })
+
+
+
+
 
 //reboot
 client.on('message', message => {

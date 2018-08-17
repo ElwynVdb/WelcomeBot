@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json")
+const talkedRecently = new Set();
 
 client.on("ready", () => {
     console.log('Report Ready')
@@ -10,9 +11,16 @@ client.on("message", async message => {
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-  
+    
+    if (talkedRecently.has(message.author.id)) return message.reply('Please wait `5 Seconds` before sending another report ');
+
+    talkedRecently.add(message.author.id);
+    setTimeout(() => {
+      talkedRecently.delete(message.author.id);
+    }, 5000);   
          
-    if(command === "report") {             
+    if(command === "report") {     
+
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!rUser) return message.channel.send("Couldn't find user.");
 let rreason = args.join(" ").slice(22);
