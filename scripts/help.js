@@ -4,18 +4,18 @@ const express = require('express');
 const config = require("./config.json");
 const randomcolor =  require("randomcolor")
 const pepsi = client.emojis.find("name", "pepsi");
+const prefix = config.prefix
 
 client.on('ready', () => {
-    console.log('+help is ready');
+    console.log('Help is ready');
 })
 
-client.on('message', (message) => {
-    if (message.author === client.user) return;
-   
- var messageText = message.content.toUpperCase(); 
-    let args = message.content.split(" ").slice(1);
+client.on("message", async message => {
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
 
-    if(messageText == "+HELP") {
+if(command === "help") {
         message.author.send('Help Message:')
         message.author.send({embed: {
             color: 3447003,
@@ -47,8 +47,12 @@ client.on('message', (message) => {
                 value: "List of creators/contributors"
               },
               {
-                  name: "+userinfo",
-                  value: "Info on the user running the command"
+                name: "+userinfo",
+                value: "Info on the user running the command"
+              },
+              {
+                name: "+report",
+                value: "+report @User [Reason]"
               },
               {
                 name: "+uptime",
@@ -68,7 +72,7 @@ client.on('message', (message) => {
           
         });
 
-        if(messageText == "+HELP") {
+        if(command === "help") {
         message.author.send({embed: {
             color: 3447003,
             author: {

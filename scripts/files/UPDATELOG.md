@@ -1,3 +1,4 @@
+```Markdown
 # Update Log
 # LukeBeforeYouBot
 
@@ -12,7 +13,10 @@
 + Locked Say command.
 + Added InRole command.
 + Added UpdateLog.
-- removed #1234 tag on leave.
++ Rewritten Command handler.
++ Added Melee Command (+melee).
++ Added Prefix change command.
+- Removed #1234 tag on leave.
 - Removed Music Command.
 
 # Version 2.0
@@ -35,5 +39,6 @@
 + Added Watch.json
 + Added package.json
 + Added environ.
+```
 
 

@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
+const fs = require('fs');
 const config = require("./config.json");
 
 
@@ -23,33 +24,12 @@ client.on('message', (message) => {
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase();
-  
 
-if (messageText == "+creators") {
-    message.channel.send("Some lovely people by the name of Josia, Luke, Sub, Ished and Mew!")
-    }
 if (messageText == "I DON'T LIKE WATER") {
-    message.channel.send(`Milk? :milk:`)
+    message.channel.send(`Milk?`)
     }
 if (messageText == "I DON'T LIKE MILK") {
-    message.channel.send("Well then you don't survive you fussy shite!")
+    message.channel.send("Well then you don't survive!")
     } 
-if (messageText == "+TEST") {
-   message.author.send("You have activated the test command! /n As you read this message the bot is fine!")
-       }   
 })
-
-client.on("message", async message => {
-    if(message.content.indexOf(config.prefix) !== 0) return;
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-  
-         if(command === "say") {             
-          if (!message.member.hasPermission("MANAGE_MESSAGES")) return;                                                                                                               
-          const sayMessage = args.join(" ");
-          message.delete().catch(O_o=>{});  
-          message.channel.send(sayMessage);
-        }
-});
-
 client.login(config.token);

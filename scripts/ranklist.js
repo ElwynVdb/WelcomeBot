@@ -4,7 +4,7 @@ const express = require('express');
 const config = require("./config.json")
 
 client.on("ready", () => {
-    console.log('ready rank')
+    console.log('InRole Command Ready')
 })
 
 client.on("message", (message) => {

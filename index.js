@@ -7,6 +7,7 @@ const app = express();
 var fs = require("fs");
 var request = require('request');
 const modules = require('./scripts/modules.js');
+const prefix = config.prefix
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -26,12 +27,42 @@ app.get("/", (request, response) => {
 });
 
 client.on("message", (msg) => {
-
-var log = fs.readFileSync("./UPDATELOG.md", {"encoding": "utf-8"});
-  if(msg.content.startsWith('+log')) {
-      msg.channel.send(log)
+//log 
+var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
+  if(msg.content.startsWith(prefix + 'log')) {
+      msg.channel.send(`${log}`)
+  }
+  
+  if(msg.content.startsWith(config.prefix + "prefix")) {
+    if (msg.member.roles.some(r=>["Ultra-Admin", "SWD-Developer", "SWDTeam"].includes(r.name)) ) {
+    let newPrefix = msg.content.split(" ").slice(1, 2)[0];
+    config.prefix = newPrefix;
+    msg.channel.send(`Prefix has been changed to ${newPrefix}`)
+  
+    // Now we have to save the file.
+    fs.writeFile("./scripts/config.json", JSON.stringify(config, null, 4), (err) => console.error);
+  }
   }
 })
+
+
+//commands core
+client.on('message', (message) => {
+    if (message.author === client.user) return;
+   
+ var messageText = message.content.toUpperCase();
+   
+ 
+ if (messageText == "+CREATORS") {
+
+     var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
+     message.channel.send(creator)
+     }
+})
+
+
+
+
 
 //reboot
 client.on('message', message => {
@@ -54,7 +85,7 @@ client.on('message', message => {
   }
 
 
-var mcCommand = '/DMU' || '/dmu'; // Command for triggering
+var mcCommand = prefix + 'DMU' || prefix + 'dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
@@ -110,7 +141,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
- if (message.content.includes('/DMU'))
+ if (message.content.includes(prefix + 'DMU'))
      message.delete();
 })
 
