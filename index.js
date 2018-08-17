@@ -42,10 +42,11 @@ client.on('message', (message) => {
    
  
  if (messageText == "+CREATORS") {
+
      var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
      message.channel.send(creator)
      }
-    })
+})
 
 //reboot
 client.on('message', message => {
