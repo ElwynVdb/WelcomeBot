@@ -5,7 +5,7 @@
 # Version 4 (Planned)
 + Lock Bot to SWD Discord
 + Alt check (Warns staff when username matches a list)
-+ Spam check (Will timeout bot for a few seconds)
++ Spam check (Delay between commands (Per User))
 
 # Version 3.0 (Current)
 + Added Mew Answers.

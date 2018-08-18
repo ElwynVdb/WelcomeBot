@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
+const talkedRecently = new Set();
 
 client.on('ready', () => {
     console.log('Commands are ready');
@@ -11,7 +12,12 @@ client.on("message", async message => {
     if(message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-  
+    if (talkedRecently.has(message.author.id)) return message.reply('Please wait `5 Seconds` before using a command again. ');
+
+    talkedRecently.add(message.author.id);
+    setTimeout(() => {
+      talkedRecently.delete(message.author.id);
+    }, 5000);  
  if(command === "avatar") {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
 }
@@ -57,6 +63,10 @@ if(command === "say") {
   if (command === "melee") {
     message.channel.sendFile('https://cdn.discordapp.com/attachments/404001721258344450/476404324130357258/MELEE.mp3', 'MELEE.mp3');
 }
+
+ if(command === "guidelines") {
+     message.channel.send('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
+ }
 })
 
 client.login(config.token);

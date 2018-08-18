@@ -6,8 +6,8 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-const modules = require('./scripts/modules.js');
-const prefix = config.prefix
+//const modules = require('./scripts/modules.js');
+const altcheck = require('./altcheck.js');
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -27,9 +27,8 @@ app.get("/", (request, response) => {
 });
 
 client.on("message", (msg) => {
-//log 
 var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
-  if(msg.content.startsWith(prefix + 'log')) {
+  if(msg.content.startsWith('+log')) {
       msg.channel.send(`${log}`)
   }
   
@@ -85,7 +84,7 @@ client.on('message', message => {
   }
 
 
-var mcCommand = prefix + 'DMU' || prefix + 'dmu'; // Command for triggering
+var mcCommand =  '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
@@ -141,7 +140,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
- if (message.content.includes(prefix + 'DMU'))
+ if (message.content.includes('/DMU'))
      message.delete();
 })
 
