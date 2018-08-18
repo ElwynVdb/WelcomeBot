@@ -60,10 +60,6 @@ if(command === "say") {
   message.author.send("You have activated the test command! /n As you read this message the bot is fine!")
   }
 
-  if (command === "melee") {
-    message.channel.sendFile('https://cdn.discordapp.com/attachments/404001721258344450/476404324130357258/MELEE.mp3', 'MELEE.mp3');
-}
-
  if(command === "guidelines") {
      message.channel.send('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
  }
