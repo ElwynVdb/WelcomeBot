@@ -16,5 +16,6 @@ const rank = require("./ranklist.js");
 const welcome = require("./welcome.js");
 const eval = require("./eval.js");
 const report = require("./report.js");
+const music = require("./music.js");
 
 client.login(config.token);
