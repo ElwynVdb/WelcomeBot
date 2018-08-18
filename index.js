@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-//const modules = require('./scripts/modules.js');
+const modules = require('./scripts/modules.js');
 const altcheck = require('./altcheck.js');
 
 //To add when using glitch
