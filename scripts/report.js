@@ -30,6 +30,7 @@ let reportEmbed = new Discord.RichEmbed()
 .setColor("#15f153")
 .addField("Reported User", `${rUser}`)
 .addField("Reported By", `${message.author}`)
+.addField("Channel", message.channel)
 .addField("Time", message.createdAt)
 .addField("Reason", rreason);
 
