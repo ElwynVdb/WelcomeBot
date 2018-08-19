@@ -51,7 +51,7 @@ client.on("message", async message => {
 }
 
 if(command === "say") {             
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return;                                                                                                               
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permissions to use this!');                                                                                                               
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
