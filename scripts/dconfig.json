@@ -1,0 +1,10 @@
+{
+    "prefix": "!",
+    "modlogchannel": "log",
+    "modRole": "Moderator",
+    "adminRole": "Administrator",
+    "welcomechannel": "welcome",
+    "welcomemessage": "Say hello to {{user}}, everyone! We all need a warm welcome sometimes :D",
+    "leavemessage": "Bye",
+    "guildname":  "guildname"
+  }
