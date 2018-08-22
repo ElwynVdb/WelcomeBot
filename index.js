@@ -6,8 +6,7 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-//const perid = require('./scripts/seperate.js');
-const modules = require('./scripts/modules.js');
+const modules = require('./scripts/configperguild.js');
 //const altcheck = require('./altcheck.js');
 
 //To add when using glitch
@@ -26,25 +25,6 @@ app.get("/", (request, response) => {
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
 });
-
-client.on("message", (msg) => {
-var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
-  if(msg.content.startsWith('+log')) {
-      msg.channel.send(`${log}`)
-  }
-  
-  if(msg.content.startsWith(config.prefix + "prefix")) {
-    if (msg.member.roles.some(r=>["Ultra-Admin", "SWD-Developer", "SWDTeam"].includes(r.name)) ) {
-    let newPrefix = msg.content.split(" ").slice(1, 2)[0];
-    config.prefix = newPrefix;
-    msg.channel.send(`Prefix has been changed to ${newPrefix}`)
-  
-    // Now we have to save the file.
-    fs.writeFile("./scripts/config.json", JSON.stringify(config, null, 4), (err) => console.error);
-  }
-  }
-})
-
 
 //commands core
 client.on('message', (message) => {

@@ -5,22 +5,12 @@ const fs = require('fs');
 const config = require("./config.json");
 
 
-//Mew 
- //Added "WHO MADE YOU?"
-//Added "I DON'T LIKE WATER"
-//Added "I DON'T LIKE MILK"
-//Added "WHAT IS A MEW?"
-//Added "WHAT IS MEW BOT?"
-//Added sentence including"YOGSCAST"
-//Added sentence start with"FORTNITE"
-//Note - Anything starting with + is a command, most of these are tests, and will be removed if they do not work
-//:regional_indicator_f:
-
 client.on('ready', () => {
     console.log('Mew answers ready');
 })
 
 client.on('message', (message) => {
+    if (message.guild === null) return;
    if (message.author === client.user) return;
   
 var messageText = message.content.toUpperCase();

@@ -3,16 +3,18 @@ const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
 const randomcolor =  require("randomcolor")
-const pepsi = client.emojis.find("name", "pepsi");
-const prefix = config.prefix
 
 client.on('ready', () => {
     console.log('Help is ready');
 })
 
 client.on("message", async message => {
-  if(message.content.indexOf(config.prefix) !== 0) return;
-  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  if (message.guild === null) return;
+  var guildid = message.guild.id
+  const configa = require(`./configs/${guildid}.json`)
+  const prefix = configa.token
+  if(message.content.indexOf(configa.prefix) !== 0) return;
+  const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
 if(command === "help") {

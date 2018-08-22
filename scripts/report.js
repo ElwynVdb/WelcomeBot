@@ -1,23 +1,19 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json")
-const talkedRecently = new Set();
 
 client.on("ready", () => {
     console.log('Report Ready')
 })
 
 client.on("message", async message => {
-    if(message.content.indexOf(config.prefix) !== 0) return;
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    if (message.guild === null) return;
+    var guildid = message.guild.id
+    const configa = require(`./configs/${guildid}.json`)
+    if(message.content.indexOf(configa.prefix) !== 0) return;
+    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    if (talkedRecently.has(message.author.id)) return;
-
-    talkedRecently.add(message.author.id);
-    setTimeout(() => {
-      talkedRecently.delete(message.author.id);
-    }, 5000);   
          
     if(command === "report") {     
 
@@ -34,7 +30,8 @@ let reportEmbed = new Discord.RichEmbed()
 .addField("Time", message.createdAt)
 .addField("Reason", rreason);
 
-let reportschannel = message.guild.channels.find(`name`, "support");
+
+let reportschannel = message.guild.channels.find(`name`, configa.reportchannel);
 if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
 

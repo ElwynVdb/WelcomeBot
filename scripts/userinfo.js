@@ -6,9 +6,14 @@ const moment = require('moment');
 const prefix = config.prefix
 
 
+
+
 client.on("message", async message => {
-    if(message.content.indexOf(config.prefix) !== 0) return;
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    if (message.guild === null) return;
+    var guildid = message.guild.id
+    const configa = require(`./configs/${guildid}.json`)
+    if(message.content.indexOf(configa.prefix) !== 0) return;
+    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
   
  if(command === "userinfo") {

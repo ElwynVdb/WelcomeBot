@@ -14,9 +14,12 @@ function clean(text) {
   }
 
   client.on("message", message => {
+    if (message.guild === null) return;
+  var guildid = message.guild.id
+  const configa = require(`./configs/${guildid}.json`)
     const args = message.content.split(" ").slice(1);
   
-    if (message.content.startsWith(config.prefix + "eval")) {
+    if (message.content.startsWith(configa.prefix + "eval")) {
       if(message.author.id !== config.ownerID) return;
       try {
         const code = args.join(" ");
