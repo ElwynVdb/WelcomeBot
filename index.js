@@ -6,8 +6,9 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
+//const perid = require('./scripts/seperate.js');
 const modules = require('./scripts/modules.js');
-const altcheck = require('./altcheck.js');
+//const altcheck = require('./altcheck.js');
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -139,6 +140,17 @@ client.on('message', message => {
     }
 });
 
+
+/*client.on('message', message => {
+    if (message.content.includes('test')) {
+        
+        var players = require('./scripts/files/CC.json');
+        message.channel.send(players.username + ' ' + players.server_name);
+    }
+})
+*/
+
+    
 client.on('message', message => {
  if (message.content.includes('/DMU'))
      message.delete();

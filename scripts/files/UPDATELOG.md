@@ -3,9 +3,10 @@
 # LukeBeforeYouBot
 
 # Version 4 (Planned)
-+ Lock Bot to SWD Discord
-+ Alt check (Warns staff when username matches a list)
-+ Spam check (Delay between commands (Per User))
++ Per-Server Config.
++ Alt check (Warns staff when username matches a list).
++ Spam check (Delay between commands (Per User).
++ Anti-Invite Link (Except for Friend+).
 
 # Version 3.0 (Current)
 + Added Mew Answers.
@@ -18,6 +19,7 @@
 + Added Prefix change command.
 - Removed #1234 tag on leave.
 - Removed Music Command.
+- Removed useless commands.
 
 # Version 2.0
 + Added UserInfo command.

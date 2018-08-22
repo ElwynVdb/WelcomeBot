@@ -16,7 +16,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
 if(command === "help") {
-        message.author.send('Help Message:')
+        message.author.send(`Help Message:\n Prefix: ${prefix} `)
         message.author.send({embed: {
             color: 3447003,
             author: {
@@ -27,39 +27,39 @@ if(command === "help") {
             url: "https://cdn.discordapp.com/attachments/223033559726686208/469544295326547988/lukebotbutbetter.png",
             description: "Get to know all the commands!",
             fields: [{
-                name: "+help",
+                name: "help",
                 value: "This help embed"
               },
               {
-                name: "+avatar",
+                name: "avatar",
                 value: "Get's user's avatar"
               },
               {
-                name: "+botavatar",
+                name: "botavatar",
                 value: "Get's bot avatar"
               },
               {
-                name: "+servericon" ,
+                name: "servericon" ,
                 value: "Get's server's icon" 
               },
               {
-                name: "+creators",
+                name: "creators",
                 value: "List of creators/contributors"
               },
               {
-                name: "+userinfo",
+                name: "userinfo",
                 value: "Info on the user running the command"
               },
               {
-                name: "+report",
+                name: "report",
                 value: "+report @User [Reason]"
               },
               {
-                name: "+uptime",
+                name: "uptime",
                 value: "Shows for how long the bot is online."
               },
               {
-                name: "+log",
+                name: "log",
                 value: "Sends a txt file with the update/version log"
               }
             ],
@@ -100,14 +100,10 @@ if(command === "help") {
               },
               {
                   name: "5.",
-                  value: "Who is Mumbles?"                     
-                },
-                {
-                  name: "6.",
                   value: "I want water"
                 },
                 {
-                    name: "7.",
+                    name: "6.",
                     value: "I like pepsi"
                 },
                 {
