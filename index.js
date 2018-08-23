@@ -42,13 +42,14 @@ client.on('message', (message) => {
 })
 
 client.on("message", (msg) => {	
-    if(message.guild === null) return
+    if(msg.guild === null) return
     var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});	
       if(msg.content.startsWith('+log')) {	
           msg.channel.send(`${log}`)	
       }else
       {
         var guildid = msg.guild.id
+        if (!fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
         fs.readdirSync('./scripts/configs').forEach(file => {
       if(msg.content.startsWith('+configs')) {

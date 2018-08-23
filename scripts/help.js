@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
 const randomcolor =  require("randomcolor")
+const fs = require('fs');
 
 client.on('ready', () => {
     console.log('Help is ready');
@@ -11,6 +12,7 @@ client.on('ready', () => {
 client.on("message", async message => {
   if (message.guild === null) return;
   var guildid = message.guild.id
+  if (!fs.existsSync(`./configs/${guildid}.json`)) return;
   const configa = require(`./configs/${guildid}.json`)
   const prefix = configa.token
   if(message.content.indexOf(configa.prefix) !== 0) return;

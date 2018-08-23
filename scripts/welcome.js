@@ -2,6 +2,7 @@ const discord = require('discord.js');
 const client = new discord.Client();
 const express = require('express');
 const config = require("./config.json")
+const fs = require('fs');
 
 client.on('ready', () => {
     console.log('Welcome/Leave Message enabled!')
@@ -11,6 +12,7 @@ client.on('ready', () => {
 
 client.on("guildMemberAdd", (member) =>  {
 var guildid = member.guild.id
+if (!fs.existsSync(`./configs/${guildid}.json`)) return;
 const configa = require(`./configs/${guildid}.json`)
 var channel = configa.welcomechannel
 
@@ -22,6 +24,7 @@ var channel = configa.welcomechannel
 
 client.on("guildMemberRemove", (member) => {
     var guildid = member.guild.id
+    if (!fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./configs/${guildid}.json`)
     var channel = configa.welcomechannel
     var membertag = member.user.tag

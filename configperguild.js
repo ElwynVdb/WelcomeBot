@@ -14,7 +14,7 @@ if (!fs.existsSync(folder)) {
   fs.mkdirSync("/configs")
 }*/
 
-client.on('guildCreate', (guild) => {
+/*client.on('guildCreate', (guild) => {
   const guildid = guild.id
   const guildname = guild.name
   var dconfig = fs.readFileSync('./dconfig.json')
@@ -24,21 +24,21 @@ client.on('guildCreate', (guild) => {
     let guildjname = guildname
     configa.guildname = guildjname;
     fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
-})
+})*/
 
 
 
-client.on('guildDelete', (guild) => {
+/*client.on('guildDelete', (guild) => {
   const guildid = guild.id
   const guildname = guild.name
   fs.readdirSync('./scripts/configs')
   fs.unlinkSync(`./scripts/configs/${guildid}.json`);
-});
+});*/
 
 client.on('message', (message) => {
-    if(message.guild === null) return
   if (message.guild === null) return;
   const guildid = message.guild.id
+  if (!fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
   var configa = require(`./scripts/configs/${guildid}.json`)
   if(message.content.indexOf(configa.prefix) !== 0) return;
   const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
