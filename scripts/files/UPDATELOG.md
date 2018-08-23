@@ -2,24 +2,30 @@
 # Update Log
 # LukeBeforeYouBot
 
-# Version 4 (Planned)
-+ Per-Server Config.
+# Version 5 (Planned)
 + Alt check (Warns staff when username matches a list).
-+ Spam check (Delay between commands (Per User).
 + Anti-Invite Link (Except for Friend+).
++ Spam check (Delay between commands (Per User).
 
-# Version 3.0 (Current)
+# Version 4 (Current)
++ Per-Guild Config.
++ Added Prefix change Command.
++ Added Welcome channel change Command.
++ Added Modrole set Command.
++ Added Adminrole set Command.
++ Added Extra-Commands toggle.
+
+# Version 3.0
 + Added Mew Answers.
 + Added Say command.
 + Locked Say command.
 + Added InRole command.
-+ Added UpdateLog.
++ Added Update-Log (This).
 + Rewritten Command handler.
-+ Added Melee Command (+melee).
-+ Added Prefix change command.
 - Removed #1234 tag on leave.
 - Removed Music Command.
 - Removed useless commands.
+
 
 # Version 2.0
 + Added UserInfo command.

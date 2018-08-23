@@ -1,13 +1,13 @@
 {
   "name": "luke-before-you-bot",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "LukeBeforeYouBot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Josia50",
   "license": "ISC",
   "dependencies": {
     "cleverbot-node": "^0.3.11",

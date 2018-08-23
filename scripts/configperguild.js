@@ -50,14 +50,14 @@ if(command === "configs") {
 })
 }
 if(command === "prefix") {
-if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permission to use this!'); 
+     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
     configa.prefix = newPrefix;
     message.channel.send(`Prefix has been changed to ${newPrefix}`)
     fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
 }
  if(command === "welcomechannel"){
-  if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let newwelcome = message.content.split(" ").slice(1, 2)[0];
   configa.welcomechannel = newwelcome;
   fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
@@ -71,6 +71,7 @@ if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You 
   message.channel.send(`Changed Admin role to ${newadminrole}`)
  }
  if(command === "modrole"){
+
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let newmodrole = message.content.split(" ").slice(1, 2)[0];
   configa.modrole = newmodrole;

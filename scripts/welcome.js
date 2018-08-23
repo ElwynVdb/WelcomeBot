@@ -30,4 +30,4 @@ client.on("guildMemberRemove", (member) => {
     console.log(`${member.user} left `);
 });
 
-  client.login(config.token);     
+  client.login(config.token); 

@@ -1,11 +1,11 @@
 {
   "prefix": "+",
   "modlogchannel": "log",
-  "modrole": "Moderator",
+  "modrole": "DMU Staff",
   "adminrole": "Administrator",
   "welcomechannel": "general",
-  "reportchannel": "report",
+  "reportchannel": "support",
   "extracommands": "false",
   "ruleschannel": "rules",
-  "guildname":  "guild"
+  "guildname":  "SWD Community"
 }
