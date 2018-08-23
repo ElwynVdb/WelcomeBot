@@ -12,6 +12,7 @@ client.on("ready", () => {
 })
 
 client.on("message", (msg) => {
+    if(msg.guild === null) return
 if (msg.content.startsWith(configa.prefix) || msg.content.startsWith('-') || msg.content.startsWith('/') || msg.content.startsWith('&')) {
 const logger = {
     log: (msg) => { 

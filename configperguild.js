@@ -36,6 +36,7 @@ client.on('guildDelete', (guild) => {
 });
 
 client.on('message', (message) => {
+    if(message.guild === null) return
   if (message.guild === null) return;
   const guildid = message.guild.id
   var configa = require(`./scripts/configs/${guildid}.json`)

@@ -8,6 +8,7 @@ client.on("ready", () => {
 })
 
 client.on("message", (message) => {
+    if(message.guild === null) return
     if(message.content.startsWith("&inrole")){
         let roleName = message.content.split(" ").slice(1).join(" ");
     

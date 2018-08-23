@@ -7,7 +7,7 @@ client.on("ready", () => {
 })
 
 client.on("message", async message => {
-    if (message.guild === null) return;
+    if(message.guild === null) return
     var guildid = message.guild.id
     const configa = require(`./configs/${guildid}.json`)
     if(message.content.indexOf(configa.prefix) !== 0) return;
