@@ -47,8 +47,8 @@ client.on("message", (msg) => {
       }else
       {
         var guildid = msg.guild.id
-    const configa = require(`./configs/${guildid}.json`)
-        fs.readdirSync('./configs').forEach(file => {
+    const configa = require(`./scripts/configs/${guildid}.json`)
+        fs.readdirSync('./scripts/configs').forEach(file => {
       if(msg.content.startsWith('+configs')) {
           if (!msg.member.id == "318821976372150272") return;
           msg.channel.send(file)	
