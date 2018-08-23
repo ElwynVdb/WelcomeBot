@@ -28,6 +28,7 @@ app.get("/", (request, response) => {
 
 //commands core
 client.on('message', (message) => {
+    if(message.guild === null) return
     if (message.author === client.user) return;
    
  var messageText = message.content.toUpperCase();
@@ -41,6 +42,7 @@ client.on('message', (message) => {
 })
 
 client.on("message", (msg) => {	
+    if(message.guild === null) return
     var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});	
       if(msg.content.startsWith('+log')) {	
           msg.channel.send(`${log}`)	
@@ -63,6 +65,7 @@ client.on("message", (msg) => {
 
 //reboot
 client.on('message', message => {
+    if(message.guild === null) return
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
     switch(message.content.toLowerCase()) {
         case '-reboot':
@@ -87,6 +90,7 @@ var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
 client.on('message', message => {
+  if(message.guild === null) return
     if (message.content === mcCommand) {
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         request(url, function(err, response, body) {
@@ -114,6 +118,7 @@ var mcIP1 = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort1 = 25587; // Your MC server port
 
 client.on('message', message => {
+  if(message.guild === null) return
     if (message.content === mcCommand) {
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort1;
         request(url, function(err, response, body) {
@@ -149,6 +154,7 @@ client.on('message', message => {
 
     
 client.on('message', message => {
+  if(message.guild === null) return
  if (message.content.includes('/DMU'))
      message.delete();
 })
