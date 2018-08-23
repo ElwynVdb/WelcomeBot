@@ -22,11 +22,8 @@
     "get-youtube-id": "^1.0.0",
     "http": "0.0.0",
     "moment": "^2.22.2",
-    "opusscript": "0.0.3",
     "randomcolor": "^0.5.3",
     "request": "^2.87.0",
-    "simple-youtube-api": "^3.0.0",
-    "youtube-info": "^1.2.0",
-    "ytdl-core": "^0.16.0"
+    "youtube-info": "^1.2.0"
   }
 }
