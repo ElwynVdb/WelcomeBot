@@ -21,7 +21,10 @@ client.on("message", async message => {
     if (command === "r34") {
         message.channel.send('https://rule34.xxx/index.php?page=post&s=list&tags='+args.join(" "))
     }
+    if (command === "melee") {
+        message.channel.sendFile("","melee.mp3")
+    }
   }
 })
 
-client.login(config.tokenokay)
+client.login(config.token)

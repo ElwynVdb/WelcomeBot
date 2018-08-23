@@ -80,6 +80,13 @@ if(command === "prefix") {
   fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
   message.channel.send(`Changed Mod role to ${newmodrole}`)
 }
+if(command === "verify") {
+  const guildname = message.guild.name
+  let guildjname = guildname
+  configa.guildname = guildjname;
+  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  message.channel.send(`Verified ${guildname}`)
+}
  if(command === "extracmd"){
   if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
    if (configa.extracommands === "false") {
@@ -97,8 +104,8 @@ if(command === "prefix") {
   message.channel.send('Disabled Extra Commands!')
  }
 }
+} 
 }
-  }
 })
 
 client.login(config.token);
