@@ -6,8 +6,8 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-const modules = require('./scripts/modules.js');
-const prefix = config.prefix
+const modules = require('./scripts/configperguild.js');
+//const altcheck = require('./altcheck.js');
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -26,26 +26,6 @@ app.get("/", (request, response) => {
     client.user.setActivity('Welcome to hell!')
 });
 
-client.on("message", (msg) => {
-//log 
-var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
-  if(msg.content.startsWith(prefix + 'log')) {
-      msg.channel.send(`${log}`)
-  }
-  
-  if(msg.content.startsWith(config.prefix + "prefix")) {
-    if (msg.member.roles.some(r=>["Ultra-Admin", "SWD-Developer", "SWDTeam"].includes(r.name)) ) {
-    let newPrefix = msg.content.split(" ").slice(1, 2)[0];
-    config.prefix = newPrefix;
-    msg.channel.send(`Prefix has been changed to ${newPrefix}`)
-  
-    // Now we have to save the file.
-    fs.writeFile("./scripts/config.json", JSON.stringify(config, null, 4), (err) => console.error);
-  }
-  }
-})
-
-
 //commands core
 client.on('message', (message) => {
     if (message.author === client.user) return;
@@ -58,6 +38,23 @@ client.on('message', (message) => {
      var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
      message.channel.send(creator)
      }
+})
+
+client.on("message", (msg) => {	
+    var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});	
+      if(msg.content.startsWith('+log')) {	
+          msg.channel.send(`${log}`)	
+      }else
+      {
+        var guildid = msg.guild.id
+    const configa = require(`./scripts/configs/${guildid}.json`)
+        fs.readdirSync('./scripts/configs').forEach(file => {
+      if(msg.content.startsWith('+configs')) {
+          if (!msg.member.id == "318821976372150272") return;
+          msg.channel.send(file)	
+      }  
+    })
+      }
 })
 
 
@@ -85,7 +82,7 @@ client.on('message', message => {
   }
 
 
-var mcCommand = prefix + 'DMU' || prefix + 'dmu'; // Command for triggering
+var mcCommand =  '/DMU' || '/dmu'; // Command for triggering
 var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
 var mcPort = 25565;
 
@@ -140,8 +137,19 @@ client.on('message', message => {
     }
 });
 
+
+/*client.on('message', message => {
+    if (message.content.includes('test')) {
+        
+        var players = require('./scripts/files/CC.json');
+        message.channel.send(players.username + ' ' + players.server_name);
+    }
+})
+*/
+
+    
 client.on('message', message => {
- if (message.content.includes(prefix + 'DMU'))
+ if (message.content.includes('/DMU'))
      message.delete();
 })
 

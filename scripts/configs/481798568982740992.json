@@ -1,0 +1,11 @@
+{
+    "prefix": "+",
+    "modlogchannel": "log",
+    "modrole": "Moderator",
+    "adminrole": "Administrator",
+    "welcomechannel": "welcome",
+    "reportchannel": "report",
+    "extracommands": "true",
+    "ruleschannel": "rules",
+    "guildname": "guild"
+}

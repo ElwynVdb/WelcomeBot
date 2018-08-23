@@ -23,9 +23,6 @@ var messageText = message.content.toUpperCase();
   if (messageText == "WHO IS MUMBLES?") {
   message.channel.sendFile('https://cdn.discordapp.com/attachments/209620687818588161/279613536378945537/MUMBLES.png','MUMBLESNOTHATSTHEFUCKINGCARPETNO.png')
   }
- if (messageText == "UAJOKE") {
-   message.channel.sendFile('https://cdn.discordapp.com/attachments/416663114566598668/475035182638825473/unknown.png', 'UA.png')
-}
   
    if (messageText == "I WANT WATER") {
      message.reply("have a water bottle you picky prick.")
