@@ -49,7 +49,7 @@ client.on("message", (msg) => {
       }else
       {
         var guildid = msg.guild.id
-        if (!fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
+        if (fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
         fs.readdirSync('./scripts/configs').forEach(file => {
       if(msg.content.startsWith('+configs')) {
@@ -63,6 +63,7 @@ client.on("message", (msg) => {
 client.on('message', (message) => {
     if(message.guild === null) return
     var guildid = message.guild.id
+    if (fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
     var prefix = configa.prefix
    if (message.isMentioned(client.users.get('482123759461859348'))) {

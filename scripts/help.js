@@ -12,8 +12,8 @@ client.on('ready', () => {
 client.on("message", async message => {
   if (message.guild === null) return;
   var guildid = message.guild.id
-  if (!fs.existsSync(`./configs/${guildid}.json`)) return;
-  const configa = require(`./configs/${guildid}.json`)
+  if (fs.existsSync(`./configs/${guildid}.json`)) return;
+  var configa = require(`./configs/${guildid}.json`)
   const prefix = configa.token
   if(message.content.indexOf(configa.prefix) !== 0) return;
   const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
