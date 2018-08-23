@@ -25,7 +25,7 @@
 - Removed #1234 tag on leave.
 - Removed Music Command.
 - Removed useless commands.
-- Removed Melee Command (+melee).
+
 
 # Version 2.0
 + Added UserInfo command.
