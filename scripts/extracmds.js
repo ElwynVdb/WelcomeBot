@@ -16,7 +16,11 @@ client.on("message", async message => {
     const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
+    if(configa.extracommands == "true") {
+
     if (command === "r34") {
         message.channel.sendFile('https://rule34.xxx/index.php?page=post&s=list&tags='+args.join(" "),'hentai.png')};
-
+    }
 })
+
+client.login(config.token)

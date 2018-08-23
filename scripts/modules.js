@@ -16,5 +16,6 @@ const rank = require("./ranklist.js");
 const welcome = require("./welcome.js");
 const eval = require("./eval.js");
 const report = require("./report.js");
+const extracmd = require('./extracmds.js');
 
 client.login(config.token);
