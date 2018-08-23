@@ -19,8 +19,9 @@ client.on("message", async message => {
     if(configa.extracommands == "true") {
 
     if (command === "r34") {
-        message.channel.send('https://rule34.xxx/index.php?page=post&s=list&tags='+args.join(" "),'hentai.png')};
+        message.channel.send('https://rule34.xxx/index.php?page=post&s=list&tags='+args.join(" "))
     }
+  }
 })
 
 client.login(config.tokenokay)
