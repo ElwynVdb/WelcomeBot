@@ -11,6 +11,7 @@ client.on("message", async message => {
     if (message.guild === null) return;
     var guildid = message.guild.id
     const configa = require(`./configs/${guildid}.json`)
+    if(message.author.bot) return;
     if(message.content.indexOf(configa.prefix) !== 0) return;
     const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
@@ -40,6 +41,14 @@ client.on("message", async message => {
     message.channel.send(strDate)
 
  }
+
+ if (command === "picture") {
+    if(message.author.id !== config.ownerID) return;
+    const pic = args.join(" ");
+    client.user.setAvatar(`./scripts/pics/${pic}.png`)
+       message.channel.sendEmbed({ color: 3447003,
+      description: `Changed to Picture: ${pic} for my profile picture ` });
+         };
 
  if(command === "sarah") {
     if(message.guild.id == "217396856550981633") {

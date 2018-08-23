@@ -20,7 +20,7 @@ app.get("/", (request, response) => {
       }, 280000);
     
 // Checks 
- client.on('ready',() => {
+ client.on('ready', () => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
@@ -32,8 +32,7 @@ client.on('message', (message) => {
     if (message.author === client.user) return;
    
  var messageText = message.content.toUpperCase();
-   
- 
+
  if (messageText == "+CREATORS") {
 
      var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));

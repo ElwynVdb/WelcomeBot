@@ -25,6 +25,16 @@ client.on("message", async message => {
         message.channel.sendFile("https://cdn.discordapp.com/attachments/463351454590042115/482220594692227103/MELEE.mp3","melee.mp3")
     }
   }
+
+  var messageText = message.content.toUpperCase(); 
+  
+  if (messageText == "FORTNITE") {
+  message.author.send('Did somebody say FORTNITE?')
+  message.author.send('https://thumbs.gfycat.com/FineDampGecko-size_restricted.gif')
+
+  }
 })
+
+
 
 client.login(config.token)

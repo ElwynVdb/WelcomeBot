@@ -5,7 +5,7 @@
     "adminrole": "Administrator",
     "welcomechannel": "general",
     "reportchannel": "support",
-    "extracommands": "true",
+    "extracommands": "false",
     "ruleschannel": "rules",
     "guildname": "DeveloperBots"
 }
