@@ -3,15 +3,15 @@ const client = new Discord.Client();
 const randomcolor = require('randomcolor');
 const config = require("./config.json")
 const moment = require('moment');
-const prefix = config.prefix
+const fs = require('fs');
 
 
 
 
 client.on("message", async message => {
     if(message.guild === null) return
-    if (message.guild === null) return;
     var guildid = message.guild.id
+    if (!fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./configs/${guildid}.json`)
     if(message.content.indexOf(configa.prefix) !== 0) return;
     const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);

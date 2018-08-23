@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json")
+const fs = require('fs');
 
 client.on("ready", () => {
     console.log('Report Ready')
@@ -9,6 +10,7 @@ client.on("ready", () => {
 client.on("message", async message => {
     if(message.guild === null) return
     var guildid = message.guild.id
+    if (!fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./configs/${guildid}.json`)
     if(message.content.indexOf(configa.prefix) !== 0) return;
     const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
