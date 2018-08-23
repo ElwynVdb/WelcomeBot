@@ -22,7 +22,7 @@ client.on("message", async message => {
         message.channel.send('https://rule34.xxx/index.php?page=post&s=list&tags='+args.join(" "))
     }
     if (command === "melee") {
-        message.channel.sendFile("","melee.mp3")
+        message.channel.sendFile("https://cdn.discordapp.com/attachments/463351454590042115/482220594692227103/MELEE.mp3","melee.mp3")
     }
   }
 })
