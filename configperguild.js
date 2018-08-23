@@ -31,8 +31,8 @@ client.on('guildCreate', (guild) => {
 client.on('guildDelete', (guild) => {
   const guildid = guild.id
   const guildname = guild.name
-  fs.readdirSync('./configs')
-  fs.unlinkSync(`./configs/${guildid}.json`);
+  fs.readdirSync('./scripts/configs')
+  fs.unlinkSync(`./scripts/configs/${guildid}.json`);
 });
 
 client.on('message', (message) => {
