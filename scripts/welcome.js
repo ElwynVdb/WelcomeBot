@@ -12,7 +12,7 @@ client.on('ready', () => {
 
 client.on("guildMemberAdd", (member) =>  {
 var guildid = member.guild.id
-if (!fs.existsSync(`./configs/${guildid}.json`)) return;
+if (fs.existsSync(`./configs/${guildid}.json`)) return;
 const configa = require(`./configs/${guildid}.json`)
 var channel = configa.welcomechannel
 
@@ -24,7 +24,7 @@ var channel = configa.welcomechannel
 
 client.on("guildMemberRemove", (member) => {
     var guildid = member.guild.id
-    if (!fs.existsSync(`./configs/${guildid}.json`)) return;
+    if (fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./configs/${guildid}.json`)
     var channel = configa.welcomechannel
     var membertag = member.user.tag

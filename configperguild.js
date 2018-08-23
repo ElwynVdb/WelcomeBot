@@ -38,11 +38,12 @@ if (!fs.existsSync(folder)) {
 client.on('message', (message) => {
   if (message.guild === null) return;
   const guildid = message.guild.id
-  if (!fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
+  if (fs.existsSync(`./scripts/configs/${guildid}.json`)) {
   var configa = require(`./scripts/configs/${guildid}.json`)
   if(message.content.indexOf(configa.prefix) !== 0) return;
   const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  
 
 if(command === "configs") {
   if (!message.member.id == "318821976372150272") return;
@@ -97,6 +98,7 @@ if(command === "prefix") {
  }
 }
 }
+  }
 })
 
 client.login(config.token);

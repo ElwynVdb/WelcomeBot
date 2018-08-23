@@ -1,11 +1,11 @@
 {
-  "prefix": "+",
-  "modlogchannel": "log",
-  "modrole": "DMU Staff",
-  "adminrole": "Administrator",
-  "welcomechannel": "general",
-  "reportchannel": "support",
-  "extracommands": "false",
-  "ruleschannel": "rules",
-  "guildname":  "DeveloperBot"
+    "prefix": "+",
+    "modlogchannel": "log",
+    "modrole": "DMU Staff",
+    "adminrole": "Administrator",
+    "welcomechannel": "general",
+    "reportchannel": "support",
+    "extracommands": "false",
+    "ruleschannel": "rules",
+    "guildname": "DeveloperBot"
 }

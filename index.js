@@ -60,7 +60,15 @@ client.on("message", (msg) => {
       }
 })
 
-
+client.on('message', (message) => {
+    if(message.guild === null) return
+    var guildid = message.guild.id
+    const configa = require(`./scripts/configs/${guildid}.json`)
+    var prefix = configa.prefix
+   if (message.isMentioned(client.users.get('482123759461859348'))) {
+       message.reply(`Prefix = ${prefix}\nCreated by Josia50 and no one else! `)
+   }
+})
 
 
 
