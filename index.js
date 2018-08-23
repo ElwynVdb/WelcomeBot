@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-const modules = require('./scripts/configperguild.js');
+const modules = require('./configperguild.js');
 //const altcheck = require('./altcheck.js');
 
 //To add when using glitch
