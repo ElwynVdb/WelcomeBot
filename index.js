@@ -40,6 +40,23 @@ client.on('message', (message) => {
      }
 })
 
+client.on("message", (msg) => {	
+    var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});	
+      if(msg.content.startsWith('+log')) {	
+          msg.channel.send(`${log}`)	
+      }else
+      {
+        var guildid = msg.guild.id
+    const configa = require(`./configs/${guildid}.json`)
+        fs.readdirSync('./configs').forEach(file => {
+      if(msg.content.startsWith('+configs')) {
+          if (!msg.member.id == "318821976372150272") return;
+          msg.channel.send(file)	
+      }  
+    })
+      }
+})
+
 
 
 
