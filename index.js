@@ -20,173 +20,92 @@ app.get("/", (request, response) => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
     
-// Checks 
- client.on('ready', () => {
-    console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-    client.user.setStatus('Online')
-    client.user.setActivity('Welcome to hell!')
-    const modules = require('./configperguild.js');
-});
+      client.on('ready', () => {
+        console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+        client.user.setStatus('Online')
+        client.user.setActivity('Welcome to hell!')
+        const modules = require('./configperguild.js');
+    });
 
-//commands core
-client.on('message', (message) => {
+    client.on("message", (message, msg) => {
     if(message.guild === null) return
-    if (message.author === client.user) return;
-   
- var messageText = message.content.toUpperCase();
-
- if (messageText == "+CREATORS") {
-
-     var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
-     message.channel.send(creator)
-     }
-})
-
-client.on("message", (msg) => {	
-    if(msg.guild === null) return
-    var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});	
-      if(msg.content.startsWith('+log')) {	
-          msg.channel.send(`${log}`)	
-      }else
-      {
-        var guildid = msg.guild.id
-        if (fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
-    const configa = require(`./scripts/configs/${guildid}.json`)
-        fs.readdirSync('./scripts/configs').forEach(file => {
-      if(msg.content.startsWith('+configs')) {
-          if (!msg.member.id == "318821976372150272") return;
-          msg.channel.send(file)	
-      }  
-    })
-      }
-})
-
-client.on('message', (message) => {
-    if(message.guild === null) return
+    if (message.author.bot) return;
     var guildid = message.guild.id
+    if (fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
-    var prefix = configa.prefix
-   if (message.isMentioned(client.users.get('482123759461859348'))) {
-       message.reply(`Prefix = ${prefix}\nCreated by Josia50 and no one else! `)
-   }
-})
-
-/*client.on('message', (message) => {
-  if(message.content.startsWith('testembed')) {
-      let authEmbed = new Discord.RichEmbed()
-      .setDescription("Permissions Calculator")
-      .setFooter("ExampleBot", "https://cdn.discordapp.com/app-icons/482597015222616064/5d0ac99caea6dda8ab7bf64710287c74.png?size=64")
-      .setColor(randomcolor())
-      .addField("https://discordapi.com/permissions.html", '\u200b')
-      message.channel.send(authEmbed);
-  }
-})*/
-
-
-
-client.on('message', (message) =>{
-    if(message.guild === null) return
-    var guildid = message.guild.id
-    if (fs.existsSync(`./configs/${guildid}.json`)) return;
-    const configa = require(`./scripts/configs/${guildid}.json`)
-    var prefix = configa.prefix
-
-if(message.content.startsWith(prefix + "ping")) {
-    message.channel.send(`Pong!`)
-   }
-})
-
-
-//reboot
-client.on('message', message => {
-    if(message.guild === null) return
-    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461") {
-    switch(message.content.toLowerCase()) {
-        case '-reboot':
-           message.channel.send("LukeBeforeYouBot Reload");
-            resetBot(message.channel);
-            break;
-      }
-    }
-});
-
-  // Turn bot off (destroy), then turn it back on
-  function resetBot(channel) {
-    // send channel a message that you're resetting bot [optional]
-    channel.send('----------------')
-    .then(msg => client.destroy())
-    .then(() => client.login(config.token));
-  }
-
-
-var mcCommand =  '/DMU' || '/dmu'; // Command for triggering
-var mcIP = 'dmu.swdteam.co.uk'; // Your MC server IP
-var mcPort = 25565;
-
-client.on('message', message => {
-  if(message.guild === null) return
-    if (message.content === mcCommand) {
-        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
-        request(url, function(err, response, body) {
-            if(err) {
-                console.log(err);
-                return message.reply('Error getting Minecraft server status...');
-            }
-            body = JSON.parse(body);
-            var status = '*DMU Private is currently offline*';
-            if(body.online) {
-                status = '**DMU Beta** is **online**  -  ';
-
-              if(body.players.now) {
-                    status += '**' + body.players.now + '** people are playing!';
-                } else {
-                    status += '*Nobody is playing!*';
-                }
-            }
-            message.author.send(status).catch(console.error);
-        });
-    }
-});
-
-var mcIP1 = 'dmu.swdteam.co.uk'; // Your MC server IP
-var mcPort1 = 25587; // Your MC server port
-
-client.on('message', message => {
-  if(message.guild === null) return
-    if (message.content === mcCommand) {
-        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort1;
-        request(url, function(err, response, body) {
-            if(err) {
-                console.log(err);
-              message.delete().catch(O_o=>{});  
-                return message.reply('Error getting Minecraft server status...');
-            }
-            body = JSON.parse(body);
-            var status = '*DMU Public is currently offline*';
-            if(body.online) {
-                status = '**DMU Public** is **online**  -  ';
-                if(body.players.now) {
-                    status += '**' + body.players.now + '** people are playing!';
-                } else {
-                    status += '*Nobody is playing!*';
-                }
-            }
-            message.author.send(status).catch(console.error);
-        });
-    }
-});
-
-
-
-
-
+    if(message.content.indexOf(configa.prefix) !== 0) return;
     
-client.on('message', message => {
-  if(message.guild === null) return
- if (message.content.includes('/DMU'))
-     message.delete();
+    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    var messageText = message.content.toLowerCase();
+
+    var mcIP = 'dmu.swdteam.co.uk';
+    var mcPort = 25565; var mcPort1 = 25587;
+
+    if(command == "creators") {
+        var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
+        message.channel.send(creator)
+        }
+    if(command === "log") {	
+        var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
+          msg.channel.send(`${log}`)
+        }
+    if(command === "configs") {
+      if (!msg.member.id == "318821976372150272") return;
+        fs.readdirSync('./scripts/configs').forEach(file => {
+            msg.channel.send(file)	
+        })
+     }
+    if (message.isMentioned(client.users.get(client.user.id))) {
+        message.reply(`Prefix = ${prefix}`)
+     }
+    if(command === "ping") {
+        message.channel.send('Pong!')
+    }
+    if(command === "dmu") {
+      var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort1;
+      request(url, function(err, response, body) {
+     if(err) {
+        console.log(err);
+      message.delete().catch(O_o=>{});  
+        return message.reply('Error getting Minecraft server status...');
+    }
+     body = JSON.parse(body);
+     var status = '*DMU Public is currently offline*';
+     if(body.online) {
+        status = '**DMU Public** is **online**  -  ';
+        if(body.players.now) {
+            status += '**' + body.players.now + '** people are playing!';
+        } else {
+            status += '*Nobody is playing!*';
+        }
+    }
+    message.delete();
+    message.author.send(status).catch(console.error);
+  });
+}
+if (command === "dmu") {
+  var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
+  request(url, function(err, response, body) {
+    if(err) {
+        console.log(err);
+        return message.reply('Error getting Minecraft server status...');
+    }
+    body = JSON.parse(body);
+    var status = '*DMU Private is currently offline*';
+    if(body.online) {
+        status = '**DMU Beta** is **online**  -  ';
+
+      if(body.players.now) {
+            status += '**' + body.players.now + '** people are playing!';
+        } else {
+            status += '*Nobody is playing!*';
+        }
+    }
+    message.delete();
+    message.author.send(status).catch(console.error);
+    });
+  }
 })
 
-  
-
- client.login(config.token)
+client.login(config.token)

@@ -44,13 +44,6 @@ client.on('message', (message) => {
   const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-
-if(command === "configs") {
-  if (!message.member.id == "318821976372150272") return;
-  fs.readdirSync('./scripts/configs').forEach(file => {
-    message.channel.send(file)
-})
-}
 if(command === "prefix") {
      if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
