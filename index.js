@@ -6,7 +6,8 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-const randomcolor = require('randomcolor')
+const randomcolor = require('randomcolor');
+const moment = require('moment');
 //const altcheck = require('./altcheck.js');
 
 
@@ -27,11 +28,10 @@ app.get("/", (request, response) => {
         const modules = require('./configperguild.js');
     });
 
-    client.on("message", (message, msg) => {
+    client.on("message", (message) => {
     if(message.guild === null) return
     if (message.author.bot) return;
     var guildid = message.guild.id
-    if (fs.existsSync(`./scripts/configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
     if(message.content.indexOf(configa.prefix) !== 0) return;
     
@@ -41,24 +41,27 @@ app.get("/", (request, response) => {
 
     var mcIP = 'dmu.swdteam.co.uk';
     var mcPort = 25565; var mcPort1 = 25587;
-
+     
     if(command == "creators") {
         var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
         message.channel.send(creator)
         }
     if(command === "log") {	
         var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
-          msg.channel.send(`${log}`)
+          message.channel.send(`${log}`)
         }
     if(command === "configs") {
-      if (!msg.member.id == "318821976372150272") return;
-        fs.readdirSync('./scripts/configs').forEach(file => {
-            msg.channel.send(file)	
+      if (!message.member.id == "318821976372150272") return;
+        fs.readdirSync('./scripts/configs').forEach(configs => {
+            message.channel.send(configs)	
         })
      }
-    if (message.isMentioned(client.users.get(client.user.id))) {
-        message.reply(`Prefix = ${prefix}`)
-     }
+    if(command === "scripts") {
+        if (!message.member.id == "318821976372150272") return;
+        fs.readdirSync('./scripts').forEach(script => {
+            message.channel.send(script)	
+        })
+    }
     if(command === "ping") {
         message.channel.send('Pong!')
     }
@@ -80,7 +83,6 @@ app.get("/", (request, response) => {
             status += '*Nobody is playing!*';
         }
     }
-    message.delete();
     message.author.send(status).catch(console.error);
   });
 }
@@ -102,10 +104,34 @@ if (command === "dmu") {
             status += '*Nobody is playing!*';
         }
     }
-    message.delete();
     message.author.send(status).catch(console.error);
     });
   }
+if(command === "dmu") {
+    message.delete().catch(console.error);
+}
+
+})
+
+client.on("message", (message) => {
+    if (message.isMentioned(client.users.get('482123759461859348'))) {
+        if(message.guild === null) return
+        if (message.author.bot) return;
+        var guildid = message.guild.id
+        const configa = require(`./scripts/configs/${guildid}.json`)
+        var prefix = configa.prefix
+        var mentionembed = new Discord.RichEmbed()
+        .setTitle("**Guild Information**")
+        .setColor(randomcolor())
+        .setThumbnail(`${message.guild.iconURL}`)
+        .addField(`Prefix:  **${prefix}**`, `${prefix}prefix "Newprefix"`)
+        .addField('Guild Created', `${moment(message.guild.createdAt).format('MM.DD.YY')}`, true)
+        .setFooter("LukeBeforeYouBot")
+        .setTimestamp()
+
+
+        message.channel.sendEmbed(mentionembed)
+    }
 })
 
 client.login(config.token)
