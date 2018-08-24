@@ -179,5 +179,6 @@ client.on('message', message => {
      message.delete();
 })
 
+  
 
  client.login(config.token)

@@ -19,12 +19,20 @@
     "eris": "^0.7.2",
     "express": "^4.16.3",
     "ffmpeg-binaries": "^4.0.0",
+    "flipout": "^1.0.0",
     "get-youtube-id": "^1.0.0",
+    "gizoogle": "0.0.6",
+    "google-translate-api": "^2.3.0",
     "http": "0.0.0",
+    "japanese": "^1.2.0",
+    "kpop": "^0.1.2",
     "moment": "^2.22.2",
+    "os": "^0.1.1",
+    "os-toolbox": "^0.2.10",
     "randomcolor": "^0.5.3",
     "request": "^2.87.0",
     "superagent": "^3.8.3",
+    "to-zalgo": "^1.0.1",
     "youtube-info": "^1.2.0"
   }
 }
