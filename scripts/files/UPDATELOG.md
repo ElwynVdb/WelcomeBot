@@ -14,6 +14,7 @@
 + Added Modrole set Command.
 + Added Adminrole set Command.
 + Added Extra-Commands toggle.
++ Added Verify Command.l
 
 # Version 3.0
 + Added Mew Answers.
@@ -55,8 +56,7 @@ Planned = *
 Added = +
 Removed = -
 
-*Rule34
-+Melee
++ Melee
 ```
 
 
