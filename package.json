@@ -24,6 +24,7 @@
     "moment": "^2.22.2",
     "randomcolor": "^0.5.3",
     "request": "^2.87.0",
+    "superagent": "^3.8.3",
     "youtube-info": "^1.2.0"
   }
 }

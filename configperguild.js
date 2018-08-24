@@ -80,6 +80,22 @@ if(command === "prefix") {
   fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
   message.channel.send(`Changed Mod role to ${newmodrole}`)
 }
+if(command === "ruleschannel") {
+
+  if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+  let ruleschannelnew = message.content.split(" ").slice(1, 2)[0];
+  configa.ruleschannel = ruleschannelnew;
+  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  message.channel.send(`Changed rules channel to ${ruleschannelnew}`)
+}
+if(command === "reportchannel") {
+
+  if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+  let reportchannelnew = message.content.split(" ").slice(1, 2)[0];
+  configa.reportchannel = reportchannelnew;
+  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  message.channel.send(`Changed report channel to ${reportchannelnew}`)
+}
 if(command === "verify") {
   const guildname = message.guild.name
   let guildjname = guildname

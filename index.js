@@ -9,6 +9,7 @@ var request = require('request');
 const modules = require('./configperguild.js');
 //const altcheck = require('./altcheck.js');
 
+
 //To add when using glitch
 app.get("/", (request, response) => {
     console.log(Date.now() + " Ping Received");
@@ -62,7 +63,6 @@ client.on("message", (msg) => {
 client.on('message', (message) => {
     if(message.guild === null) return
     var guildid = message.guild.id
-    if (fs.existsSync(`./configs/${guildid}.json`)) return;
     const configa = require(`./scripts/configs/${guildid}.json`)
     var prefix = configa.prefix
    if (message.isMentioned(client.users.get('482123759461859348'))) {
@@ -70,6 +70,17 @@ client.on('message', (message) => {
    }
 })
 
+client.on('message', (message) =>{
+    if(message.guild === null) return
+    var guildid = message.guild.id
+    if (fs.existsSync(`./configs/${guildid}.json`)) return;
+    const configa = require(`./scripts/configs/${guildid}.json`)
+    var prefix = configa.prefix
+
+if(message.content.startsWith(prefix + "ping")) {
+    message.channel.send(`Pong!`)
+   }
+})
 
 
 //reboot
