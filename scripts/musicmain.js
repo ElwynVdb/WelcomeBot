@@ -113,6 +113,12 @@ exports.start = (client, options) => {
     }
   }
 
+  if (msg.guild === null) return;
+  var guildid = msg.guild.id
+  const configa = require(`./configs/${guildid}.json`)
+  if(msg.author.bot) return;
+
+  if(configa.extracommands === "true") {
   var musicbot = new Music(client, options);
   exports.bot = musicbot;
 
@@ -2261,3 +2267,4 @@ exports.start = (client, options) => {
     });
   };
 };
+}

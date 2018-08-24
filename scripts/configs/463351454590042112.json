@@ -3,7 +3,7 @@
     "modlogchannel": "log",
     "modrole": "Contributor",
     "adminrole": "Teacher",
-    "welcomechannel": "general",
+    "welcomechannel": "newcomers",
     "reportchannel": "support",
     "extracommands": "true",
     "ruleschannel": "rules",
