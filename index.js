@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 var fs = require("fs");
 var request = require('request');
-const modules = require('./configperguild.js');
+const randomcolor = require('randomcolor')
 //const altcheck = require('./altcheck.js');
 
 
@@ -25,6 +25,7 @@ app.get("/", (request, response) => {
     console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
     client.user.setStatus('Online')
     client.user.setActivity('Welcome to hell!')
+    const modules = require('./configperguild.js');
 });
 
 //commands core
@@ -69,6 +70,19 @@ client.on('message', (message) => {
        message.reply(`Prefix = ${prefix}\nCreated by Josia50 and no one else! `)
    }
 })
+
+/*client.on('message', (message) => {
+  if(message.content.startsWith('testembed')) {
+      let authEmbed = new Discord.RichEmbed()
+      .setDescription("Permissions Calculator")
+      .setFooter("ExampleBot", "https://cdn.discordapp.com/app-icons/482597015222616064/5d0ac99caea6dda8ab7bf64710287c74.png?size=64")
+      .setColor(randomcolor())
+      .addField("https://discordapi.com/permissions.html", '\u200b')
+      message.channel.send(authEmbed);
+  }
+})*/
+
+
 
 client.on('message', (message) =>{
     if(message.guild === null) return
@@ -163,14 +177,8 @@ client.on('message', message => {
 });
 
 
-/*client.on('message', message => {
-    if (message.content.includes('test')) {
-        
-        var players = require('./scripts/files/CC.json');
-        message.channel.send(players.username + ' ' + players.server_name);
-    }
-})
-*/
+
+
 
     
 client.on('message', message => {
