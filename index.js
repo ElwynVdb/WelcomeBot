@@ -20,9 +20,9 @@ app.get("/", (request, response) => {
       setInterval(() => {
         http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
       }, 280000);
-    
+
       client.on('ready', () => {
-        console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+        console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
         client.user.setStatus('Online')
         client.user.setActivity('Welcome to hell!')
         const modules = require('./configperguild.js');
@@ -34,32 +34,32 @@ app.get("/", (request, response) => {
     var guildid = message.guild.id
     const configa = require(`./scripts/configs/${guildid}.json`)
     if(message.content.indexOf(configa.prefix) !== 0) return;
-    
+
     const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     var messageText = message.content.toLowerCase();
 
     var mcIP = 'dmu.swdteam.co.uk';
     var mcPort = 25565; var mcPort1 = 25587;
-     
+
     if(command == "creators") {
         var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
         message.channel.send(creator)
         }
-    if(command === "log") {	
+    if(command === "log") {
         var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
           message.channel.send(`${log}`)
         }
     if(command === "configs") {
       if (!message.member.id == "318821976372150272") return;
         fs.readdirSync('./scripts/configs').forEach(configs => {
-            message.channel.send(configs)	
+            message.channel.send(configs)
         })
      }
     if(command === "scripts") {
         if (!message.member.id == "318821976372150272") return;
         fs.readdirSync('./scripts').forEach(script => {
-            message.channel.send(script)	
+            message.channel.send(script)
         })
     }
     if(command === "ping") {
@@ -70,7 +70,7 @@ app.get("/", (request, response) => {
       request(url, function(err, response, body) {
      if(err) {
         console.log(err);
-      message.delete().catch(O_o=>{});  
+      message.delete().catch(O_o=>{});
         return message.reply('Error getting Minecraft server status...');
     }
      body = JSON.parse(body);
