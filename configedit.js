@@ -15,28 +15,28 @@ client.on('message', (message) => {
   const command = args.shift().toLowerCase();
   
 if(command === "prefix") {
-     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
     config.prefix = newPrefix;
     message.channel.send(`Prefix has been changed to ${newPrefix}`)
     fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
 }
  if(command === "welcomechannel"){
-     if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+     if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply('You don\'t have permission to use this!'); 
   let newwelcome = message.content.split(" ").slice(1, 2)[0];
   config.welcomechannel = newwelcome;
   fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`The new welcome/leave channel is ${newwelcome}`)
  }
  if(command === "adminrole"){
-  if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
+  if (!message.member.hasPermission("ADMINISTRATOR")); 
   let newadminrole = message.content.split(" ").slice(1, 2)[0];
   config.adminrole = newadminrole;
   fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed Admin role to ${newadminrole}`)
  }
  if(command === "modrole"){
-  if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to use this!'); 
   let newmodrole = message.content.split(" ").slice(1, 2)[0];
   config.modrole = newmodrole;
   fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
@@ -57,6 +57,7 @@ if(command === "reportchannel") {
   message.channel.send(`Changed report channel to ${reportchannelnew}`)
 }
 if(command === "verify") {
+  if(message.author.id !== run.ownerID) return;
   const guildname = message.guild.name
   let guildjname = guildname
   config.guildname = guildjname;

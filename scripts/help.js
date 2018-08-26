@@ -18,7 +18,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
 if(command === "help") {
-        message.reply('I have send you a DM.')
+        message.reply('I sended you a DM.')
         message.author.send(`Help Message:\n Prefix: ${prefix} `)
         message.author.send({embed: {
             color: 3447003,
@@ -35,7 +35,7 @@ if(command === "help") {
               },
               {
                 name: "avatar",
-                value: "Get's user's avatar"
+                value: "Get your or someone elses avatar"
               },
               {
                 name: "botavatar",
@@ -63,7 +63,7 @@ if(command === "help") {
               },
               {
                 name: "log",
-                value: "Sends a txt file with the update/version log"
+                value: "Sends a Markdown file with the update/version log into the chat."
               }
             ],
             timestamp: new Date(),
