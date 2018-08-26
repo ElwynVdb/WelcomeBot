@@ -30,14 +30,14 @@ if(command === "prefix") {
  }
  if(command === "adminrole"){
   if (!message.member.hasPermission("ADMINISTRATOR")); 
-  let newadminrole = message.content.split(" ").slice(1, 2)[0];
+  let newadminrole = args.join(" ")
   config.adminrole = newadminrole;
   fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed Admin role to ${newadminrole}`)
  }
  if(command === "modrole"){
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to use this!'); 
-  let newmodrole = message.content.split(" ").slice(1, 2)[0];
+  let newmodrole = args.join(" ")
   config.modrole = newmodrole;
   fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed Mod role to ${newmodrole}`)
