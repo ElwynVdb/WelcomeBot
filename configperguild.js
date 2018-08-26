@@ -1,118 +1,85 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./scripts/config.json')
+const fs = require('fs');
 
-client.on("ready", () => {
-  const modules = require('./scripts/modules.js');
+client.on("ready", () => {  
     console.log('Ready ConfigGuild')
 })
 
-const fs = require('fs');
-
-/*var folder = "./plugins/configs"
-if (!fs.existsSync(folder)) {
-  fs.mkdirSync("/configs")
-}*/
-
-/*client.on('guildCreate', (guild) => {
-  const guildid = guild.id
-  const guildname = guild.name
-  var dconfig = fs.readFileSync('./dconfig.json')
-  fs.readdirSync('./scripts/configs')
-  fs.writeFileSync(`./scripts/configs/${guildid}.json`, dconfig)
-  const configa = require(`./scripts/configs/${guildid}.json`)
-    let guildjname = guildname
-    configa.guildname = guildjname;
-    fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
-})*/
-
-
-
-/*client.on('guildDelete', (guild) => {
-  const guildid = guild.id
-  const guildname = guild.name
-  fs.readdirSync('./scripts/configs')
-  fs.unlinkSync(`./scripts/configs/${guildid}.json`);
-});*/
-
 client.on('message', (message) => {
   if (message.guild === null) return;
-  const guildid = message.guild.id
-  var configa = require(`./scripts/configs/${guildid}.json`)
-  if(message.content.indexOf(configa.prefix) !== 0) return;
-  const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
 if(command === "prefix") {
      if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
-    configa.prefix = newPrefix;
+    config.prefix = newPrefix;
     message.channel.send(`Prefix has been changed to ${newPrefix}`)
-    fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+    fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
 }
  if(command === "welcomechannel"){
      if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let newwelcome = message.content.split(" ").slice(1, 2)[0];
-  configa.welcomechannel = newwelcome;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.welcomechannel = newwelcome;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`The new welcome/leave channel is ${newwelcome}`)
  }
  if(command === "adminrole"){
   if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
   let newadminrole = message.content.split(" ").slice(1, 2)[0];
-  configa.adminrole = newadminrole;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.adminrole = newadminrole;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed Admin role to ${newadminrole}`)
  }
  if(command === "modrole"){
-
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let newmodrole = message.content.split(" ").slice(1, 2)[0];
-  configa.modrole = newmodrole;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.modrole = newmodrole;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed Mod role to ${newmodrole}`)
 }
 if(command === "ruleschannel") {
-
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let ruleschannelnew = message.content.split(" ").slice(1, 2)[0];
-  configa.ruleschannel = ruleschannelnew;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.ruleschannel = ruleschannelnew;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed rules channel to ${ruleschannelnew}`)
 }
 if(command === "reportchannel") {
-
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let reportchannelnew = message.content.split(" ").slice(1, 2)[0];
-  configa.reportchannel = reportchannelnew;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.reportchannel = reportchannelnew;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Changed report channel to ${reportchannelnew}`)
 }
 if(command === "verify") {
   const guildname = message.guild.name
   let guildjname = guildname
-  configa.guildname = guildjname;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.guildname = guildjname;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send(`Verified ${guildname}`)
 }
  if(command === "extracmd"){
   if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
-   if (configa.extracommands === "false") {
+   if (config.extracommands === "false") {
   let enablecmd = "true"
-  configa.extracommands = enablecmd;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.extracommands = enablecmd;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send('Enabled Extra Commands!')
  } else 
  {
   if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
-   if (configa.extracommands === "true") {
+   if (config.extracommands === "true") {
   let disablecmd = "false"
-  configa.extracommands = disablecmd;
-  fs.writeFile(`./scripts/configs/${guildid}.json`, JSON.stringify(configa, null, 4), (err) => console.error);
+  config.extracommands = disablecmd;
+  fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
   message.channel.send('Disabled Extra Commands!')
- }
-}
-} 
+    }
+   }
+  } 
 })
 
 client.login(config.token);

@@ -7,15 +7,13 @@ const fs = require('fs');
 
 
 client.on('ready', () => {
-    console.log('ready user/server info')
+ console.log('ready user/server info')
 })
 
 client.on("message", async message => {
     if(message.guild === null) return
-    var guildid = message.guild.id
-    const configa = require(`./configs/${guildid}.json`)
-    if(message.content.indexOf(configa.prefix) !== 0) return;
-    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
   
  if(command === "userinfo") {
@@ -38,38 +36,27 @@ client.on("message", async message => {
               message.channel.sendEmbed(
                   embed, {
                       disableEveryone: true
-                  })
-                } else {
-                    embed.addField("Username", `${user.username}#${user.discriminator}`, true)
-                        .addField("ID", `${user.id}`, true)
-                        .setColor(randomcolor())
-                        .setFooter(' ', ' ')
-                        .setThumbnail(`${user.avatarURL}`)
-                        .setTimestamp()
-                        .setURL(`${user.avatarURL}`)
-                        .addField('Currently', `${user.presence.status}`, true)
-                        .addField('Game', `${user.presence.game === null ? "No Game" : user.presence.game.name}`, true)
-                        .addField('Joined Discord', `${moment(user.createdAt).format('DD.MM.YY')}`, true)
-                        .addField('Is Bot', `${user.bot}`, true)
-                  message.channel.sendEmbed(
-                      embed, {
-                          disableEveryone: true
-                      }
-                  );
+ })
+   }else
+        {
+         embed.addField("Username", `${user.username}#${user.discriminator}`, true)
+             .addField("ID", `${user.id}`, true)
+             .setColor(randomcolor())
+             .setFooter(' ', ' ')
+             .setThumbnail(`${user.avatarURL}`)
+             .setTimestamp()
+             .setURL(`${user.avatarURL}`)
+             .addField('Currently', `${user.presence.status}`, true)
+             .addField('Game', `${user.presence.game === null ? "No Game" : user.presence.game.name}`, true)
+             .addField('Joined Discord', `${moment(user.createdAt).format('DD.MM.YY')}`, true)
+             .addField('Is Bot', `${user.bot}`, true)
+             message.channel.sendEmbed(
+                 embed, {
+                     disableEveryone: true
+     });
     }  
-}
-})
-
-
-client.on("message", (message) => {
-   if(message.guild === null) return
-    var guildid = message.guild.id
-    const configa = require(`./configs/${guildid}.json`)
-    if(message.content.indexOf(configa.prefix) !== 0) return;
-    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-  
- if(command === "serverinfo") {
+  }
+  if(command === "serverinfo") {
 
     var embed = new Discord.RichEmbed();
     embed.addField("Server Name", `${message.guild.name}`, true)

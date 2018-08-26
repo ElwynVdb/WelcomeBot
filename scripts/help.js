@@ -11,11 +11,9 @@ client.on('ready', () => {
 
 client.on("message", async message => {
   if (message.guild === null) return;
-  var guildid = message.guild.id
-  const configa = require(`./configs/${guildid}.json`)
-  const prefix = configa.token
-  if(message.content.indexOf(configa.prefix) !== 0) return;
-  const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+  const prefix = config.prefix
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
 if(command === "help") {

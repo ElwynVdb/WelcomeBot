@@ -10,15 +10,14 @@ client.on('ready', () => {
 client.on('message', (message) => {
    if (message.author === client.user) return;
   
-var messageText = message.content.toUpperCase(); 
+ var messageText = message.content.toUpperCase(); 
    
-   if(messageText == "CRYSTAL PEPSI") {
-     message.channel.send("Taken from us too soon");
+ if(messageText == "CRYSTAL PEPSI") {
+    message.channel.send("Taken from us too soon");
    }
-
-   if (messageText == "WHAT'S A PEPSI") {
+ if (messageText == "WHAT'S A PEPSI") {
     message.reply("pepsi is the best drink out there")
-}
+  }
 })
 
 client.login(config.token)

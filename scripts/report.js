@@ -4,20 +4,16 @@ const config = require("./config.json")
 const fs = require('fs');
 
 client.on("ready", () => {
-    console.log('Report Ready')
+ console.log('Report Ready')
 })
 
 client.on("message", async message => {
     if(message.guild === null) return
-    var guildid = message.guild.id
-    const configa = require(`./configs/${guildid}.json`)
-    if(message.content.indexOf(configa.prefix) !== 0) return;
-    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+    if(message.content.indexOf(config.prefix) !== 0) return;
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-         
-    if(command === "report") {     
-
+if(command === "report") {     
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!rUser) return message.channel.send("Couldn't find user.");
 let rreason = args.join(" ").slice(22);
@@ -31,16 +27,13 @@ let reportEmbed = new Discord.RichEmbed()
 .addField("Time", message.createdAt)
 .addField("Reason", rreason);
 
-
 let reportschannel = message.guild.channels.find(`name`, configa.reportchannel);
 if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
-
 message.delete().catch(O_o=>{});
 reportschannel.send(reportEmbed);
-      console.log(`${rUser} got reported by ${message.author} for: ${rreason}`)
+      console.log(`${rUser.username} got reported by ${message.author.username} for: ${rreason}`)
     }
 }); 
-
 
 client.login(config.token)

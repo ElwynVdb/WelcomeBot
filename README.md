@@ -1,9 +1,7 @@
 # LukeWelcomeBot
 
 A bot made for SWDTeam Discord.
-
-Request Invite from : Josia50@9988
-(We don't give this bot to players)
+(It's Locked to SWD)
 
 You can contribute . Ask Josia50
 
@@ -16,5 +14,10 @@ Contributors:
  "TheMythicalMew"
  "Josia50"
  "SP1CYH0T"
+
+
+ You can use the code but don't copy everything , you won't learn from it.
+
+ -SWDTeam Bot Developing
 
 

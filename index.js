@@ -8,8 +8,6 @@ var fs = require("fs");
 var request = require('request');
 const randomcolor = require('randomcolor');
 const moment = require('moment');
-//const altcheck = require('./altcheck.js');
-
 
 //To add when using glitch
 app.get("/", (request, response) => {
@@ -25,7 +23,7 @@ app.get("/", (request, response) => {
         console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
         client.user.setStatus('Online')
         client.user.setActivity('Welcome to hell!')
-        const modules = require('./configperguild.js');
+        const modules = require('./scripts/modules.js');
     });
 
     client.on("message", (message) => {
@@ -40,7 +38,7 @@ app.get("/", (request, response) => {
     var messageText = message.content.toLowerCase();
 
     var mcIP = 'dmu.swdteam.co.uk';
-    var mcPort = 25565; var mcPort1 = 25587;
+    var mcPort1 = 25587; var mcPort2 = 25565;
 
     if(command == "creators") {
         var creator = JSON.parse(fs.readFileSync("./scripts/files/creators.json", {"encoding": "utf-8"}));
@@ -87,7 +85,7 @@ app.get("/", (request, response) => {
   });
 }
 if (command === "dmu") {
-  var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
+  var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort2;
   request(url, function(err, response, body) {
     if(err) {
         console.log(err);
@@ -109,8 +107,7 @@ if (command === "dmu") {
   }
 if(command === "dmu") {
     message.delete().catch(console.error);
-}
-
+   }
 })
 
 client.on("message", (message) => {
@@ -126,9 +123,9 @@ client.on("message", (message) => {
         .setThumbnail(`${message.guild.iconURL}`)
         .addField(`Prefix:  **${prefix}**`, `${prefix}prefix "Newprefix"`)
         .addField('Guild Created', `${moment(message.guild.createdAt).format('MM.DD.YY')}`, true)
+        .addField('Requested By:', message.author)
         .setFooter("LukeBeforeYouBot")
         .setTimestamp()
-
 
         message.channel.sendEmbed(mentionembed)
     }
