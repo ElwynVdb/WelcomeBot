@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const randomcolor = require('randomcolor');
 const config = require("./config.json")
-const run = require('cfg.json');
+const run = require('./cfg.json');
 const moment = require('moment');
 const fs = require('fs');
 

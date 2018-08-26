@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
 const fs = require('fs')
-const run = require('cfg.json');
+const run = require('./cfg.json');
 
 client.on('ready', () => {
  console.log('Commands are ready');
@@ -18,7 +18,12 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
 
  if(command === "avatar") {
+     var user = message.mentions.users.first()
+     if(!user) {
     message.channel.sendFile(message.author.avatarURL,'Avatar.png')
+ }else{
+     message.channel.sendFile(user.avatarURL, 'Avatar.png')
+ }
 }
  if(command === "botavatar") {
     message.channel.sendFile(client.user.avatarURL,'Avatar.png')
@@ -37,7 +42,7 @@ client.on("message", async message => {
     message.channel.send(strDate)
  }
  if (command === "picture") {
-    if(message.author.id !== config.ownerID) return;
+    if(message.author.id !== run.ownerID) return;
     const pic = args.join(" ");
     client.user.setAvatar(`./scripts/pics/${pic}.png`)
        message.channel.sendEmbed({ color: 3447003,
@@ -58,7 +63,7 @@ if(command === "say") {
 }
  if(command === "guidelines") {
      if(message.guild.id == "217396856550981633") {
-     message.channel.send('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
+     message.channel.sendURL('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
    }
   }
 })

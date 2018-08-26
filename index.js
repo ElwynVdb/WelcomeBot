@@ -25,17 +25,15 @@ app.get("/", (request, response) => {
         client.user.setStatus('Online')
         client.user.setActivity('Welcome to hell!')
         const modules = require('./scripts/modules.js');
-        const configedit = require('configedit.js')
+        const configedit = require('./configedit.js')
     });
 
     client.on("message", (message) => {
     if(message.guild === null) return
     if (message.author.bot) return;
-    var guildid = message.guild.id
-    const configa = require(`./scripts/configs/${guildid}.json`)
-    if(message.content.indexOf(configa.prefix) !== 0) return;
+    if(message.content.indexOf(config.prefix) !== 0) return;
 
-    const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     var messageText = message.content.toLowerCase();
 
@@ -50,12 +48,6 @@ app.get("/", (request, response) => {
         var log = fs.readFileSync("./scripts/files/UPDATELOG.md", {"encoding": "utf-8"});
           message.channel.send(`${log}`)
         }
-    if(command === "configs") {
-      if (!message.member.id == "318821976372150272") return;
-        fs.readdirSync('./scripts/configs').forEach(configs => {
-            message.channel.send(configs)
-        })
-     }
     if(command === "scripts") {
         if (!message.member.id == "318821976372150272") return;
         fs.readdirSync('./scripts').forEach(script => {
@@ -116,9 +108,7 @@ client.on("message", (message) => {
     if (message.isMentioned(client.users.get('482123759461859348'))) {
         if(message.guild === null) return
         if (message.author.bot) return;
-        var guildid = message.guild.id
-        const configa = require(`./scripts/configs/${guildid}.json`)
-        var prefix = configa.prefix
+        var prefix = config.prefix
         var mentionembed = new Discord.RichEmbed()
         .setTitle("**Guild Information**")
         .setColor(randomcolor())

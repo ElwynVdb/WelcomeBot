@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
 const fs = require('fs');
-const run = require('cfg.json');
+const run = require('./cfg.json');
 
 
 client.on('ready', () => {
