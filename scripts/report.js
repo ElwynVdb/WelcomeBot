@@ -28,7 +28,7 @@ let reportEmbed = new Discord.RichEmbed()
 .addField("Time", message.createdAt)
 .addField("Reason", rreason);
 
-let reportschannel = message.guild.channels.find(`name`, configa.reportchannel);
+let reportschannel = message.guild.channels.find(`name`, config.reportchannel);
 if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
 
 message.delete().catch(O_o=>{});

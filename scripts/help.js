@@ -18,6 +18,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
 if(command === "help") {
+        message.reply('I have send you a DM.')
         message.author.send(`Help Message:\n Prefix: ${prefix} `)
         message.author.send({embed: {
             color: 3447003,

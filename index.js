@@ -105,7 +105,7 @@ if(command === "dmu") {
 })
 
 client.on("message", (message) => {
-    if (message.isMentioned(client.users.get('482123759461859348'))) {
+    if (message.isMentioned(client.users.get(run.botID))) {
         if(message.guild === null) return
         if (message.author.bot) return;
         var prefix = config.prefix
