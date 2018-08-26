@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
+const run = require('cfg.json');
 const fs = require('fs');
 
 client.on("ready", () => {
@@ -34,4 +35,4 @@ function clean(text) {
     }
   });
 
-client.login(config.token);
+client.login(run.token);

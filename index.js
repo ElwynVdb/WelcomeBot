@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const http = require('http');
 const config = require("./scripts/config.json");
+const run = require('./scripts/cfg.json');
 const express = require('express');
 const app = express();
 var fs = require("fs");
@@ -24,6 +25,7 @@ app.get("/", (request, response) => {
         client.user.setStatus('Online')
         client.user.setActivity('Welcome to hell!')
         const modules = require('./scripts/modules.js');
+        const configedit = require('configedit.js')
     });
 
     client.on("message", (message) => {
@@ -131,4 +133,4 @@ client.on("message", (message) => {
     }
 })
 
-client.login(config.token)
+client.login(run.token)

@@ -3,6 +3,8 @@ const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
 const fs = require('fs')
+const run = require('cfg.json');
+
 client.on('ready', () => {
  console.log('Commands are ready');
 })
@@ -61,4 +63,4 @@ if(command === "say") {
   }
 })
 
-client.login(config.token);
+client.login(run.token);

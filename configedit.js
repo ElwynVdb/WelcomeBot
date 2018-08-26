@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./scripts/config.json')
+const run = require('./scripts/cfg.json');
 const fs = require('fs');
 
 client.on("ready", () => {  
@@ -82,4 +83,4 @@ if(command === "verify") {
   } 
 })
 
-client.login(config.token);
+client.login(run.token);

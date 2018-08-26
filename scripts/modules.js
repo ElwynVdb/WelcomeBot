@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require("./config.json")
+const run = require('cfg.json');
 
 const reboot = require("./reboot.js");
 const answers = require("./answers.js");
@@ -16,4 +16,4 @@ const eval = require("./eval.js");
 const report = require("./report.js");
 const extracmd = require('./extracmds.js');
 
-client.login(config.token);
+client.login(run.token);
