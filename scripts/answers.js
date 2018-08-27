@@ -32,6 +32,12 @@ var messageText = message.content.toUpperCase();
     const pepsi = client.emojis.find("name", "pepsi");
     message.channel.send(`${pepsi}`);
 }
+ if(messageText == "I WANT DR PEPPER") {
+   message.reply(' Here have a Dr. Pepper... you ungrateful child!')
+ }
+ if(messageText == "I DON'T LIKE DR PEPPER") {
+   message.reply(' Good!')
+ }
 })
 
 

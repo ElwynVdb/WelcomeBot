@@ -110,6 +110,14 @@ if(command === "help") {
                     value: "I like pepsi"
                 },
                 {
+                  name: "7.",
+                  value: "I don't like dr pepper"
+                },
+                {
+                  name: "8.",
+                  value: "I want dr pepper"
+                },
+                {
                     name: "Easter Eggs!",
                     value: "There are 3 easter egg text commands! See if you can guess any!"
                 }
