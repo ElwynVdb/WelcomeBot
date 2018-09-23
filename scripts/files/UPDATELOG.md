@@ -47,15 +47,4 @@
 + Added Watch.json
 + Added package.json
 + Added environ.
-
----------------------------------------------------------
-
-Extra commands that can be disabled and enabled:
-Planned = *
-Added = +
-Removed = -
-
-+ Melee
 ```
-
-

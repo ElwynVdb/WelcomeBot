@@ -15,10 +15,10 @@ client.on('message', (message) => {
   
 var messageText = message.content.toUpperCase();
 
-if (messageText == "I DON'T LIKE WATER") {
+if (messageText == "I DON'T LIKE WATER" || messageText == "I DONT LIKE WATER") {
     message.channel.send(`Milk?`)
     }
-if (messageText == "I DON'T LIKE MILK") {
+if (messageText == "I DON'T LIKE MILK" || messageText == "I DONT LIKE MILK") {
     message.channel.send("Well then you don't survive!")
     } 
 })

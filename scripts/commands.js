@@ -48,6 +48,7 @@ client.on("message", async message => {
        message.channel.sendEmbed({ color: 3447003,
       description: `Changed to Picture: ${pic} for my profile picture ` });
 };
+
  if(command === "sarah") {
     if(message.guild.id == "217396856550981633") {
     if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
@@ -62,7 +63,7 @@ if(command === "say") {
     message.channel.send(sayMessage);
 }
  if(command === "guidelines") {
-     if(message.guild.id == "217396856550981633") {
+    if(message.guild.id == "217396856550981633") {
      message.channel.sendURL('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
    }
   }
