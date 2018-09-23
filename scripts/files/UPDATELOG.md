@@ -13,8 +13,7 @@
 + Added Welcome channel change Command.
 + Added Modrole set Command.
 + Added Adminrole set Command.
-+ Added Extra-Commands toggle.
-+ Added Verify Command.l
++ Added Verify Command.
 
 # Version 3.0
 + Added Mew Answers.

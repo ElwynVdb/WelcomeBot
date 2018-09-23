@@ -14,6 +14,9 @@ client.on('message', (message) => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
+  if(message.guild.id === config.guildid) return message.reply('Use this command in SWDTeam discord!');
+  if(message.guild.id === config.guildid) {
+  
 if(command === "prefix") {
      if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
@@ -82,6 +85,7 @@ if(command === "verify") {
     }
    }
   } 
+}
 })
 
 client.login(run.token);
