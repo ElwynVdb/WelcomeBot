@@ -18,7 +18,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
 
 if(command === "help") {
-        message.reply('I sended you a DM.')
+        message.reply('I sended you a DM.').then(msg => { msg.delete(10000)}).catch
         message.author.send(`Help Message:\n Prefix: ${prefix} `)
         message.author.send({embed: {
             color: 3447003,
