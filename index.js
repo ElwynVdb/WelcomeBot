@@ -55,7 +55,11 @@ app.get("/", (request, response) => {
         })
     }
     if(command === "ping") {
-        message.channel.send('Pong!')
+        startTime = Date.now();
+        message.channel.sendMessage("Pinging...").then((message) => {
+          endTime = Date.now();
+          message.edit(Math.round(endTime - startTime) + " -ms");
+          });
     }
     if(command === "dmu") {
       var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort1;
