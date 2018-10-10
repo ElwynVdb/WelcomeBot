@@ -13,9 +13,11 @@ client.on('ready', () => {
 client.on("message", async message => {
   if (message.guild === null) return;
   const prefix = config.prefix
+  if(message.guild.id !== run.guildid) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
 
 if(command === "help") {
         message.reply('I sended you a DM.').then(msg => { msg.delete(10000)}).catch

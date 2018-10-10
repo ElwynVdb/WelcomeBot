@@ -31,6 +31,7 @@ app.get("/", (request, response) => {
     client.on("message", (message) => {
     if(message.guild === null) return
     if (message.author.bot) return;
+    if(message.guild.id !== run.guildid) return;
     if(message.content.indexOf(config.prefix) !== 0) return;
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
@@ -109,6 +110,7 @@ if(command === "dmu") {
 })
 
 client.on("message", (message) => {
+    if(message.guild.id !== run.guildid) return;
     if (message.isMentioned(client.users.get(run.botID))) {
         if(message.guild === null) return
         if (message.author.bot) return;
@@ -116,10 +118,7 @@ client.on("message", (message) => {
         var mentionembed = new Discord.RichEmbed()
         .setTitle("**Guild Information**")
         .setColor(randomcolor())
-        .setThumbnail(`${message.guild.iconURL}`)
-        .addField(`Prefix:  **${prefix}**`, `${prefix}prefix "Newprefix"`)
-        .addField('Guild Created', `${moment(message.guild.createdAt).format('MM.DD.YY')}`, true)
-        .addField('Requested By:', message.author)
+        .setDescription(`Prefix:  **${prefix}**`)
         .setFooter("LukeBeforeYouBot")
         .setTimestamp()
 
