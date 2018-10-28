@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
+const run = require('./cfg.json');
 const fs = require('fs');
 
 client.on("ready", () => {
@@ -16,13 +17,10 @@ function clean(text) {
 
   client.on("message", message => {
     if (message.guild === null) return;
-  var guildid = message.guild.id
-  if (!fs.existsSync(`./configs/${guildid}.json`)) return;
-  const configa = require(`./configs/${guildid}.json`)
     const args = message.content.split(" ").slice(1);
   
-    if (message.content.startsWith(configa.prefix + "eval")) {
-      if(message.author.id !== config.ownerID) return;
+    if (message.content.startsWith(config.prefix + "eval")) {
+      if(message.author.id !== run.ownerID) return;
       try {
         const code = args.join(" ");
         let evaled = eval(code);
@@ -37,4 +35,4 @@ function clean(text) {
     }
   });
 
-client.login(config.token);
+client.login(run.token);

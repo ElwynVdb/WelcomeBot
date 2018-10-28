@@ -8,12 +8,12 @@
 + Spam check (Delay between commands (Per User).
 
 # Version 4 (Current)
-+ Per-Guild Config.
++ Locked Bot to SWD.
 + Added Prefix change Command.
 + Added Welcome channel change Command.
 + Added Modrole set Command.
 + Added Adminrole set Command.
-+ Added Extra-Commands toggle.
++ Added Verify Command.
 
 # Version 3.0
 + Added Mew Answers.
@@ -48,5 +48,3 @@
 + Added package.json
 + Added environ.
 ```
-
-

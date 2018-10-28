@@ -1,0 +1,10 @@
+{
+    "prefix": "+",
+    "welcomechannel": "general",
+    "adminrole": "Ultra-Admin",
+    "modrole": "DMU Staff",
+    "ruleschannel": "rules",
+    "reportchannel": "support",
+    "extracommands": "false",
+    "guildname": "SWD"
+}

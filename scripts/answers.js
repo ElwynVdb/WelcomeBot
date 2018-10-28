@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
-const config = require("./config.json");
+const run = require('./cfg.json');
 
 client.on('ready', () => {
     console.log('Answers are ready');
@@ -32,7 +32,13 @@ var messageText = message.content.toUpperCase();
     const pepsi = client.emojis.find("name", "pepsi");
     message.channel.send(`${pepsi}`);
 }
+ if(messageText == "I WANT DR PEPPER") {
+   message.reply(' Here have a Dr. Pepper... you ungrateful child!')
+ }
+ if(messageText == "I DON'T LIKE DR PEPPER") {
+   message.reply(' Good!')
+ }
 })
 
 
-client.login(config.token);
+client.login(run.token);

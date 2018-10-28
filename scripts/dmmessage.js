@@ -1,5 +1,6 @@
 const discord = require('discord.js');
 const config = require("./config.json")
+const run = require('./cfg.json');
 const client = new discord.Client();
 const Cleverbot = require("cleverbot-node");
 const clbot = new Cleverbot;
@@ -12,8 +13,8 @@ client.on("message", message => {
         message.reply("Use me in SWD, or I'll steal your pepsi!").catch(console.error);
         message.channel.stopTyping();
         
-      });  
-     }
+        });  
+       }
     });
 
-    client.login(config.token);
+    client.login(run.token);

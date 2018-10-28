@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json");
+const run = require('./cfg.json');
 const randomcolor =  require("randomcolor")
 const fs = require('fs');
 
@@ -11,15 +12,13 @@ client.on('ready', () => {
 
 client.on("message", async message => {
   if (message.guild === null) return;
-  var guildid = message.guild.id
-  if (!fs.existsSync(`./configs/${guildid}.json`)) return;
-  const configa = require(`./configs/${guildid}.json`)
-  const prefix = configa.token
-  if(message.content.indexOf(configa.prefix) !== 0) return;
-  const args = message.content.slice(configa.prefix.length).trim().split(/ +/g);
+  const prefix = config.prefix
+  if(message.content.indexOf(config.prefix) !== 0) return;
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
 if(command === "help") {
+        message.reply('I sended you a DM.').then(msg => { msg.delete(10000)}).catch
         message.author.send(`Help Message:\n Prefix: ${prefix} `)
         message.author.send({embed: {
             color: 3447003,
@@ -36,7 +35,7 @@ if(command === "help") {
               },
               {
                 name: "avatar",
-                value: "Get's user's avatar"
+                value: "Get your or someone elses avatar"
               },
               {
                 name: "botavatar",
@@ -64,7 +63,7 @@ if(command === "help") {
               },
               {
                 name: "log",
-                value: "Sends a txt file with the update/version log"
+                value: "Sends a Markdown file with the update/version log into the chat."
               }
             ],
             timestamp: new Date(),
@@ -111,6 +110,14 @@ if(command === "help") {
                     value: "I like pepsi"
                 },
                 {
+                  name: "7.",
+                  value: "I don't like dr pepper"
+                },
+                {
+                  name: "8.",
+                  value: "I want dr pepper"
+                },
+                {
                     name: "Easter Eggs!",
                     value: "There are 3 easter egg text commands! See if you can guess any!"
                 }
@@ -126,4 +133,4 @@ if(command === "help") {
 }
 });
 
-client.login(config.token);
+client.login(run.token);

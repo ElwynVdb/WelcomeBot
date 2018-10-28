@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const express = require('express');
 const config = require("./config.json")
+const run = require('./cfg.json');
 
 client.on("ready", () => {
     console.log('InRole Command Ready')
@@ -9,11 +10,14 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
     if(message.guild === null) return
-    if(message.content.startsWith("&inrole")){
-        let roleName = message.content.split(" ").slice(1).join(" ");
+    if(message.author.bot) return;
+    if(message.content.indexOf(config.prefix) !== 0) return;
     
-        //Filtering the guild members only keeping those with the role
-        //Then mapping the filtered array to their usernames
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+
+    if(command === "inrole") {
+        let roleName = message.content.split(" ").slice(1).join(" ");
         let membersWithRole = message.guild.members.filter(member => { 
             return member.roles.find("name", roleName);
         }).map(member => {
@@ -28,6 +32,6 @@ client.on("message", (message) => {
     
         return message.channel.send({embed});
     }
-        });
+});
 
-        client.login(config.token);
+  client.login(run.token);
