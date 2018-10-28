@@ -126,4 +126,8 @@ client.on("message", (message) => {
     }
 })
 
+client.on("disconnect", () => {
+    client.login(run.token);
+  })
+
 client.login(run.token)
