@@ -70,4 +70,37 @@ if(command === "say") {
   }
 })
 
-client.login(run.token);
+client.on("message", (msg) => {
+    var publico =  "384660211954090004"
+    var privates = "403635093857632266"
+    
+    if(msg.channel.id === publico) {
+    if(msg.author.id == "302066601648455690") {
+    if(msg.content.includes("just joined the server!")) {
+     let data = client.channels.find("id", "510899984502226965")
+     data.send(msg.content)
+    }else{
+      if(msg.content.includes("just left the server!")) {
+         let data = client.channels.find("id", "510899984502226965")
+     data.send(msg.content)
+      }
+    }
+    }
+    }else{
+      if(msg.channel.id === privates) {
+     if(msg.author.id == "302066601648455690") {
+    if(msg.content.includes("just joined the server!")) {
+     let data = client.channels.find("id", "510899984502226965")
+     data.send(msg.content)
+    }else{
+      if(msg.content.includes("just left the server!")) {
+         let data = client.channels.find("id", "510899984502226965")
+     data.send(msg.content)
+      }
+    }
+    }
+      }
+    }
+ })
+ 
+ client.login(run.token);
