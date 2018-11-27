@@ -12,7 +12,6 @@ client.on('ready', () => {
 client.on("message", async message => {
     if (message.guild === null) return;
     if(message.author.bot) return;
-    if(message.guild.id !== run.guildid) return;
     if(message.content.indexOf(config.prefix) !== 0) return;
 
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
@@ -67,6 +66,11 @@ if(command === "say") {
     if(message.guild.id == "217396856550981633") {
      message.channel.sendURL('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
    }
+  }
+
+  if(command === "loginbug") {
+     message.channel.send("https://swdteam.com/forum?p=thread&tid=4759&page=1#t_post_id_44176" + "\nThis is a temporary fix!")
+
   }
 })
 
