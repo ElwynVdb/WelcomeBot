@@ -12,7 +12,6 @@ client.on('ready', () => {
 client.on('message', (message) => {
     if (message.guild === null) return;
    if (message.author === client.user) return;
-   if(message.guild.id !== run.guildid) return;
   
 var messageText = message.content.toUpperCase();
 
