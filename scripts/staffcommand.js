@@ -15,11 +15,14 @@ client.on("message", (message) => {
     
 
     if(command === "warn") {
-    }
+        if(message.member.hasPermission('MANAGE_CHANNELS')) {
+            message.reply("ree")
+        }
+        }
 })
 
 client.on("ready", () => {
-    console.log("staff cmd ready")
+    console.log("staff Cmd ready")
 })
 
 client.login(run.token)
