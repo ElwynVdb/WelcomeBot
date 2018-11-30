@@ -15,7 +15,7 @@ client.on("message", (message) => {
     
 
     if(command === "warn") {
-
+    }
 })
 
 client.on("ready", () => {
