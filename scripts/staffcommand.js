@@ -3,7 +3,6 @@ const client = new discord.Client();
 const fs = require("fs");
 const config = require("./config.json");
 const run = require("./cfg.json");
-const warns = require("./warnings.json")
 
 client.on("message", (message) => {
      
@@ -15,10 +14,15 @@ client.on("message", (message) => {
     
 
     if(command === "warn") {
+        const warns = require("./warnings.json")
+        var mention1 = message.mentions.members.first();
         if(message.member.hasPermission('MANAGE_CHANNELS')) {
-            message.reply("ree")
+           if(!mention1) return message.reply("Please mention a user!");
+          // message.channel.send(mention1.user.username)
+          warns.push(mention1.user.username)
         }
-        }
+    }
+
 })
 
 client.on("ready", () => {
