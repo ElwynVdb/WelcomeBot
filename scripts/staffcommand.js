@@ -28,14 +28,14 @@ client.on("message", (message) => {
 
          if(!warn[memid]) warn[memid] = {
              warns: 0,
-             warn1: "None",
-             warn2: "None",
-             warn3: "None"
+             warn1: "No reason",
+             warn2: "No reason",
+             warn3: "No reason"
          };
 
          if(warn[memid].warns === 3) {
         message.channel.send(mention1.user.username + " " + "has already 3 warnings!")
-        message.delete(120)
+        message.delete(30)
          }
 
         if(warn[memid].warns !== 3) {
@@ -43,7 +43,7 @@ client.on("message", (message) => {
           fs.writeFileSync("./warnings.json", JSON.stringify(warn, null , 4))
          }
 
-          var reason = message.content.slice("+warn" + args[0])
+          var reason = command.slice(args[0])
           if(!reason) {reason = "Not given"}
 
 
