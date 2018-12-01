@@ -10,12 +10,12 @@ client.on("ready", () => {
 
 client.on('message', (message) => {
   if (message.guild === null) return;
+  if(message.guild.id !== run.guildid) return;
   if(message.content.indexOf(config.prefix) !== 0) return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
 if(command === "prefix") {
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
      if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permission to use this!'); 
     let newPrefix = message.content.split(" ").slice(1, 2)[0];
     config.prefix = newPrefix;
@@ -23,7 +23,6 @@ if(command === "prefix") {
     fs.writeFile(`./scripts/config.json`, JSON.stringify(config, null, 4), (err) => console.error);
 }
  if(command === "welcomechannel"){
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
      if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply('You don\'t have permission to use this!'); 
   let newwelcome = message.content.split(" ").slice(1, 2)[0];
   config.welcomechannel = newwelcome;
@@ -31,7 +30,6 @@ if(command === "prefix") {
   message.channel.send(`The new welcome/leave channel is ${newwelcome}`)
  }
  if(command === "adminrole"){
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if (!message.member.hasPermission("ADMINISTRATOR")); 
   let newadminrole = args.join(" ")
   config.adminrole = newadminrole;
@@ -39,7 +37,6 @@ if(command === "prefix") {
   message.channel.send(`Changed Admin role to ${newadminrole}`)
  }
  if(command === "modrole"){
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply('You don\'t have permission to use this!'); 
   let newmodrole = args.join(" ")
   config.modrole = newmodrole;
@@ -47,7 +44,6 @@ if(command === "prefix") {
   message.channel.send(`Changed Mod role to ${newmodrole}`)
 }
 if(command === "ruleschannel") {
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let ruleschannelnew = message.content.split(" ").slice(1, 2)[0];
   config.ruleschannel = ruleschannelnew;
@@ -55,7 +51,6 @@ if(command === "ruleschannel") {
   message.channel.send(`Changed rules channel to ${ruleschannelnew}`)
 }
 if(command === "reportchannel") {
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply('You don\'t have permission to use this!'); 
   let reportchannelnew = message.content.split(" ").slice(1, 2)[0];
   config.reportchannel = reportchannelnew;
@@ -63,7 +58,6 @@ if(command === "reportchannel") {
   message.channel.send(`Changed report channel to ${reportchannelnew}`)
 }
 if(command === "verify") {
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if(message.author.id !== run.ownerID) return;
   const guildname = message.guild.name
   let guildjname = guildname
@@ -72,7 +66,6 @@ if(command === "verify") {
   message.channel.send(`Verified ${guildname}`)
 }
  if(command === "extracmd"){
-  if(message.guild.id !== run.guildid) return message.reply('Use this command in SWDTeam discord!');
   if (!message.member.hasPermission("MANAGE_MESSAGES") || !message.member.id === config.ownerID) return message.reply('You don\'t have permission to use this!'); 
    if (config.extracommands === "false") {
   let enablecmd = "true"

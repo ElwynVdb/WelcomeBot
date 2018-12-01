@@ -4,8 +4,6 @@
 
 # Version 5 (Planned)
 + Alt check (Warns staff when username matches a list).
-+ Anti-Invite Link (Except for Friend+).
-+ Spam check (Delay between commands (Per User).
 
 # Version 4 (Current)
 + Locked Bot to SWD.

@@ -116,15 +116,16 @@ client.on("message", (message) => {
         var mentionembed = new Discord.RichEmbed()
         .setTitle("**Guild Information**")
         .setColor(randomcolor())
-        .setThumbnail(`${message.guild.iconURL}`)
-        .addField(`Prefix:  **${prefix}**`, `${prefix}prefix "Newprefix"`)
-        .addField('Guild Created', `${moment(message.guild.createdAt).format('MM.DD.YY')}`, true)
-        .addField('Requested By:', message.author)
+        .setDescription(`Prefix:  **${prefix}**`)
         .setFooter("LukeBeforeYouBot")
         .setTimestamp()
 
         message.channel.sendEmbed(mentionembed)
     }
 })
+
+client.on("disconnect", () => {
+    client.login(run.token);
+  })
 
 client.login(run.token)

@@ -67,6 +67,68 @@ if(command === "say") {
      message.channel.sendURL('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
    }
   }
+
+  if(command === "loginbug") {
+     message.channel.send("https://swdteam.com/forum?p=thread&tid=4759&page=1#t_post_id_44176" + "\nThis is a temporary fix!")
+
+  }
 })
+
+client.on("message", (msg) => {
+   var publico =  "384660211954090004"
+   var privates = "403635093857632266"
+   
+   if(msg.channel.id === publico) {
+   if(msg.author.id == "302066601648455690") {
+   if(msg.content.includes("just joined the server!")) {
+    let data = client.channels.find("id", "510899984502226965")
+    data.send("[Public]" + " " + msg.content)
+   }else{
+     if(msg.content.includes("just left the server!")) {
+        let data = client.channels.find("id", "510899984502226965")
+    data.send("[Public]" + " " + msg.content)
+     }
+   }
+   }
+   }else{
+     if(msg.channel.id === privates) {
+    if(msg.author.id == "302066601648455690") {
+   if(msg.content.includes("just joined the server!")) {
+    let data = client.channels.find("id", "510899984502226965")
+    data.send("[Private]" + " " + msg.content)
+   }else{
+     if(msg.content.includes("just left the server!")) {
+        let data = client.channels.find("id", "510899984502226965")
+    data.send("[Private]" + " " + msg.content)
+     }
+   }
+   }
+     }
+   }
+})
+
+client.on("message", (msg) => {
+   var publico =  "384660211954090004"
+   var privates = "403635093857632266"
+   
+   if(msg.channel.id === publico) {
+   if(msg.author.id == "302066601648455690") {
+   if(msg.content.includes("[Server]")) {
+    let data = client.channels.find("id", "510899984502226965")
+    data.send("[Public]" + " " + msg.content)
+   }
+   }
+   }else{
+      if(msg.channel.id === privates) {
+   if(msg.author.id == "302066601648455690") {
+   if(msg.content.includes("[Server]")) {
+    let data = client.channels.find("id", "510899984502226965")
+    data.send("[Private]" + " " + msg.content)
+   }
+   }
+      }
+   }
+})
+
 
 client.login(run.token);

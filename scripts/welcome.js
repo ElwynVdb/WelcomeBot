@@ -10,6 +10,7 @@ client.on('ready', () => {
 })
 
 client.on("guildMemberAdd", (member) =>  {
+  if(member.guild.id !== run.guildid) return;
   var channel = config.welcomechannel
   const pepsi = client.emojis.find("name", "pepsi");
   var message = "And don't forget to check <#307553601642037249>!";
@@ -18,6 +19,7 @@ client.on("guildMemberAdd", (member) =>  {
 });
 
 client.on("guildMemberRemove", (member) => {
+  if(member.guild.id !== run.guildid) return;
     var channel = config.welcomechannel
     var membertag = member.user.tag.slice(0, -5)
     member.guild.channels.find("name", channel).send(`*Takes ${membertag}'s pepsi back*`);

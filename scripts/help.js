@@ -17,6 +17,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
 
+
 if(command === "help") {
         message.reply('I sended you a DM.').then(msg => { msg.delete(10000)}).catch
         message.author.send(`Help Message:\n Prefix: ${prefix} `)
@@ -64,6 +65,10 @@ if(command === "help") {
               {
                 name: "log",
                 value: "Sends a Markdown file with the update/version log into the chat."
+              },
+              {
+                name: "loginbug",
+                value: "Will send a url to swdteam thread about login bug fix!"
               }
             ],
             timestamp: new Date(),
