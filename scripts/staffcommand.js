@@ -8,6 +8,8 @@ client.on("message", (message) => {
      
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+    if (message.guild === null) return;
+    if(message.author.bot) return;
 
     var Srole = message.guild.roles.find("name", config.modrole)
     var ASrole = message.guild.roles.find("name", config.adminrole)
@@ -20,13 +22,16 @@ client.on("message", (message) => {
         let warn2 = message.guild.roles.find(r => r.name === "Warning 2")
         let warn3 = message.guild.roles.find(r => r.name === "Warning 3")
 
+        message.delete()
+
         if(message.member.hasPermission('MANAGE_CHANNELS')) {
             if(!mention1) {
                 message.reply("Please mention a user to warn!")
                 message.delete(30)
-                return;
+                return
         }
 
+        if(!mention1) return;
            var memid = mention1.user.id
            var warngiven = message.author.username
 
@@ -43,8 +48,8 @@ client.on("message", (message) => {
          if(warn[memid].warns === 3) {
         message.channel.send(mention1.user.username + " " + "has already 3 warnings!")
         message.delete(30)
-        return;
          }
+
 
         if(warn[memid].warns !== 3) {
          warn[memid].warns++;
@@ -80,15 +85,19 @@ client.on("message", (message) => {
     if(command === "warninfo") {
         const warn = JSON.parse(fs.readFileSync("./warnings.json"))
         var mention1 = message.mentions.members.first();
-        var memid = mention1.user.id
         var em1 = new discord.RichEmbed(); var em2 = new discord.RichEmbed(); var em3 = new discord.RichEmbed();
 
+         message.delete()
+
+        if(message.member.hasPermission('MANAGE_CHANNELS')) {
         if(!mention1) {
             message.reply("Please mention a user to check warns!")
             message.delete(30)
     }
         
+    if(!mention1) return;
 
+    var memid = mention1.user.id
 
         em1.setTitle("Warn Info :" + " " + mention1.user.username)
         .addField("Warn Count", warn[memid].warns)
@@ -116,7 +125,7 @@ client.on("message", (message) => {
 
         giv2.setTitle("Warninfo")
         .addField("Warning 1 by:", warn[memid].warng1)
-        .addField("Warning 1 by:", warn[memid].warng2)
+        .addField("Warning 2 by:", warn[memid].warng2)
         .setFooter("Warninfo")
 
         giv3.setTitle("Warninfo")
@@ -137,6 +146,8 @@ client.on("message", (message) => {
         }
     }
     if(args[1] === "given") {
+        message.delete()
+
         if(warn[memid].warns === 1) {
         message.channel.send(giv1)
         }
@@ -146,6 +157,45 @@ client.on("message", (message) => {
             if(warn[memid].warns === 3) {
                 message.channel.send(giv3)
                 }
+    }
+}
+    }
+
+    if(command === "warnremove") {
+        const warn = JSON.parse(fs.readFileSync("./warnings.json"))
+        var mention1 = message.mentions.members.first();
+        var em1 = new discord.RichEmbed(); var em2 = new discord.RichEmbed(); var em3 = new discord.RichEmbed();
+        let warn1 = message.guild.roles.find(r => r.name === "Warning 1")
+        let warn2 = message.guild.roles.find(r => r.name === "Warning 2")
+        let warn3 = message.guild.roles.find(r => r.name === "Warning 3")
+
+    message.delete()
+
+ if(mention1){
+        var memid = mention1.user.id
+        if(message.member.hasPermission('MANAGE_CHANNELS')) {
+          if(warn[memid].warns === 3) {
+              warn[memid].warns = 2
+             mention1.removeRole(warn3)
+             fs.writeFileSync("./warnings.json", JSON.stringify(warn, null , 4))
+            return
+          }
+          if(warn[memid].warns === 2) {
+            warn[memid].warns = 1
+            mention1.removeRole(warn2)
+            fs.writeFileSync("./warnings.json", JSON.stringify(warn, null , 4))
+            return;
+         }
+         if(warn[memid].warns === 1) {
+            warn[memid].warns = 0
+            mention1.removeRole(warn1)
+            fs.writeFileSync("./warnings.json", JSON.stringify(warn, null , 4))
+            return
+         }
+
+
+
+        }
     }
 }
 
