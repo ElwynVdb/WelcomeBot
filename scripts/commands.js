@@ -74,6 +74,4 @@ if(command === "say") {
   }
 })
 
-
-
 client.login(run.token);
