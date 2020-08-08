@@ -49,16 +49,12 @@ client.on("message", async message => {
       description: `Changed to Picture: ${pic} for my profile picture ` });
 };
 
- if(command === "sarah") {
-    if(message.guild.id == "217396856550981633") {
-    if (message.author.id == "318821976372150272" || message.author.id == "338717002879336461" || message.author.id == "167922295556407296") {
-    message.reply("Sarah is Sub's angel!")
-  }
- }
-}
+
 if(command === "say") {             
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply('You don\'t have permission to use this!');                                                                                                               
     const sayMessage = args.join(" ");
+   // const channel = client.channels.find("id", "217396856550981633");
+   // channel.send(sayMessage)
     message.delete().catch(O_o=>{});  
     message.channel.send(sayMessage);
 }
@@ -66,11 +62,6 @@ if(command === "say") {
     if(message.guild.id == "217396856550981633") {
      message.channel.sendURL('https://docs.google.com/document/d/17nAXM3r6V6pFOcdyjyWRiVjEYlq3XwPtaufRl7Zbndw/edit')
    }
-  }
-
-  if(command === "loginbug") {
-     message.channel.send("https://swdteam.com/forum?p=thread&tid=4759&page=1#t_post_id_44176" + "\nThis is a temporary fix!")
-
   }
 })
 
