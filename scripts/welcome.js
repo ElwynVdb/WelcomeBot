@@ -1,9 +1,7 @@
 const discord = require('discord.js');
 const client = new discord.Client();
-const express = require('express');
 const config = require("./config.json")
 const run = require('./cfg.json');
-const fs = require('fs');
 
 client.on('ready', () => {
   console.log('Welcome/Leave Message enabled!')
