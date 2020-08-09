@@ -2,8 +2,6 @@ const discord = require('discord.js');
 const config = require("./config.json")
 const run = require('./cfg.json');
 const client = new discord.Client();
-const Cleverbot = require("cleverbot-node");
-const clbot = new Cleverbot;
 
 client.on("message", message => {
   if (message.author.bot) return;
