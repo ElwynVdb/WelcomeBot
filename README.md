@@ -1,9 +1,7 @@
 # LukeWelcomeBot
 
-A bot made for SWDTeam Discord.
+A bot made for SWDTeam Discord. (Discontinued)
 (It's Locked to SWD)
-
-You can contribute . Ask Josia50
 
 Issues? Please leave the on the issues tab.
 

@@ -9,6 +9,7 @@ client.on('ready', () => {
 
 client.on("guildMemberAdd", (member) => {
   if (member.guild.id !== run.guildid) return;
+  
   var channel = config.welcomechannel
   const pepsi = client.emojis.find("name", "pepsi");
   var message = "And don't forget to check <#307553601642037249>!";

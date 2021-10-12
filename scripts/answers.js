@@ -4,55 +4,58 @@ const express = require('express');
 const run = require('./cfg.json');
 
 client.on('ready', () => {
-  console.log('Answers are ready');
+  console.log('[Bot] Chat answers ready!');
 })
 
 client.on('message', (message) => {
   if (message.author === client.user) return;
 
-  var messageText = message.content.toUpperCase();
+  var messageText = message.content.toLowerCase();
 
   switch (messageText) {
-    case "I DON'T LIKE PEPSI" || "I'M THIRSTY":
+    
+    case "i'm thirsty":
+    case "i don't like pepsi":
       message.reply(" here have a coke!");
       break;
-  }
 
-  if (messageText == "I DON'T LIKE PEPSI" || messageText == "I'M THIRSTY") {
-    //  message.reply(" here have a coke!");
-  }
+    case "i don't like coke":
+      message.reply(" well then, you get nothing you picky bastard!");
+      break;
 
-  if (messageText == "I DON'T LIKE COKE") {
-    message.reply(" well then, you get nothing you picky bastard!");
-  }
+    case "i want water":
+      message.reply("have a water bottle you picky prick.");
+      break;
 
-  if (messageText == "I WANT WATER") {
-    message.reply("have a water bottle you picky prick.")
-  }
+    case "i like pepsi":
+      const pepsi = client.emojis.find("name", "pepsi");
+      message.channel.send(pepsi);
+      break;
 
-  if (messageText == "I LIKE PEPSI") {
-    const pepsi = client.emojis.find("name", "pepsi");
-    message.channel.send(pepsi);
-  }
-  if (messageText == "I WANT DR PEPPER") {
-    message.reply(' Here have a Dr. Pepper... you ungrateful child!')
-  }
-  if (messageText == "I DON'T LIKE DR PEPPER") {
-    message.reply(' Good!')
-  }
-  if (messageText == "I DON'T LIKE WATER" || messageText == "I DONT LIKE WATER") {
-    message.channel.send(`Milk?`)
-  }
-  if (messageText == "I DON'T LIKE MILK" || messageText == "I DONT LIKE MILK") {
-    message.channel.send("Well then you don't survive!")
-  }
-  if (messageText == "CRYSTAL PEPSI") {
-    message.channel.send("Taken from us too soon");
-  }
-  if (messageText == "WHAT'S A PEPSI") {
-    message.reply("pepsi is the best drink out there")
+    case "i want dr pepper":
+      message.reply(' Here have a Dr. Pepper... you ungrateful child!');
+      break;
+
+    case "i don't like dr pepper":
+      message.reply(' Good!');
+      break;
+
+    case "i don't like water":
+      message.channel.send(`Milk?`);
+      break;
+
+    case "i don't like milk":
+      message.channel.send("Well then you don't survive!");
+      break;
+
+    case "crystal pepsi":
+      message.channel.send("Taken from us too soon");
+      break;
+
+    case "what's a pepsi":
+      message.reply("pepsi is the best drink out there");
+      break;
   }
 })
-
 
 client.login(run.token);
