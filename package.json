@@ -27,7 +27,7 @@
     "http": "0.0.0",
     "japanese": "^1.2.0",
     "kpop": "^0.1.2",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "os": "^0.1.1",
     "os-toolbox": "^0.2.10",
     "randomcolor": "^0.5.3",
