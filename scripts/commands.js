@@ -1,29 +1,15 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const express = require('express');
 const config = require("./config.json");
-const fs = require('fs')
-const run = require('./cfg.json');
 
-client.on('ready', () => {
-   console.log('Commands are ready');
-})
-
-client.on("message", async message => {
-   if (message.guild === null) return;
-   if (message.author.bot) return;
+export const commandListener = (message) => {
    if (message.content.indexOf(config.prefix) !== 0) return;
 
    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
    const command = args.shift().toLowerCase();
 
    switch (command) {
+
       case "avatar":
-         if (!message.mentions.users.first()) {
-            message.channel.sendFile(message.author.avatarURL, 'Avatar.png');
-            return;
-         }
-         message.channel.sendFile(user.avatarURL, 'Avatar.png');
+         message.channel.sendFile(message.mentions.users.first() ? user.avatarURL : message.author.avatarURL, 'Avatar.png');
          break;
 
       case "botavatar":
@@ -35,13 +21,8 @@ client.on("message", async message => {
          break;
 
       case "uptime":
-         var date = new Date(client.uptime);
-         var strDate = '**';
-         strDate += 'Uptime\n';
-         strDate += date.getUTCDate() - 1 + ' days, ';
-         strDate += date.getUTCHours() + ' hours, ';
-         strDate += date.getUTCMinutes() + ' minutes, ';
-         strDate += date.getUTCSeconds() + ' seconds**';
+         const date = new Date(client.uptime);
+         const strDate = `Uptime: ${date.getUTCDate() - 1} days, ${date.getUTCHours()} hours, ${date.getUTCMinutes()} minutes, ${date.getUTCSeconds()} seconds`;
          message.channel.send(strDate);
          break;
 
@@ -51,7 +32,48 @@ client.on("message", async message => {
          message.delete().catch(console.error);
          message.channel.send(sayMessage);
          break;
-      }
-})
 
-client.login(run.token);
+         case "help":
+            message.reply('I have sent a DM to you.').then(msg => { msg.delete(10000) }).catch(console.log);
+            message.author.send(`Help Message:\n Prefix: ${config.prefix} `);
+            message.author.send({
+              embed: {
+                color: 3447003,
+                author: {
+                  name: ("Welcome Bot"),
+                  icon_url: ""
+                },
+                title: "Commands",
+                url: "",
+                description: "Get to know all the commands!",
+                fields: [{
+                  name: "help",
+                  value: "This help embed"
+                },
+                {
+                  name: "avatar",
+                  value: "Get your or someone elses avatar"
+                },
+                {
+                  name: "botavatar",
+                  value: "Get's bot avatar"
+                },
+                {
+                  name: "servericon",
+                  value: "Get's server's icon"
+                },
+                {
+                  name: "uptime",
+                  value: "Shows for how long the bot is online."
+                }
+                ],
+                timestamp: new Date(),
+                footer: {
+                  icon_url: client.user.avatarURL,
+                  text: "© Welcome Bot"
+                }
+              }
+            });
+            break;
+   }
+}

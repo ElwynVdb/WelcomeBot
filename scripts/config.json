@@ -1,10 +1,11 @@
 {
     "prefix": "+",
-    "welcomechannel": "general",
-    "adminrole": "Ultra-Admin",
-    "modrole": "DMU Staff",
-    "ruleschannel": "rules",
-    "reportchannel": "support",
-    "extracommands": "false",
-    "guildname": "SWD"
+    "welcomechannel": "",
+    "adminrole": "",
+    "modrole": "",
+    "ruleschannel": "",
+    "reportchannel": "",
+    "guildname": "",
+    "welcomemsg":"Welcome to the discord %user%!",
+    "leavemsg":"Goodbye %user%!"
 }

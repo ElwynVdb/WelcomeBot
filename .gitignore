@@ -51,5 +51,4 @@ node_modules/
 .env
 shrinkwrap.yaml
 temp
-packagemusico.json
 .idea/
